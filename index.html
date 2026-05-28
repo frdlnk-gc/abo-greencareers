@@ -1,0 +1,2707 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Recruiting-Abo · GreenCareers</title>
+  <link rel="icon" href="assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&display=swap" rel="stylesheet">
+  <style>
+    /* ============== TOKENS ============== */
+    :root {
+      --moss:          #243C24;
+      --moss-2:        #1A2C1A;
+      --moss-3:        #0F1B0F;
+      --green:         #00D261;
+      --green-dark:    #399939;
+      --green-deep:    #2B7F2B;
+      --fern:          #52C277;
+      --cream:         #F5F1E8;
+      --cream-2:       #ECE6DB;
+      --cream-3:       #DDD8CE;
+      --ink:           #1A1A1A;
+      --ink-soft:      #4A4A4A;
+      --ink-mute:      #7A7A7A;
+      --line:          #E2DCCF;
+      --white:         #FFFFFF;
+      --r-sm: 12px; --r-md: 18px; --r-lg: 24px; --r-pill: 999px;
+      --shadow-sm: 0 1px 3px rgba(20,40,15,0.06);
+      --shadow-md: 0 10px 30px rgba(20,40,15,0.08);
+      --shadow-lg: 0 30px 70px rgba(20,40,15,0.14);
+      --shadow-green: 0 18px 50px rgba(0,210,97,0.28);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-weight: 400;
+      color: var(--ink);
+      background: var(--cream);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.55;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; }
+    svg { display: block; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+    input { font-family: inherit; }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
+    @media (min-width: 768px) { .container { padding: 0 40px; } }
+    .container-narrow { max-width: 980px; margin: 0 auto; padding: 0 24px; }
+    @media (min-width: 768px) { .container-narrow { padding: 0 40px; } }
+
+    .display {
+      font-family: 'Fraunces', 'Inter', serif;
+      font-weight: 500;
+      letter-spacing: -0.025em;
+      font-feature-settings: "ss01";
+    }
+
+    /* Animations */
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    @keyframes pulse-dot { 0%,100% { box-shadow: 0 0 0 0 rgba(0,210,97,0.5); } 50% { box-shadow: 0 0 0 14px rgba(0,210,97,0); } }
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ============== NAV ============== */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 22px 0;
+      transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
+    }
+    .nav.scrolled {
+      background: rgba(15,27,15,0.85);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav__inner { display: flex; align-items: center; justify-content: space-between; }
+    .nav__logo img { height: 48px; width: auto; }
+    .nav__right {
+      display: inline-flex; align-items: center; gap: 18px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .nav__right > span { color: rgba(255,255,255,0.78); }
+    .nav__cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 22px;
+      background: var(--green);
+      color: #08260C;
+      border-radius: var(--r-pill);
+      font-weight: 700;
+      font-size: 14px;
+      transition: all 0.25s ease;
+      box-shadow: 0 8px 20px rgba(0,210,97,0.22);
+    }
+    .nav__cta:hover { background: #00E870; transform: translateY(-1px); box-shadow: 0 12px 28px rgba(0,210,97,0.36); }
+    @media (max-width: 700px) {
+      .nav__right > span { display: none; }
+      .nav__logo img { height: 40px; }
+    }
+
+    /* ============== HERO ============== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      color: var(--white);
+      padding: 140px 0 100px;
+      overflow: hidden;
+      display: flex; align-items: center;
+      background: var(--moss-3);
+    }
+    .hero__bg {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(180deg, rgba(15,27,15,0.55) 0%, rgba(15,27,15,0.78) 60%, rgba(15,27,15,0.95) 100%),
+        url("assets/branchen/galabau.jpg");
+      background-size: cover;
+      background-position: center 30%;
+      animation: fadeIn 1.2s ease both;
+    }
+    .hero__bg::after {
+      content: "";
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(circle at 80% 20%, rgba(0,210,97,0.15) 0%, transparent 50%),
+        radial-gradient(circle at 20% 90%, rgba(82,194,119,0.1) 0%, transparent 50%);
+    }
+    .hero__inner { position: relative; z-index: 2; width: 100%; }
+    .hero__eyebrow {
+      display: inline-flex; align-items: center; gap: 12px;
+      padding: 8px 18px 8px 14px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--r-pill);
+      color: rgba(255,255,255,0.85);
+      font-size: 13px; font-weight: 500;
+      letter-spacing: 0.2px;
+      margin-bottom: 32px;
+      backdrop-filter: blur(10px);
+      animation: fadeInUp 0.8s ease 0.1s both;
+    }
+    .hero__eyebrow .dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 12px var(--green);
+      animation: pulse-dot 2.4s infinite;
+    }
+    .hero h1 {
+      font-family: 'Fraunces', serif;
+      font-weight: 500;
+      font-size: clamp(46px, 6.8vw, 92px);
+      line-height: 1.0;
+      letter-spacing: -0.035em;
+      margin-bottom: 30px;
+      max-width: 920px;
+      animation: fadeInUp 0.9s ease 0.2s both;
+    }
+    .hero h1 em {
+      font-style: italic;
+      font-weight: 400;
+      color: var(--green);
+    }
+    .hero__sub {
+      font-size: clamp(17px, 1.6vw, 21px);
+      color: rgba(255,255,255,0.78);
+      line-height: 1.55;
+      margin-bottom: 44px;
+      max-width: 620px;
+      animation: fadeInUp 0.9s ease 0.3s both;
+    }
+    .hero__cta-row {
+      display: flex; gap: 14px; flex-wrap: wrap; align-items: center;
+      animation: fadeInUp 0.9s ease 0.4s both;
+    }
+    .btn {
+      position: relative;
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      padding: 17px 30px;
+      background: var(--green);
+      color: #08260C;
+      font-size: 15px; font-weight: 700;
+      letter-spacing: -0.005em;
+      border-radius: var(--r-pill);
+      box-shadow: var(--shadow-green);
+      transition: all 0.28s cubic-bezier(0.4,0,0.2,1);
+    }
+    .btn:hover { transform: translateY(-2px); background: #00E870; box-shadow: 0 24px 60px rgba(0,210,97,0.45); }
+    .btn--lg { padding: 19px 34px; font-size: 16px; }
+    .btn--dark { background: var(--moss-3); color: var(--white); box-shadow: 0 12px 30px rgba(15,27,15,0.4); }
+    .btn--dark:hover { background: #000; }
+    .btn--ghost {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.18);
+      color: var(--white);
+      box-shadow: none;
+      backdrop-filter: blur(10px);
+    }
+    .btn--ghost:hover { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.3); box-shadow: none; }
+
+    .hero__meta {
+      margin-top: 90px;
+      display: flex; gap: 60px; flex-wrap: wrap;
+      animation: fadeInUp 0.9s ease 0.55s both;
+      padding-top: 36px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .hero__meta-item { color: rgba(255,255,255,0.78); }
+    .hero__meta-item .num {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(28px, 3vw, 40px);
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      color: var(--white);
+      line-height: 1;
+      display: block;
+    }
+    .hero__meta-item .lbl {
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+      margin-top: 6px;
+      letter-spacing: 0.2px;
+    }
+    .hero__scroll {
+      position: absolute; bottom: 38px; left: 50%; transform: translateX(-50%);
+      color: rgba(255,255,255,0.5);
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 500;
+      animation: fadeIn 1.5s ease 1s both;
+      text-align: center;
+    }
+    .hero__scroll .line {
+      display: block;
+      width: 1px; height: 36px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.4), transparent);
+      margin: 12px auto 0;
+    }
+    @media (max-width: 700px) {
+      .hero { padding: 120px 0 80px; min-height: auto; }
+      .hero__meta { gap: 28px; margin-top: 60px; }
+      .hero__scroll { display: none; }
+    }
+
+    /* ============== CUSTOMER STRIP ============== */
+    .customers {
+      background: var(--cream);
+      padding: 40px 0 38px;
+      border-bottom: 1px solid var(--line);
+      overflow: hidden;
+    }
+    .customers__intro {
+      text-align: center;
+      color: var(--ink-mute);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 26px;
+    }
+    .marquee {
+      display: flex;
+      overflow: hidden;
+      mask-image: linear-gradient(90deg, transparent 0%, black 6%, black 94%, transparent 100%);
+      -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 6%, black 94%, transparent 100%);
+    }
+    .marquee__track {
+      display: flex; gap: 56px;
+      animation: marquee 32s linear infinite;
+      flex-shrink: 0;
+      align-items: center;
+      padding-right: 56px;
+    }
+    .marquee__track img {
+      height: 46px; width: auto;
+      opacity: 0.75;
+      filter: grayscale(40%);
+      transition: all 0.3s ease;
+      flex-shrink: 0;
+    }
+    .marquee__track img:hover { opacity: 1; filter: grayscale(0%); }
+
+    /* ============== SECTION BASE ============== */
+    section { position: relative; }
+    .section-pad { padding: 130px 0; }
+    @media (max-width: 700px) { .section-pad { padding: 80px 0; } }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 11px; font-weight: 600;
+      color: var(--green-deep);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+    .eyebrow::before {
+      content: ""; width: 18px; height: 1px; background: var(--green-deep);
+    }
+    .eyebrow--light { color: var(--green); }
+    .eyebrow--light::before { background: var(--green); }
+
+    h2.title {
+      font-family: 'Fraunces', serif;
+      font-weight: 500;
+      font-size: clamp(34px, 4.6vw, 60px);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: var(--moss-2);
+      max-width: 800px;
+    }
+    h2.title em { font-style: italic; font-weight: 400; color: var(--green-deep); }
+    h2.title--light { color: var(--white); }
+    h2.title--light em { color: var(--green); }
+    .lead {
+      font-size: 18px;
+      color: var(--ink-soft);
+      max-width: 640px;
+      margin-top: 18px;
+      line-height: 1.6;
+    }
+    .lead--light { color: rgba(255,255,255,0.7); }
+
+    /* ============== STATS-CIRCLES ============== */
+    .stats-circles {
+      background: var(--cream);
+      padding: 100px 0 120px;
+      position: relative;
+      overflow: hidden;
+    }
+    .stats-circles__head {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 60px;
+    }
+    .stats-circles__wrap {
+      position: relative;
+      max-width: 1100px;
+      margin: 0 auto;
+      height: 360px;
+    }
+    .stats-circle {
+      position: absolute;
+      width: 240px; height: 240px;
+      border-radius: 50%;
+      background: linear-gradient(160deg, var(--green-dark), var(--green-deep));
+      color: var(--white);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center;
+      padding: 24px;
+      box-shadow: 0 20px 50px rgba(0,210,97,0.28), inset 0 0 0 6px rgba(255,255,255,0.08);
+      transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
+      z-index: 2;
+    }
+    .stats-circle:hover { transform: translateY(-6px) scale(1.03); }
+    .stats-circle--1 { left: 0; top: 60px; }
+    .stats-circle--2 { left: 50%; transform: translateX(-50%); top: 0; width: 260px; height: 260px; }
+    .stats-circle--2:hover { transform: translateX(-50%) translateY(-6px) scale(1.03); }
+    .stats-circle--3 { right: 0; top: 80px; }
+    .stats-circle__num {
+      font-family: 'Fraunces', serif;
+      font-size: 52px;
+      font-weight: 500;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+    .stats-circle--2 .stats-circle__num { font-size: 60px; }
+    .stats-circle__lbl {
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.35;
+      max-width: 180px;
+      color: rgba(255,255,255,0.92);
+    }
+    .stats-circles__line {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+    @media (max-width: 900px) {
+      .stats-circles__wrap { height: auto; display: flex; flex-direction: column; align-items: center; gap: 28px; }
+      .stats-circle, .stats-circle--1, .stats-circle--2, .stats-circle--3 { position: static; transform: none; width: 220px; height: 220px; }
+      .stats-circle--2 { width: 240px; height: 240px; }
+      .stats-circle--2:hover, .stats-circle:hover { transform: translateY(-6px) scale(1.03); }
+      .stats-circles__line { display: none; }
+    }
+
+    /* ============== PARTNER STATEMENTS ============== */
+    .statements {
+      background: var(--cream);
+      padding: 120px 0 130px;
+      position: relative;
+    }
+    .statements__head {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 56px;
+    }
+    .statements__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    @media (max-width: 1100px) { .statements__grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 640px) { .statements__grid { grid-template-columns: 1fr; max-width: 460px; margin: 0 auto; } }
+    .statement {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      display: flex; flex-direction: column;
+      transition: all 0.35s cubic-bezier(0.16,1,0.3,1);
+    }
+    .statement:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 50px rgba(36,60,36,0.14);
+      border-color: var(--green-deep);
+    }
+    .statement__media {
+      position: relative;
+      aspect-ratio: 4/3;
+      overflow: hidden;
+      background: var(--cream-2);
+    }
+    .statement__media img.statement__photo {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+    }
+    .statement__logo-card {
+      position: absolute;
+      bottom: 14px; left: 14px;
+      background: var(--white);
+      border-radius: 10px;
+      padding: 7px 12px;
+      box-shadow: 0 8px 20px rgba(15,27,15,0.18);
+      display: inline-flex; align-items: center; justify-content: center;
+      max-width: 50%;
+      height: 52px;
+    }
+    .statement__logo-card img {
+      max-height: 38px;
+      max-width: 100%;
+      width: auto;
+      object-fit: contain;
+    }
+    .statement__body {
+      padding: 24px 24px 26px;
+      display: flex; flex-direction: column;
+      flex: 1;
+    }
+    .statement__stars {
+      display: inline-flex; gap: 2px;
+      color: var(--green);
+      font-size: 15px;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+    .statement__name {
+      font-family: 'Fraunces', serif;
+      font-size: 20px;
+      font-weight: 500;
+      letter-spacing: -0.015em;
+      color: var(--moss-2);
+      margin-bottom: 4px;
+      line-height: 1.2;
+    }
+    .statement__role {
+      font-size: 13px;
+      color: var(--ink-mute);
+      margin-bottom: 14px;
+      line-height: 1.4;
+    }
+    .statement__divider {
+      height: 1px;
+      background: var(--line);
+      margin-bottom: 14px;
+    }
+    .statement__quote {
+      font-size: 14px;
+      color: var(--ink-soft);
+      line-height: 1.6;
+      flex: 1;
+    }
+    .statement__quote p { margin-bottom: 10px; }
+    .statement__quote p:last-child { margin-bottom: 0; }
+
+    /* ============== EXPLAINER VIDEO ============== */
+    .explainer {
+      background: var(--cream);
+      padding: 110px 0 130px;
+      position: relative;
+    }
+    .explainer__head {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 44px;
+    }
+    .explainer__wrap {
+      max-width: 920px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .explainer__frame {
+      position: relative;
+      padding-top: 56.25%;
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      box-shadow: 0 30px 70px rgba(36,60,36,0.18);
+      background: var(--moss-3);
+    }
+    .explainer__frame iframe {
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: 0;
+    }
+    .explainer__caption {
+      text-align: center;
+      margin-top: 22px;
+      font-size: 13.5px;
+      color: var(--ink-mute);
+      letter-spacing: 0.2px;
+    }
+    .explainer__caption strong { color: var(--moss-2); font-weight: 600; }
+
+    /* ============== PROMISES ============== */
+    .promises {
+      background: var(--cream);
+      padding: 110px 0 90px;
+    }
+    .promises__head { max-width: 760px; margin-bottom: 56px; }
+    .promises__grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 18px;
+    }
+    @media (max-width: 1100px) { .promises__grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .promises__grid { grid-template-columns: 1fr; } }
+    .promise {
+      padding: 28px 24px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--r-md);
+      transition: background 0.35s ease, transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+      position: relative;
+      cursor: pointer;
+    }
+    .promise:hover {
+      transform: translateY(-6px);
+      background: linear-gradient(160deg, var(--moss-3) 0%, var(--moss-2) 100%);
+      border-color: var(--green);
+      box-shadow: 0 20px 50px rgba(15,27,15,0.22), 0 0 0 1px var(--green);
+    }
+    .promise__icon {
+      width: 44px; height: 44px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(0,210,97,0.14), rgba(0,210,97,0.04));
+      border: 1px solid rgba(0,210,97,0.2);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--green-deep);
+      margin-bottom: 18px;
+      transition: all 0.35s ease;
+    }
+    .promise:hover .promise__icon {
+      background: var(--green);
+      border-color: var(--green);
+      color: #08260C;
+      transform: scale(1.05);
+    }
+    .promise__title {
+      font-family: 'Fraunces', serif;
+      font-size: 20px;
+      font-weight: 500;
+      letter-spacing: -0.015em;
+      color: var(--moss-2);
+      margin-bottom: 8px;
+      line-height: 1.2;
+      transition: color 0.35s ease;
+    }
+    .promise:hover .promise__title { color: var(--white); }
+    .promise__text {
+      font-size: 13.5px;
+      color: var(--ink-soft);
+      line-height: 1.5;
+      transition: color 0.35s ease;
+    }
+    .promise:hover .promise__text { color: rgba(255,255,255,0.85); }
+
+    /* ============== INDUSTRY SECTION ============== */
+    .industries {
+      background: var(--cream);
+      padding: 30px 0 0;
+    }
+    .industries__head { text-align: left; max-width: 760px; margin-bottom: 60px; }
+
+    .industry-tabs {
+      display: flex; gap: 10px; flex-wrap: wrap;
+      margin-bottom: 50px;
+    }
+    .industry-tab {
+      padding: 12px 22px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--r-pill);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink-soft);
+      transition: all 0.25s ease;
+      display: inline-flex; align-items: center; gap: 8px;
+    }
+    .industry-tab:hover {
+      border-color: var(--green-deep);
+      color: var(--moss-2);
+      transform: translateY(-1px);
+    }
+    .industry-tab.active {
+      background: linear-gradient(135deg, var(--moss-3), var(--moss));
+      color: var(--white);
+      border-color: var(--moss-3);
+      box-shadow: 0 12px 28px rgba(36,60,36,0.28), inset 0 0 0 1.5px var(--green);
+      transform: translateY(-1px);
+    }
+    .industry-tab.active .ico { color: var(--green); }
+    .industry-tab .ico {
+      width: 16px; height: 16px;
+      display: inline-flex; align-items: center; justify-content: center;
+    }
+
+    .industry-panel {
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+      gap: 60px;
+      align-items: stretch;
+      min-height: 540px;
+    }
+    @media (max-width: 980px) {
+      .industry-panel { grid-template-columns: 1fr; gap: 32px; min-height: auto; }
+    }
+    .industry-image {
+      position: relative;
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      min-height: 480px;
+      background-size: cover;
+      background-position: center;
+      transition: background-image 0.6s ease;
+    }
+    .industry-image::after {
+      content: "";
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(15,27,15,0.0) 30%, rgba(15,27,15,0.85) 100%);
+    }
+    .industry-image__caption {
+      position: absolute; bottom: 28px; left: 28px; right: 28px;
+      z-index: 2;
+      color: var(--white);
+    }
+    .industry-image__caption .role {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 6px;
+    }
+    .industry-image__caption .name {
+      font-family: 'Fraunces', serif;
+      font-size: 28px;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+
+    .industry-content {
+      display: flex; flex-direction: column;
+      gap: 26px;
+    }
+    .ic-row {
+      padding: 22px 24px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--r-md);
+      position: relative;
+      transition: opacity 0.35s ease, transform 0.35s ease;
+    }
+    .ic-row__head {
+      display: flex; align-items: center; gap: 12px;
+      margin-bottom: 8px;
+    }
+    .ic-row__step {
+      flex-shrink: 0;
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      background: var(--cream-2);
+      color: var(--moss-2);
+    }
+    .ic-row--solution .ic-row__step {
+      background: var(--green);
+      color: #08260C;
+    }
+    .ic-row__label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--ink-mute);
+    }
+    .ic-row--solution .ic-row__label { color: var(--green-deep); }
+    .ic-row__text {
+      font-size: 16px;
+      color: var(--ink-soft);
+      line-height: 1.55;
+    }
+    .ic-row--solution {
+      background: linear-gradient(135deg, var(--moss-3), var(--moss));
+      border-color: var(--moss-3);
+      color: var(--white);
+    }
+    .ic-row--solution .ic-row__text { color: rgba(255,255,255,0.85); }
+    .ic-row--solution .ic-row__text strong { color: var(--green); font-weight: 600; }
+
+    .panel-fade-out { opacity: 0; transform: translateY(8px); }
+
+    .industries-end-spacer { height: 120px; background: var(--cream); }
+
+    /* ============== CASES / TESTIMONIALS ============== */
+    .cases {
+      background: var(--cream);
+      padding: 130px 0 140px;
+      position: relative;
+      overflow: hidden;
+    }
+    .cases__head {
+      display: flex; justify-content: space-between; align-items: flex-end;
+      gap: 40px;
+      margin-bottom: 50px;
+      flex-wrap: wrap;
+    }
+    .cases__head-left { max-width: 720px; }
+    .cases__nav {
+      display: flex; gap: 10px;
+      align-items: center;
+    }
+    .cases__nav button {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: var(--white);
+      border: 1px solid var(--line);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--moss-2);
+      transition: all 0.25s ease;
+      box-shadow: var(--shadow-sm);
+    }
+    .cases__nav button:hover {
+      background: var(--moss-3);
+      color: var(--white);
+      border-color: var(--moss-3);
+      transform: translateY(-2px);
+    }
+    .cases__nav button:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+      transform: none;
+    }
+    .cases__counter {
+      font-size: 13px;
+      color: var(--ink-mute);
+      font-weight: 500;
+      margin: 0 12px;
+      min-width: 64px;
+      text-align: center;
+    }
+    .cases__counter strong { color: var(--moss-2); font-weight: 700; }
+
+    .cases__viewport {
+      overflow: hidden;
+      position: relative;
+      margin: 0 -8px;
+    }
+    .cases__track {
+      display: flex;
+      transition: transform 0.55s cubic-bezier(0.16,1,0.3,1);
+    }
+    .case-card {
+      flex-shrink: 0;
+      width: calc(100% / 3 - 16px);
+      margin: 0 8px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      display: flex; flex-direction: column;
+      transition: transform 0.35s cubic-bezier(0.16,1,0.3,1), box-shadow 0.35s, border-color 0.35s;
+      cursor: pointer;
+    }
+    .case-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--green);
+    }
+    @media (max-width: 1000px) {
+      .case-card { width: calc(100% / 2 - 16px); }
+    }
+    @media (max-width: 640px) {
+      .case-card { width: calc(100% - 16px); }
+    }
+    .case-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+    .case-card__head {
+      padding: 26px 26px 18px;
+      display: flex; gap: 14px; align-items: flex-start;
+    }
+    .case-card__avatar {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Inter', sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--white);
+      flex-shrink: 0;
+      letter-spacing: -0.01em;
+    }
+    .case-card__head-text {
+      min-width: 0;
+      display: flex; flex-direction: column;
+      gap: 4px;
+      flex: 1;
+    }
+    .case-card__name {
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--moss-2);
+      letter-spacing: -0.005em;
+      line-height: 1.2;
+    }
+    .case-card__role {
+      font-size: 12.5px;
+      color: var(--ink-mute);
+      line-height: 1.35;
+    }
+    .case-card__industry {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 4px 10px;
+      background: rgba(0,210,97,0.08);
+      border: 1px solid rgba(0,210,97,0.18);
+      border-radius: var(--r-pill);
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--green-deep);
+      letter-spacing: 0.2px;
+      margin-top: 4px;
+      align-self: flex-start;
+    }
+    .case-card__industry::before {
+      content: ""; width: 5px; height: 5px; border-radius: 50%;
+      background: var(--green);
+    }
+    .case-card__google-icon {
+      width: 18px; height: 18px;
+      margin-left: auto;
+      flex-shrink: 0;
+      opacity: 0.85;
+    }
+    .case-card__body {
+      padding: 0 26px 26px;
+      display: flex; flex-direction: column;
+      flex: 1;
+    }
+    .case-card__stars-row {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 12px;
+    }
+    .case-card__stars {
+      display: inline-flex; gap: 2px;
+      color: #FFB400;
+      font-size: 14px;
+    }
+    .case-card__when {
+      font-size: 12px;
+      color: var(--ink-mute);
+      font-weight: 500;
+    }
+    .case-card__star-half { color: rgba(255,180,0,0.4); }
+    .case-card__quote {
+      font-size: 14.5px;
+      color: var(--ink-soft);
+      line-height: 1.55;
+      flex: 1;
+      margin-bottom: 18px;
+    }
+    .case-card__quote::before {
+      content: "„";
+      font-family: 'Fraunces', serif;
+      font-size: 24px;
+      color: var(--green);
+      margin-right: 2px;
+      line-height: 0;
+      position: relative;
+      top: 6px;
+    }
+    .case-card__quote::after { content: "\201C"; font-family: 'Fraunces', serif; color: var(--green); display: none; }
+    .case-card__metrics {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 10px;
+      align-items: center;
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+    }
+    .case-card__metric { text-align: center; }
+    .case-card__metric .lbl {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--ink-mute);
+      margin-bottom: 4px;
+    }
+    .case-card__metric .val {
+      font-family: 'Fraunces', serif;
+      font-size: 18px;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      color: var(--moss-2);
+      line-height: 1.05;
+    }
+    .case-card__metric--after .val { color: var(--green-deep); }
+    .case-card__metrics-arrow {
+      width: 28px; height: 28px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 50%;
+      background: var(--green);
+      color: #08260C;
+    }
+
+    .cases__dots {
+      display: flex; gap: 8px; justify-content: center;
+      margin-top: 36px;
+    }
+    .cases__dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--sand-dark);
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+    .cases__dot.active {
+      background: var(--green-deep);
+      width: 24px;
+      border-radius: 4px;
+    }
+
+    .cases__summary {
+      margin-top: 60px;
+      padding: 44px 50px;
+      background: linear-gradient(135deg, var(--moss-3), var(--moss-2));
+      border-radius: var(--r-lg);
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 50px;
+      align-items: center;
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+    .cases__summary::before {
+      content: "";
+      position: absolute;
+      top: -100px; right: -80px;
+      width: 320px; height: 320px;
+      background: radial-gradient(circle, rgba(0,210,97,0.18), transparent 65%);
+      filter: blur(20px);
+      pointer-events: none;
+    }
+    @media (max-width: 900px) {
+      .cases__summary { grid-template-columns: 1fr; padding: 32px 28px; gap: 32px; }
+    }
+    .cs-rating {
+      display: flex; flex-direction: column; align-items: flex-start; gap: 8px;
+      position: relative; z-index: 1;
+    }
+    .cs-rating__num {
+      font-family: 'Fraunces', serif;
+      font-size: 64px;
+      font-weight: 500;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      color: var(--green);
+    }
+    .cs-rating__stars {
+      display: inline-flex;
+      gap: 3px;
+      color: #FFB400;
+      font-size: 18px;
+      letter-spacing: 2px;
+    }
+    .cs-rating__sub {
+      font-size: 12px;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: 0.4px;
+      margin-top: 2px;
+    }
+
+    .cs-bars {
+      display: flex; flex-direction: column; gap: 8px;
+      position: relative; z-index: 1;
+      min-width: 0;
+    }
+    .cs-bar-row {
+      display: grid;
+      grid-template-columns: 28px 1fr 32px;
+      align-items: center;
+      gap: 14px;
+      font-size: 12.5px;
+    }
+    .cs-bar-row__label {
+      color: rgba(255,255,255,0.6);
+      font-weight: 500;
+      display: inline-flex; align-items: center; gap: 4px;
+    }
+    .cs-bar-row__label::after {
+      content: "★";
+      color: #FFB400;
+      font-size: 11px;
+    }
+    .cs-bar {
+      position: relative;
+      height: 8px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .cs-bar__fill {
+      position: absolute; top: 0; left: 0; bottom: 0;
+      background: linear-gradient(90deg, var(--green-dark), var(--green));
+      border-radius: 999px;
+      width: 0;
+      transition: width 1.6s cubic-bezier(0.16,1,0.3,1);
+    }
+    .cs-bar-row__num {
+      color: rgba(255,255,255,0.65);
+      font-weight: 500;
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .cs-cta {
+      display: flex; flex-direction: column; gap: 12px;
+      align-items: flex-start;
+      position: relative; z-index: 1;
+    }
+    .cs-cta__badge {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 12px 18px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: var(--r-pill);
+      font-size: 13px;
+      color: var(--white);
+      font-weight: 500;
+      backdrop-filter: blur(10px);
+      transition: all 0.25s ease;
+    }
+    .cs-cta__badge:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(255,255,255,0.25);
+      transform: translateY(-1px);
+    }
+    .cs-cta__hint {
+      font-size: 12px;
+      color: rgba(255,255,255,0.55);
+      padding-left: 4px;
+    }
+
+
+    /* ============== SOCIAL PROOF / METRICS ============== */
+    .proof {
+      background: var(--moss-3);
+      color: var(--white);
+      padding: 110px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .proof::before {
+      content: "";
+      position: absolute;
+      top: 0; right: -200px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(0,210,97,0.12), transparent 60%);
+    }
+    .proof__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      position: relative; z-index: 1;
+    }
+    @media (max-width: 900px) { .proof__grid { grid-template-columns: 1fr; gap: 40px; } }
+    .proof__metrics {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+    .metric {
+      padding: 28px 28px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--r-md);
+      backdrop-filter: blur(10px);
+    }
+    .metric__num {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(36px, 4vw, 52px);
+      font-weight: 500;
+      letter-spacing: -0.025em;
+      color: var(--green);
+      line-height: 1;
+    }
+    .metric__lbl {
+      font-size: 13.5px;
+      color: rgba(255,255,255,0.65);
+      margin-top: 12px;
+      line-height: 1.45;
+    }
+
+    /* ============== PRICING ============== */
+    .pricing {
+      background: var(--cream);
+      padding: 130px 0;
+      position: relative;
+    }
+    .pricing::before {
+      content: "";
+      position: absolute;
+      top: -60px; left: 50%;
+      transform: translateX(-50%);
+      width: 700px; height: 400px;
+      background: radial-gradient(ellipse, rgba(0,210,97,0.08), transparent 70%);
+      pointer-events: none;
+    }
+    .pricing__head { text-align: center; max-width: 720px; margin: 0 auto 50px; }
+    .pricing__head .eyebrow { justify-content: center; }
+    .pricing__head h2.title { margin: 0 auto; }
+    .pricing__head .lead { margin-left: auto; margin-right: auto; }
+
+    .toggle-wrap { display: flex; justify-content: center; margin: 0 auto 56px; }
+    .toggle {
+      display: inline-flex;
+      padding: 5px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--r-pill);
+      box-shadow: var(--shadow-sm);
+      position: relative;
+    }
+    .toggle__btn {
+      padding: 12px 24px;
+      border-radius: var(--r-pill);
+      font-size: 14px; font-weight: 600;
+      color: var(--ink-soft);
+      transition: all 0.28s cubic-bezier(0.4,0,0.2,1);
+      display: inline-flex; align-items: center; gap: 10px;
+      white-space: nowrap;
+    }
+    .toggle__btn.active {
+      background: var(--moss-3);
+      color: var(--white);
+    }
+    .toggle__btn .save {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 9px;
+      border-radius: var(--r-pill);
+      background: var(--green);
+      color: #08260C;
+      letter-spacing: 0.3px;
+    }
+    .toggle__btn:not(.active) .save { background: rgba(0,210,97,0.15); color: var(--green-deep); }
+
+    .pkg-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      align-items: stretch;
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+    @media (max-width: 980px) { .pkg-grid { grid-template-columns: 1fr; max-width: 460px; gap: 18px; } }
+
+    .card {
+      position: relative;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--r-lg);
+      padding: 36px 30px 32px;
+      display: flex; flex-direction: column;
+      transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s, border-color 0.4s;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--green-deep);
+    }
+    .card--featured {
+      background: linear-gradient(160deg, var(--moss-3) 0%, var(--moss-2) 100%);
+      color: var(--white);
+      border-color: transparent;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      z-index: 2;
+    }
+    .card--featured::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      padding: 1.5px;
+      background: linear-gradient(180deg, rgba(0,210,97,0.6) 0%, rgba(0,210,97,0.15) 50%, transparent 100%);
+      border-radius: var(--r-lg);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+              mask-composite: exclude;
+      pointer-events: none;
+    }
+    .card--featured::after {
+      content: "";
+      position: absolute;
+      top: -80px; right: -60px;
+      width: 260px; height: 260px;
+      background: radial-gradient(circle, rgba(0,210,97,0.22), transparent 65%);
+      filter: blur(30px);
+      pointer-events: none;
+    }
+    .card--featured:hover { transform: translateY(-4px); }
+    .card__badge {
+      position: absolute;
+      top: 22px; right: 22px;
+      background: var(--green);
+      color: #08260C;
+      font-size: 10.5px; font-weight: 700;
+      letter-spacing: 1.2px;
+      padding: 6px 12px;
+      border-radius: var(--r-pill);
+      text-transform: uppercase;
+      z-index: 3;
+    }
+
+    .card__name {
+      font-family: 'Fraunces', serif;
+      font-size: 32px;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      line-height: 1;
+      position: relative; z-index: 2;
+    }
+    .card__sub {
+      font-size: 14px;
+      color: var(--ink-soft);
+      margin-top: 8px;
+      margin-bottom: 28px;
+      min-height: 22px;
+      position: relative; z-index: 2;
+    }
+    .card--featured .card__sub { color: rgba(255,255,255,0.65); }
+
+    .card__price-wrap { position: relative; z-index: 2; }
+    .card__price {
+      display: flex; align-items: baseline; gap: 4px;
+      font-family: 'Fraunces', serif;
+      font-weight: 500;
+      color: var(--moss-2);
+      letter-spacing: -0.025em;
+      line-height: 1;
+    }
+    .card--featured .card__price { color: var(--white); }
+    .card__price .amount { font-size: 56px; }
+    .card__price .currency { font-size: 24px; opacity: 0.65; }
+    .card__price-sub {
+      font-size: 13px;
+      color: var(--ink-mute);
+      margin-top: 10px;
+    }
+    .card--featured .card__price-sub { color: rgba(255,255,255,0.55); }
+
+    .card__divider {
+      height: 1px;
+      background: var(--line);
+      margin: 26px 0 22px;
+      position: relative; z-index: 2;
+    }
+    .card--featured .card__divider { background: rgba(255,255,255,0.1); }
+    .card__feat-label {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 12px;
+      letter-spacing: 0.3px;
+      font-weight: 700;
+      color: var(--green-deep);
+      background: rgba(0,210,97,0.1);
+      border: 1px solid rgba(0,210,97,0.25);
+      padding: 7px 12px;
+      border-radius: var(--r-pill);
+      margin-bottom: 18px;
+      position: relative; z-index: 2;
+    }
+    .card__feat-label::before {
+      content: "";
+      width: 14px; height: 14px;
+      flex-shrink: 0;
+      background: var(--gradient-cta, var(--green)) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5 9-11'/%3E%3C/svg%3E") center/9px no-repeat;
+      border-radius: 50%;
+    }
+    .card--featured .card__feat-label {
+      color: var(--green);
+      background: rgba(0,210,97,0.15);
+      border-color: rgba(0,210,97,0.4);
+    }
+    .card__features {
+      list-style: none;
+      flex: 1;
+      margin-bottom: 30px;
+      position: relative; z-index: 2;
+    }
+    .card__features li {
+      display: flex; gap: 12px;
+      align-items: flex-start;
+      font-size: 14.5px;
+      color: var(--ink-soft);
+      padding: 7px 0;
+      line-height: 1.5;
+    }
+    .card--featured .card__features li { color: rgba(255,255,255,0.85); }
+    .card__features li::before {
+      content: "";
+      flex-shrink: 0;
+      width: 16px; height: 16px;
+      margin-top: 4px;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2300D261' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5 9-11'/%3E%3C/svg%3E") center/contain no-repeat;
+    }
+    .card__cta {
+      width: 100%;
+      padding: 16px 24px;
+      font-size: 15px;
+      border-radius: var(--r-pill);
+      position: relative; z-index: 2;
+      background: var(--moss-3);
+      color: var(--white);
+      box-shadow: 0 8px 20px rgba(15,27,15,0.18);
+    }
+    .card__cta:hover { background: #000; transform: translateY(-2px); }
+    .card--featured .card__cta { background: var(--green); color: #08260C; box-shadow: var(--shadow-green); }
+    .card--featured .card__cta:hover { background: #00E870; }
+
+    .pricing__pay {
+      margin-top: 48px;
+      display: flex; flex-direction: column; align-items: center; gap: 10px;
+    }
+    .pricing__pay-row {
+      display: inline-flex; align-items: center; gap: 14px;
+      padding: 14px 22px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--r-pill);
+      font-size: 13.5px;
+      color: var(--ink-soft);
+      font-weight: 500;
+      box-shadow: var(--shadow-sm);
+    }
+    .pricing__pay-row svg:first-child { color: var(--green-deep); }
+    .pay-icons { display: inline-flex; gap: 6px; padding-left: 8px; border-left: 1px solid var(--line); margin-left: 4px; }
+    .pay-icon { display: inline-flex; }
+    .pricing__pay-note { font-size: 12px; color: var(--ink-mute); }
+
+    /* ============== HOW IT WORKS ============== */
+    .how {
+      padding: 130px 0;
+      background: var(--moss-3);
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+    .how::before {
+      content: "";
+      position: absolute;
+      bottom: -200px; left: -100px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(0,210,97,0.12), transparent 60%);
+    }
+    .how__head { max-width: 780px; margin-bottom: 70px; }
+    .how__toggle-wrap { display: flex; justify-content: flex-start; margin-bottom: 42px; }
+    .how__toggle {
+      display: inline-flex;
+      padding: 5px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--r-pill);
+    }
+    .how__toggle button {
+      padding: 11px 22px;
+      border-radius: var(--r-pill);
+      font-size: 13.5px; font-weight: 600;
+      color: rgba(255,255,255,0.7);
+      transition: all 0.25s ease;
+      display: inline-flex; align-items: center; gap: 8px;
+    }
+    .how__toggle button.active {
+      background: var(--green);
+      color: #08260C;
+      box-shadow: var(--shadow-green);
+    }
+    .how__toggle button .pill {
+      font-size: 10px; font-weight: 700;
+      padding: 3px 8px;
+      border-radius: var(--r-pill);
+      background: rgba(8,38,12,0.15);
+      letter-spacing: 0.5px;
+    }
+    .how__toggle button:not(.active) .pill {
+      background: rgba(0,210,97,0.18);
+      color: var(--green);
+    }
+    .how__steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 36px;
+      position: relative; z-index: 1;
+    }
+    @media (max-width: 900px) { .how__steps { grid-template-columns: 1fr; gap: 24px; } }
+    .step__time {
+      display: inline-flex; align-items: center; gap: 6px;
+      margin-top: 18px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--green);
+      letter-spacing: 0.4px;
+    }
+    .step--existing { border-color: rgba(0,210,97,0.3); background: rgba(0,210,97,0.04); }
+    .step--existing .step__num { color: var(--green); }
+    .step__strike {
+      text-decoration: line-through;
+      opacity: 0.5;
+    }
+    .step__bonus {
+      display: inline-flex; align-items: center; gap: 8px;
+      margin-top: 16px;
+      padding: 8px 14px;
+      background: rgba(0,210,97,0.12);
+      border: 1px solid rgba(0,210,97,0.3);
+      border-radius: var(--r-pill);
+      color: var(--green);
+      font-size: 12.5px;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+    }
+    .step__bonus::before {
+      content: "★";
+      color: var(--green);
+      font-size: 10px;
+    }
+    .step {
+      padding: 36px 32px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--r-lg);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+    .step:hover { background: rgba(255,255,255,0.05); transform: translateY(-3px); }
+    .step__num {
+      font-family: 'Fraunces', serif;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      color: var(--green);
+      margin-bottom: 22px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .step__num::after {
+      content: ""; flex: 1; height: 1px;
+      background: linear-gradient(90deg, rgba(0,210,97,0.4), transparent);
+    }
+    .step__title {
+      font-family: 'Fraunces', serif;
+      font-size: 26px;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 14px;
+    }
+    .step__text {
+      font-size: 15.5px;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.6;
+    }
+
+    /* ============== FOOTER ============== */
+    .footer {
+      background: var(--moss-3);
+      color: rgba(255,255,255,0.55);
+      padding: 50px 0 40px;
+      font-size: 13px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .footer__inner {
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 24px;
+    }
+    .footer__logo img { height: 24px; opacity: 0.7; }
+    .footer__links { display: flex; gap: 22px; }
+    .footer__links a { color: rgba(255,255,255,0.55); transition: color 0.2s; }
+    .footer__links a:hover { color: var(--green); }
+    @media (max-width: 700px) {
+      .footer__inner { flex-direction: column; text-align: center; }
+    }
+
+    /* ============== MODAL ============== */
+    .modal {
+      position: fixed; inset: 0;
+      z-index: 200;
+      display: none;
+      align-items: center; justify-content: center;
+      padding: 24px;
+    }
+    .modal.open { display: flex; animation: fadeIn 0.3s ease; }
+    .modal__backdrop {
+      position: absolute; inset: 0;
+      background: rgba(15,27,15,0.75);
+      backdrop-filter: blur(10px);
+    }
+    .modal__card {
+      position: relative;
+      background: var(--cream);
+      border-radius: var(--r-lg);
+      max-width: 540px;
+      width: 100%;
+      padding: 44px 40px 36px;
+      box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+      animation: fadeInUp 0.45s cubic-bezier(0.16,1,0.3,1);
+      max-height: 92vh;
+      overflow-y: auto;
+    }
+    .modal__close {
+      position: absolute; top: 18px; right: 18px;
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--ink-soft);
+      font-size: 16px;
+      transition: all 0.2s;
+      background: var(--white);
+      border: 1px solid var(--line);
+    }
+    .modal__close:hover { background: var(--cream-2); transform: rotate(90deg); }
+    .modal__eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--green-deep);
+      margin-bottom: 10px;
+    }
+    .modal__pkg {
+      font-family: 'Fraunces', serif;
+      font-size: 36px;
+      font-weight: 500;
+      color: var(--moss-2);
+      letter-spacing: -0.02em;
+      margin-bottom: 24px;
+      line-height: 1.05;
+    }
+    .modal .toggle-wrap { margin-bottom: 26px; justify-content: stretch; }
+    .modal .toggle { width: 100%; padding: 4px; }
+    .modal .toggle__btn { flex: 1; justify-content: center; padding: 11px 14px; }
+
+    .modal__price-block {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--r-md);
+      padding: 22px 24px;
+      margin-bottom: 22px;
+    }
+    .modal__price-label {
+      font-size: 11px;
+      color: var(--ink-mute);
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .modal__price {
+      font-family: 'Fraunces', serif;
+      font-size: 44px; font-weight: 500;
+      color: var(--moss-2);
+      letter-spacing: -0.025em;
+      line-height: 1.05;
+      display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;
+    }
+    .modal__price .unit {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px; font-weight: 500;
+      color: var(--ink-soft);
+    }
+    .modal__price .strike {
+      font-size: 22px;
+      color: var(--ink-mute);
+      font-weight: 500;
+      text-decoration: line-through;
+      opacity: 0.6;
+    }
+    .modal__total {
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px dashed var(--line);
+      font-size: 13px;
+      color: var(--ink-soft);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .modal__total strong { color: var(--moss-2); font-weight: 700; font-size: 14px; }
+
+    .promo { font-size: 13px; margin-bottom: 26px; }
+    .promo__toggle {
+      color: var(--ink-mute);
+      cursor: pointer; user-select: none;
+      display: inline-flex; align-items: center; gap: 6px;
+      transition: color 0.2s;
+      font-weight: 500;
+    }
+    .promo__toggle:hover { color: var(--ink-soft); }
+    .promo__toggle .chev {
+      transition: transform 0.3s ease;
+      display: inline-block;
+      font-size: 9px;
+    }
+    .promo__toggle.open .chev { transform: rotate(180deg); }
+    .promo__body { display: none; margin-top: 12px; gap: 8px; }
+    .promo__body.open { display: flex; animation: fadeInUp 0.3s ease; }
+    .promo__input {
+      flex: 1;
+      padding: 13px 16px;
+      font-size: 14px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      color: var(--moss-2);
+      transition: all 0.2s;
+      letter-spacing: 0.8px;
+      font-weight: 500;
+      background: var(--white);
+    }
+    .promo__input:focus { outline: none; border-color: var(--green); box-shadow: 0 0 0 3px rgba(0,210,97,0.12); }
+    .promo__apply {
+      padding: 13px 20px;
+      background: var(--moss-3);
+      color: var(--white);
+      border-radius: 12px;
+      font-size: 13px;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    .promo__apply:hover { background: #000; }
+    .promo__msg {
+      margin-top: 10px;
+      font-size: 12.5px;
+      font-weight: 600;
+      display: none;
+    }
+    .promo__msg.ok { display: block; color: var(--green-deep); }
+    .promo__msg.err { display: block; color: #c64545; }
+
+    .modal__cta { width: 100%; padding: 17px 24px; font-size: 15px; border-radius: var(--r-pill); }
+    .modal__legal {
+      margin-top: 14px;
+      font-size: 11.5px;
+      color: var(--ink-mute);
+      text-align: center;
+      line-height: 1.5;
+      display: flex; align-items: center; justify-content: center; gap: 6px;
+    }
+
+    @media (max-width: 640px) {
+      .modal { padding: 0; align-items: stretch; }
+      .modal__card { border-radius: 0; max-width: 100%; min-height: 100vh; padding: 70px 24px 32px; }
+    }
+
+    body.no-scroll { overflow: hidden; }
+
+    /* selection */
+    ::selection { background: var(--green); color: var(--moss-3); }
+  </style>
+</head>
+<body>
+
+  <!-- ============== NAV ============== -->
+  <nav class="nav" id="nav">
+    <div class="container nav__inner">
+      <a href="#top" class="nav__logo" aria-label="GreenCareers">
+        <img src="assets/logo-white.png" alt="GreenCareers">
+      </a>
+      <div class="nav__right">
+        <span>Ihre Recruiting-Lösung</span>
+        <a href="#pakete" class="nav__cta">Pakete ansehen
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============== HERO ============== -->
+  <header class="hero" id="top">
+    <div class="hero__bg"></div>
+    <div class="container hero__inner">
+      <span class="hero__eyebrow"><span class="dot"></span>Recruiting-Abo für die grüne Branche</span>
+      <h1 class="display">Schluss mit suchen.<br>Bewerber kommen <em>zu Ihnen.</em></h1>
+      <p class="hero__sub">Vorqualifizierte Fachkräfte aus Ihrer Branche — jeden Monat, automatisch, zum festen Preis. Sie führen nur noch die Gespräche, wir übernehmen den Rest.</p>
+      <div class="hero__cta-row">
+        <a href="#pakete" class="btn btn--lg">Pakete &amp; Preise ansehen
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#branchen" class="btn btn--ghost btn--lg">Lösung für meine Branche</a>
+      </div>
+      <div class="hero__meta">
+        <div class="hero__meta-item">
+          <span class="num">30.000+</span>
+          <span class="lbl">Fachkräfte aus der grünen Branche</span>
+        </div>
+        <div class="hero__meta-item">
+          <span class="num">500+</span>
+          <span class="lbl">Unternehmen setzen auf GreenCareers</span>
+        </div>
+        <div class="hero__meta-item">
+          <span class="num">900+</span>
+          <span class="lbl">Neue Fachkräfte pro Monat</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero__scroll">Mehr<span class="line"></span></div>
+  </header>
+
+  <!-- ============== CUSTOMER STRIP ============== -->
+  <div class="customers">
+    <div class="container">
+      <div class="customers__intro">Vertrauen aus der Branche</div>
+      <div class="marquee">
+        <div class="marquee__track" id="cust1"></div>
+        <div class="marquee__track" id="cust2"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============== EXPLAINER VIDEO ============== -->
+  <section class="explainer">
+    <div class="container">
+      <div class="explainer__head reveal">
+        <span class="eyebrow">In 2 Minuten erklärt</span>
+        <h2 class="title" style="margin: 0 auto;">Wie GreenCareers Ihren Betrieb <em>besetzt.</em></h2>
+      </div>
+      <div class="explainer__wrap reveal">
+        <div class="explainer__frame">
+          <iframe
+            src="https://player.vimeo.com/video/1107433968?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            title="GreenCareers — die erste interaktive Karriereplattform für die grüne Branche"
+            loading="lazy"></iframe>
+        </div>
+        <div class="explainer__caption"><strong>2 Minuten Erklärfilm</strong> · So bringt GreenCareers Bewerber in Ihren Betrieb</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== PROMISES ============== -->
+  <section class="promises">
+    <div class="container">
+      <div class="promises__head reveal">
+        <span class="eyebrow">Das Versprechen</span>
+        <h2 class="title">Fünf Dinge, die wir <em>für Sie</em> übernehmen.</h2>
+        <p class="lead">Stellenanzeige, Targeting, Reichweite, Vorauswahl — Sie geben einmal Bescheid, wir kümmern uns um den Rest.</p>
+      </div>
+      <div class="promises__grid">
+        <div class="promise reveal">
+          <div class="promise__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <div class="promise__title">Schnelle Einstellung</div>
+          <div class="promise__text">Ø 45 Tage von Anfrage bis Vertragsunterschrift — statt monatelangem Warten auf leeren Stellenportalen.</div>
+        </div>
+        <div class="promise reveal">
+          <div class="promise__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3-9 4 18 3-9h4"/></svg></div>
+          <div class="promise__title">Kontinuierlicher Bewerberstrom</div>
+          <div class="promise__text">Vorqualifizierte Bewerbungen — Monat für Monat, automatisch in Ihr Postfach und auf Ihr WhatsApp.</div>
+        </div>
+        <div class="promise reveal">
+          <div class="promise__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+          <div class="promise__title">Niedriger Festpreis</div>
+          <div class="promise__text">Monatlicher Beitrag ab 319 € — planbar, kalkulierbar, kündbar nach Laufzeit. Keine versteckten Setup-Kosten.</div>
+        </div>
+        <div class="promise reveal">
+          <div class="promise__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div>
+          <div class="promise__title">Null Aufwand für Sie</div>
+          <div class="promise__text">Wir übernehmen Anzeige, Targeting, Pflege und Vorauswahl. Sie führen nur noch die Gespräche.</div>
+        </div>
+        <div class="promise reveal">
+          <div class="promise__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+          <div class="promise__title">Branchen-Bewerber</div>
+          <div class="promise__text">Bei uns bewerben sich nur Menschen aus der grünen Branche — keine fachfremden Quereinsteiger.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== INDUSTRIES ============== -->
+  <section class="industries" id="branchen">
+    <div class="container">
+      <div class="industries__head reveal">
+        <span class="eyebrow">Lösung nach Branche</span>
+        <h2 class="title">Was eine offene Stelle Ihren Betrieb <em>jeden Tag kostet.</em></h2>
+        <p class="lead">Wählen Sie Ihre Branche — und sehen Sie, warum Indeed, Zeitungsanzeigen und Social-Media-Agenturen für die grüne Branche nicht mehr funktionieren.</p>
+      </div>
+
+      <div class="industry-tabs reveal" id="industryTabs"></div>
+
+      <div class="industry-panel reveal" id="industryPanel">
+        <div class="industry-image" id="industryImage">
+          <div class="industry-image__caption">
+            <div class="role" id="industryRole">Branche</div>
+            <div class="name" id="industryName">Garten- &amp; Landschaftsbau</div>
+          </div>
+        </div>
+        <div class="industry-content" id="industryContent"></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="industries-end-spacer"></div>
+
+  <!-- ============== SOCIAL PROOF / METRICS ============== -->
+  <section class="proof section-pad">
+    <div class="container">
+      <div class="proof__grid">
+        <div class="reveal">
+          <span class="eyebrow eyebrow--light">Warum GreenCareers</span>
+          <h2 class="title title--light">Der einzige Partner, der <em>nur</em> die grüne Branche bedient.</h2>
+          <p class="lead lead--light">Wir kennen Ihre Saison. Ihre Stundensätze. Ihre Mitbewerber im Landkreis. Und wir bringen Bewerber, die wissen, wofür sie sich bewerben.</p>
+        </div>
+        <div class="proof__metrics reveal">
+          <div class="metric">
+            <div class="metric__num">94 %</div>
+            <div class="metric__lbl">unserer Kunden würden uns weiterempfehlen</div>
+          </div>
+          <div class="metric">
+            <div class="metric__num">4,9 / 5</div>
+            <div class="metric__lbl">Bewertung von Geschäftsführern in der grünen Branche</div>
+          </div>
+          <div class="metric">
+            <div class="metric__num">3×</div>
+            <div class="metric__lbl">mehr qualifizierte Bewerbungen als klassische Stellenportale</div>
+          </div>
+          <div class="metric">
+            <div class="metric__num">Seit 2024</div>
+            <div class="metric__lbl">spezialisiert auf GaLaBau, Tiefbau, Baumschule, Landwirtschaft &amp; Pflanzenhandel</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== CASES ============== -->
+  <section class="cases">
+    <div class="container">
+      <div class="cases__head">
+        <div class="cases__head-left reveal">
+          <span class="eyebrow">Echte Einstellungen</span>
+          <h2 class="title">Bewertet von Betrieben, <em>die eingestellt haben.</em></h2>
+          <p class="lead">Vom GaLaBau-Vorarbeiter bis zur Schlepperfahrerin — 15 echte Google-Bewertungen aus der grünen Branche. Wischen Sie sich durch.</p>
+        </div>
+        <div class="cases__nav reveal">
+          <button id="casesPrev" aria-label="Zurück">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          </button>
+          <span class="cases__counter"><strong id="casesCurrent">1</strong> / <span id="casesTotal">15</span></span>
+          <button id="casesNext" aria-label="Weiter">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="cases__viewport reveal">
+        <div class="cases__track" id="casesTrack"></div>
+      </div>
+
+      <div class="cases__dots" id="casesDots"></div>
+
+      <div class="cases__summary reveal">
+        <div class="cs-rating">
+          <div class="cs-rating__num">4,9 / 5</div>
+          <div class="cs-rating__stars">★★★★★</div>
+          <div class="cs-rating__sub">Durchschnittliche Bewertung</div>
+        </div>
+        <div class="cs-bars" id="csBars">
+          <div class="cs-bar-row"><span class="cs-bar-row__label">5</span><div class="cs-bar"><div class="cs-bar__fill" data-fill="92"></div></div><span class="cs-bar-row__num">92 %</span></div>
+          <div class="cs-bar-row"><span class="cs-bar-row__label">4</span><div class="cs-bar"><div class="cs-bar__fill" data-fill="6"></div></div><span class="cs-bar-row__num">6 %</span></div>
+          <div class="cs-bar-row"><span class="cs-bar-row__label">3</span><div class="cs-bar"><div class="cs-bar__fill" data-fill="2"></div></div><span class="cs-bar-row__num">2 %</span></div>
+          <div class="cs-bar-row"><span class="cs-bar-row__label">2</span><div class="cs-bar"><div class="cs-bar__fill" data-fill="0"></div></div><span class="cs-bar-row__num">0 %</span></div>
+          <div class="cs-bar-row"><span class="cs-bar-row__label">1</span><div class="cs-bar"><div class="cs-bar__fill" data-fill="0"></div></div><span class="cs-bar-row__num">0 %</span></div>
+        </div>
+        <div class="cs-cta">
+          <a href="https://www.google.com/search?q=GreenCareers+GmbH+Köln" target="_blank" rel="noopener" class="cs-cta__badge">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M22.501 12.233c0-.737-.06-1.475-.184-2.213H12.218v4.184h5.776a4.875 4.875 0 01-2.139 3.241v2.7h3.466c2.027-1.86 3.18-4.605 3.18-7.912z" fill="#4285F4"/>
+              <path d="M12.214 22.5c2.91 0 5.357-.957 7.143-2.605l-3.466-2.7c-.971.66-2.213 1.046-3.677 1.046-2.817 0-5.207-1.9-6.063-4.451H2.564v2.781A10.785 10.785 0 0012.214 22.5z" fill="#34A853"/>
+              <path d="M6.146 13.79a6.486 6.486 0 010-4.143V6.867H2.564a10.794 10.794 0 000 9.703l3.582-2.78z" fill="#FBBC04"/>
+              <path d="M12.214 5.183c1.541-.025 3.03.555 4.143 1.616l3.067-3.066A10.36 10.36 0 0012.214 1c-4.122 0-7.892 2.331-9.65 6.013l3.582 2.78c.852-2.552 3.243-4.61 6.068-4.61z" fill="#EA4335"/>
+            </svg>
+            <span>Auf Google ansehen
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left:4px;display:inline;vertical-align:-1px;"><path d="M7 17L17 7M7 7h10v10"/></svg>
+            </span>
+          </a>
+          <div class="cs-cta__hint">Verifizierte Google-Bewertungen · keine Auswahl</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== PARTNER STATEMENTS ============== -->
+  <section class="statements">
+    <div class="container">
+      <div class="statements__head reveal">
+        <span class="eyebrow">Was unsere Partner über uns sagen</span>
+        <h2 class="title" style="margin: 0 auto;">Inhaber und Geschäftsführer, die mit uns <em>besetzt haben.</em></h2>
+      </div>
+      <div class="statements__grid">
+        <div class="statement reveal">
+          <div class="statement__media">
+            <img class="statement__photo" src="assets/partners/gruenteam-image.jpg" alt="Michael Bleichner · Grün Team GmbH" loading="lazy">
+            <div class="statement__logo-card"><img src="assets/partners/gruenteam-logo.jpg" alt="Grün Team"></div>
+          </div>
+          <div class="statement__body">
+            <div class="statement__stars">★★★★★</div>
+            <div class="statement__name">Michael Bleichner</div>
+            <div class="statement__role">Inhaber &amp; Geschäftsführer · Grün Team GmbH</div>
+            <div class="statement__divider"></div>
+            <div class="statement__quote">
+              <p>Dank GreenCareers konnten wir 3 offene Stellen für LKW-Fahrer, Vorarbeiter und Facharbeiter im GaLaBau schnell und ohne großen Zeitaufwand besetzen.</p>
+              <p>Die Spezialisierung auf die grüne Branche merkt man sofort. Wir empfehlen GreenCareers gerne weiter.</p>
+            </div>
+          </div>
+        </div>
+        <div class="statement reveal">
+          <div class="statement__media">
+            <img class="statement__photo" src="assets/partners/huben-image.jpg" alt="Carlo Huben · Pflanzenhandel Huben GmbH" loading="lazy">
+            <div class="statement__logo-card"><img src="assets/partners/huben-logo.png" alt="natürlich Huben"></div>
+          </div>
+          <div class="statement__body">
+            <div class="statement__stars">★★★★★</div>
+            <div class="statement__name">Carlo Huben</div>
+            <div class="statement__role">Geschäftsführer · Pflanzenhandel Huben GmbH</div>
+            <div class="statement__divider"></div>
+            <div class="statement__quote">
+              <p>Ein Recruiting-Partner, der die grüne Branche wirklich versteht und hält, was er verspricht.</p>
+              <p>Wir sind positiv überrascht von Anzahl und Qualität der Bewerbungen — für Unternehmen in der grünen Branche absolut empfehlenswert.</p>
+            </div>
+          </div>
+        </div>
+        <div class="statement reveal">
+          <div class="statement__media">
+            <img class="statement__photo" src="assets/partners/streb-image.jpg" alt="Tobias Stierle · Gartencenter Streb GmbH" loading="lazy">
+            <div class="statement__logo-card"><img src="assets/partners/streb-logo.png" alt="Gartencenter Streb"></div>
+          </div>
+          <div class="statement__body">
+            <div class="statement__stars">★★★★★</div>
+            <div class="statement__name">Tobias Stierle</div>
+            <div class="statement__role">Betriebsleiter · Gartencenter Streb GmbH</div>
+            <div class="statement__divider"></div>
+            <div class="statement__quote">
+              <p>Wir suchten eine Plattform, die uns dauerhaft mit unseren wichtigsten Stellenprofilen sichtbar macht — und genau das haben wir gefunden.</p>
+              <p>Es gibt einfach nichts Vergleichbares für unsere Branche. Durch die dauerhafte Präsenz erhalten wir laufend Initiativ-Bewerbungen.</p>
+            </div>
+          </div>
+        </div>
+        <div class="statement reveal">
+          <div class="statement__media">
+            <img class="statement__photo" src="assets/partners/schmittsteul-image.png" alt="Vincent Schmitt · Gartencenter Schmitt-Steul GmbH" loading="lazy">
+            <div class="statement__logo-card"><img src="assets/partners/schmittsteul-logo.jpg" alt="Gartencenter Schmitt-Steul"></div>
+          </div>
+          <div class="statement__body">
+            <div class="statement__stars">★★★★★</div>
+            <div class="statement__name">Vincent Schmitt</div>
+            <div class="statement__role">Geschäftsführer · Gartencenter Schmitt-Steul GmbH &amp; Co. KG</div>
+            <div class="statement__divider"></div>
+            <div class="statement__quote">
+              <p>Früher haben wir viel Geld in Zeitungs- und Radiowerbung gesteckt — ohne Erfolg. Mit GreenCareers haben wir endlich einen Kanal, der auf unsere Branche zugeschnitten ist.</p>
+              <p>Die Kombination aus gezielter Ansprache von aktiv Suchenden und Präsenz für passive Talente hat uns überzeugt.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== HOW IT WORKS ============== -->
+  <section class="how">
+    <div class="container">
+      <div class="how__head reveal">
+        <span class="eyebrow eyebrow--light">So funktioniert es</span>
+        <h2 class="title title--light">In <em>10 Minuten</em> startklar.<br>Ab Tag 3 läuft die Pipeline.</h2>
+      </div>
+
+      <div class="how__toggle-wrap reveal">
+        <div class="how__toggle" id="howToggle">
+          <button class="active" data-how="neukunde">Ich bin Neukunde</button>
+          <button data-how="bestand">Ich arbeite bereits mit GreenCareers <span class="pill">−1 Schritt</span></button>
+        </div>
+      </div>
+
+      <div class="how__steps" id="howSteps"></div>
+    </div>
+  </section>
+
+  <!-- ============== PRICING ============== -->
+  <section class="pricing" id="pakete">
+    <div class="container">
+      <div class="pricing__head reveal">
+        <span class="eyebrow">Pakete &amp; Preise</span>
+        <h2 class="title">Drei Pakete. <em>Ein fester Monatspreis.</em></h2>
+        <p class="lead">Monatlicher Festbeitrag, klare Laufzeit, kontinuierlicher Bewerberstrom. Keine Setup-Gebühren. Keine versteckten Kosten. Kündbar nach Laufzeit.</p>
+      </div>
+
+      <div class="toggle-wrap reveal">
+        <div class="toggle" role="tablist" aria-label="Laufzeit">
+          <button class="toggle__btn active" data-term="6m">6 Monate</button>
+          <button class="toggle__btn" data-term="12m">12 Monate <span class="save">−20 %</span></button>
+        </div>
+      </div>
+
+      <div class="pkg-grid" id="pkgGrid"></div>
+
+      <div class="pricing__pay reveal">
+        <div class="pricing__pay-row">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+          <span>Sichere Zahlung · SSL-verschlüsselt</span>
+          <div class="pay-icons">
+            <span class="pay-icon" title="Visa"><svg width="36" height="22" viewBox="0 0 36 22"><rect width="36" height="22" rx="3" fill="#1A1F71"/><text x="18" y="15" text-anchor="middle" font-family="Inter, sans-serif" font-weight="800" font-size="10" fill="white" font-style="italic">VISA</text></svg></span>
+            <span class="pay-icon" title="Mastercard"><svg width="36" height="22" viewBox="0 0 36 22"><rect width="36" height="22" rx="3" fill="white" stroke="#E2DCCF"/><circle cx="14" cy="11" r="6" fill="#EB001B"/><circle cx="22" cy="11" r="6" fill="#F79E1B"/><path d="M18 6.5a6 6 0 010 9 6 6 0 010-9z" fill="#FF5F00"/></svg></span>
+            <span class="pay-icon" title="American Express"><svg width="36" height="22" viewBox="0 0 36 22"><rect width="36" height="22" rx="3" fill="#2E77BB"/><text x="18" y="13" text-anchor="middle" font-family="Inter, sans-serif" font-weight="800" font-size="6" fill="white">AMERICAN</text><text x="18" y="19" text-anchor="middle" font-family="Inter, sans-serif" font-weight="800" font-size="6" fill="white">EXPRESS</text></svg></span>
+            <span class="pay-icon" title="SEPA-Lastschrift"><svg width="36" height="22" viewBox="0 0 36 22"><rect width="36" height="22" rx="3" fill="#10298E"/><text x="18" y="15" text-anchor="middle" font-family="Inter, sans-serif" font-weight="800" font-size="9" fill="#FFCC00">SEPA</text></svg></span>
+          </div>
+        </div>
+        <div class="pricing__pay-note">Kreditkarte oder SEPA-Lastschrift · Alle Preise zzgl. USt. · Monatliche Abbuchung · 30 Tage Zufriedenheitsgarantie</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== FOOTER ============== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__logo"><img src="assets/logo-white.png" alt="GreenCareers"></div>
+      <div>© 2026 GreenCareers · Der Recruiting-Partner der grünen Branche</div>
+      <div class="footer__links">
+        <a href="https://www.green-careers.de/impressum" target="_blank" rel="noopener">Impressum</a>
+        <a href="https://www.green-careers.de/datenschutz" target="_blank" rel="noopener">Datenschutz</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============== MODAL ============== -->
+  <div class="modal" id="modal" role="dialog" aria-modal="true">
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__card">
+      <button class="modal__close" data-close aria-label="Schließen">✕</button>
+      <div class="modal__eyebrow">Paket konfigurieren</div>
+      <div class="modal__pkg" id="modalPkg">Premium Recruiting-Abo</div>
+
+      <div class="toggle-wrap">
+        <div class="toggle" id="modalToggle">
+          <button class="toggle__btn active" data-term="6m">6 Monate</button>
+          <button class="toggle__btn" data-term="12m">12 Monate <span class="save">−20 %</span></button>
+        </div>
+      </div>
+
+      <div class="modal__price-block">
+        <div class="modal__price-label">Monatlicher Beitrag</div>
+        <div class="modal__price" id="modalPrice">
+          <span class="value">599 €</span>
+          <span class="unit">netto / Monat</span>
+        </div>
+        <div class="modal__total" id="modalTotal"><span>Laufzeit: 6 Monate</span><strong>Gesamt: 3.594 € netto</strong></div>
+      </div>
+
+      <div class="promo">
+        <span class="promo__toggle" id="promoToggle">Rabattcode (optional) <span class="chev">▾</span></span>
+        <div class="promo__body" id="promoBody">
+          <input type="text" class="promo__input" id="promoInput" placeholder="z. B. SALE20" autocomplete="off" spellcheck="false">
+          <button class="promo__apply" id="promoApply">Anwenden</button>
+        </div>
+        <div class="promo__msg" id="promoMsg"></div>
+      </div>
+
+      <button class="btn modal__cta" id="modalCta">
+        Zahlungspflichtig bestellen
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </button>
+      <p class="modal__legal">Sichere Zahlungsabwicklung via Stripe · SSL-verschlüsselt</p>
+    </div>
+  </div>
+
+  <script>
+    /* ============== INDUSTRIES DATA ============== */
+    const INDUSTRIES = {
+      galabau: {
+        name: 'Garten- & Landschaftsbau',
+        role: 'Branche',
+        image: 'assets/branchen/galabau.jpg',
+        journey: {
+          status: 'Sie schalten Stellen auf Indeed, StepStone und Kleinanzeigen. Aufträge stapeln sich, der nächste Vorarbeiter fehlt seit Wochen. Vielleicht hat letzten Monat sogar jemand gekündigt.',
+          problem: 'Klassische Portale liefern Bewerber, die im GaLaBau gar nicht arbeiten wollen. Social-Recruiting-Agenturen verbrennen monatliche Budgets ohne Branchen-Kontext. Zeitarbeit ist teuer und kennt Ihren Stundensatz nicht.',
+          impact: 'Eine offene Fachkraft-Stelle kostet einen GaLaBau-Betrieb schnell mehrere tausend Euro pro Monat — durch nicht angenommene Aufträge, überlastete Kollegen und schleichende Qualitätsverluste auf der Baustelle.',
+          solution: 'GreenCareers ist <strong>der einzige Recruiting-Partner ausschließlich für die grüne Branche</strong>. Wir liefern Vorarbeiter, Maschinisten und Auszubildende, die Ihre Branche kennen — kontinuierlich, mit fester Pipeline.'
+        }
+      },
+      baumschule: {
+        name: 'Baumschule',
+        role: 'Branche',
+        image: 'assets/branchen/baumschule.jpg',
+        journey: {
+          status: 'Saisonkräfte fallen jedes Jahr aus. Im Frühling stehen Verkäufer- und Pflegestellen unbesetzt. Die Stammkundschaft wartet — die Konkurrenz liefert.',
+          problem: 'Stellenportale verstehen den Unterschied zwischen Baumschule und Gartencenter nicht. Bewerbungen kommen von Quereinsteigern ohne grünes Verständnis. Zeitarbeit-Firmen kennen das Saison-Geschäft nicht.',
+          impact: 'Eine offene Stelle in der Hochsaison kostet Umsatz, der nicht aufholbar ist. Drei Wochen ohne Pflanzenpfleger im Quartier hinterlassen einen Sortimentsschaden, der das gesamte Folgejahr beeinflusst.',
+          solution: 'Wir bauen Ihre Bewerber-Pipeline <strong>vor</strong> der Saison. Unsere Datenbank kennt Baumschul-Erfahrung, Sortimentskenntnis und Saisonbereitschaft. Sie haben die Leute, bevor die Saison startet.'
+        }
+      },
+      pflanzenhandel: {
+        name: 'Pflanzen- & Gartencenter',
+        role: 'Branche',
+        image: 'assets/branchen/pflanzenhandel.jpg',
+        journey: {
+          status: 'Sie suchen Verkäufer und Gartencenter-Berater. Die Bewerbungen kommen aus dem Einzelhandel — ohne Pflanzenwissen, ohne Beratungskompetenz.',
+          problem: 'Stellenportale liefern Massen-Bewerbungen aus Drogeriemarkt, Textil und Lebensmittel. Beratungskompetenz für Pflanzen lässt sich nicht in zwei Wochen anlernen.',
+          impact: 'Ein nicht-beratungsfähiger Verkäufer im Gartencenter kostet messbar Warenkorb. In der Hauptsaison summieren sich verlorene Beratungsgespräche schnell zu Tagesumsätzen, die ein Jahr lang fehlen.',
+          solution: 'GreenCareers filtert Bewerber mit echter Pflanzenkenntnis: Floristen, Quereinsteiger aus Baumschulen, Hobbygärtner mit Verkaufstalent. <strong>Saubere Vorqualifizierung, bevor Sie das erste Gespräch führen.</strong>'
+        }
+      },
+      landwirtschaft: {
+        name: 'Landwirtschaft',
+        role: 'Branche',
+        image: 'assets/branchen/landwirtschaft.jpg',
+        journey: {
+          status: 'Maschinenführer, Schlepperfahrer, Tierpfleger — der Markt ist leer. Junge Generation will nicht aufs Land. Bauernverbands-Anzeigen versanden im Bezirksblatt.',
+          problem: 'Klassische Recruiting-Kanäle haben keinen Zugriff auf die landwirtschaftliche Zielgruppe. Social-Media-Agenturen sprechen Städter an. Ihre Stelle versteht niemand.',
+          impact: 'Eine ausgefallene Schicht im Stall oder zur Ernte ist kaum ersetzbar. Bei verderblicher Ware können Verluste innerhalb weniger Tage in den fünfstelligen Bereich steigen.',
+          solution: 'Wir spielen Ihre Stellen direkt im ländlichen Raum aus, mit Targeting auf landwirtschaftliche Berufsbilder. <strong>Bewerber, die wissen, was 4 Uhr morgens im Stall bedeutet — keine Quereinsteiger aus der Stadt.</strong>'
+        }
+      },
+      tiefbau: {
+        name: 'Straßen- & Tiefbau',
+        role: 'Branche',
+        image: 'assets/branchen/tiefbau.jpg',
+        journey: {
+          status: 'Sie suchen Tiefbauer, Polier und Maschinisten. Die Aufträge sind voll, die Baustellen werden langsamer. Vielleicht ist letzte Woche sogar ein Polier zur Konkurrenz gewechselt.',
+          problem: 'Bauunternehmen konkurrieren über Lohn — und verlieren trotzdem. Stellenportale liefern keine Polier-Kandidaten. Ausländische Fachkräfte bleiben hängen bei Sprache, Anerkennung, Wohnung.',
+          impact: 'Stillstand auf der Baustelle kostet allein an Maschinenkosten täglich vierstellig. Verzugsstrafen kommen on top. Ein fehlender Polier kann ein gesamtes Bauvorhaben blockieren.',
+          solution: 'GreenCareers spricht <strong>aktive Tiefbauer im DACH-Raum direkt an</strong> — über Targeting, das Indeed nicht hat. Wir liefern Bewerber, die Erfahrung mitbringen, nicht nur Lebensläufe.'
+        }
+      },
+    };
+
+    const INDUSTRY_ICONS = {
+      galabau: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c1.25-.987 2.27-1.975 3.9-2.32"/><path d="M2 9c4 0 6.92 1.39 10 4 3.08-2.61 6-4 10-4-2.5 8-7 10-10 10S4.5 17 2 9z"/></svg>`,
+      baumschule: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M5 7l7 7 7-7M5 14l7 7 7-7"/></svg>`,
+      pflanzenhandel: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12M4 12h16l-2 8H6l-2-8z"/><path d="M12 12c0-4 2-6 5-6M12 12c0-4-2-6-5-6"/></svg>`,
+      landwirtschaft: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="17" r="3"/><circle cx="17" cy="17" r="3"/><path d="M3 12V8h13l2 5"/></svg>`,
+      tiefbau: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="M5 20V8h14v12"/><path d="M9 8V4h6v4"/></svg>`,
+    };
+
+    /* ============== PACKAGES ============== */
+    const PACKAGES = {
+      smart: {
+        name: 'Smart',
+        subtitle: 'Für regional aktive Betriebe',
+        price6m: 399,
+        price12m: 319,
+        featLabel: 'Im Abo enthalten',
+        features: [
+          'Zugang zu 30.000+ aktiven Fachkräften',
+          'Visuelle Stellenanzeige mit Bildern und Videos',
+          'KI-Filterung für passgenaue Bewerbungen',
+          'Bewerbungen per E-Mail und WhatsApp',
+          '30-Tage-Zufriedenheitsgarantie',
+          'Fester Ansprechpartner',
+        ],
+        paymentLinks: {
+          '6m':  'https://buy.stripe.com/PLACEHOLDER_SMART_6M',
+          '12m': 'https://buy.stripe.com/PLACEHOLDER_SMART_12M',
+        },
+      },
+      premium: {
+        name: 'Premium',
+        subtitle: 'Für stark wachsende Unternehmen',
+        price6m: 599,
+        price12m: 479,
+        badge: 'Empfehlung',
+        featLabel: 'Alles aus Smart, plus',
+        features: [
+          'Ausspielung auf allen Social-Media-Kanälen',
+          'Premium-Platzierung — 3-fach höhere Sichtbarkeit',
+          'Premium-Darstellung der Stellenanzeige',
+          'Karriereseite-Integration',
+          'Erweitertes Bewerber-Targeting (DACH-weit)',
+        ],
+        paymentLinks: {
+          '6m':  'https://buy.stripe.com/PLACEHOLDER_PREMIUM_6M',
+          '12m': 'https://buy.stripe.com/PLACEHOLDER_PREMIUM_12M',
+        },
+      },
+      exzellenz: {
+        name: 'Exzellenz',
+        subtitle: 'Maximale Reichweite &amp; Vorqualifizierung',
+        price6m: 799,
+        price12m: 639,
+        featLabel: 'Alles aus Premium, plus',
+        features: [
+          'Direkte Bewerberansprache auf Premium-Karrierenetzwerken',
+          'Kooperation mit branchenrelevanten Recruiting-Partnern',
+          'Vorqualifizierung aller Bewerber',
+          'Persönlicher Senior-Recruiter als Ansprechpartner',
+          'Branchen-Reichweite über GreenCareers-Community',
+        ],
+        paymentLinks: {
+          '6m':  'https://buy.stripe.com/PLACEHOLDER_EXZELLENZ_6M',
+          '12m': 'https://buy.stripe.com/PLACEHOLDER_EXZELLENZ_12M',
+        },
+      },
+    };
+    const PROMO_CODES = ['SALE10', 'SALE20', 'SALE30', 'SALE40', 'SALE50'];
+
+    /* HELPERS */
+    const fmtPrice = (n) => {
+      const r = Math.round(n * 100) / 100;
+      if (Number.isInteger(r)) return r.toLocaleString('de-DE');
+      return r.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    };
+    const monthsForTerm = (t) => t === '12m' ? 12 : 6;
+    const applyPromo = (price, code) => price * (1 - parseInt(code.replace('SALE',''),10)/100);
+
+    /* STATE */
+    let currentTerm = '6m';
+    let modalPkgKey = null;
+    let modalTerm = '6m';
+    let modalPromo = null;
+    let currentIndustry = 'galabau';
+
+    /* ============== RENDER CUSTOMERS MARQUEE ============== */
+    const CUSTOMERS = [
+      ['pabst','Carl Pabst'],['hugenschmidt','Hugenschmidt Gartenbau'],['falz','Gartenbau Falz'],
+      ['jensen','Jensen Landschaftsarchitekten'],['jakober','Gärten durch Jakober'],['bechstein','Bechstein'],
+      ['epp','Epp'],['vogt','Erwin Vogt'],['feth','Florian Feth'],
+      ['svenkeim','Sven Keim'],['eurofleurs','Eurofleurs'],['stanze','Stanze'],
+      ['hiedl','Hiedl'],['huben','Huben'],['mauer','Mauer'],['meier','Meier'],
+      ['erlbacher','Erlbacher'],['poetschke','Poetschke'],['nussbaumer','Nussbaumer'],
+      ['samen-schmitz','Samen Schmitz'],['sander','Sander'],['schroeder','Schröder'],
+      ['weisenfeld','Weisenfeld'],['august-luedemann','August Lüdemann'],['groebner','Gröbner'],
+      ['gruene-daecher','Grüne Dächer'],['herold','Herold']
+    ];
+    function renderCustomers() {
+      const html = CUSTOMERS.map(([file, label]) => `<img src="assets/customers/${file}.jpg" alt="${label}" loading="lazy">`).join('');
+      document.getElementById('cust1').innerHTML = html;
+      document.getElementById('cust2').innerHTML = html;
+    }
+    renderCustomers();
+
+    /* ============== RENDER INDUSTRIES ============== */
+    const industryTabs = document.getElementById('industryTabs');
+    const industryImage = document.getElementById('industryImage');
+    const industryName = document.getElementById('industryName');
+    const industryRole = document.getElementById('industryRole');
+    const industryContent = document.getElementById('industryContent');
+
+    function renderIndustryTabs() {
+      industryTabs.innerHTML = Object.entries(INDUSTRIES).map(([key, ind]) => `
+        <button class="industry-tab ${key === currentIndustry ? 'active' : ''}" data-industry="${key}">
+          <span class="ico">${INDUSTRY_ICONS[key] || ''}</span>
+          ${ind.name}
+        </button>
+      `).join('');
+      industryTabs.querySelectorAll('.industry-tab').forEach(btn => {
+        btn.addEventListener('click', () => selectIndustry(btn.dataset.industry));
+      });
+    }
+    function renderIndustryPanel() {
+      const ind = INDUSTRIES[currentIndustry];
+      industryImage.style.backgroundImage = `url("${ind.image}")`;
+      industryName.innerHTML = ind.name;
+      industryRole.textContent = ind.role;
+      industryContent.innerHTML = `
+        <div class="ic-row">
+          <div class="ic-row__head">
+            <span class="ic-row__step">1</span>
+            <span class="ic-row__label">Status quo</span>
+          </div>
+          <div class="ic-row__text">${ind.journey.status}</div>
+        </div>
+        <div class="ic-row">
+          <div class="ic-row__head">
+            <span class="ic-row__step">2</span>
+            <span class="ic-row__label">Das Problem</span>
+          </div>
+          <div class="ic-row__text">${ind.journey.problem}</div>
+        </div>
+        <div class="ic-row">
+          <div class="ic-row__head">
+            <span class="ic-row__step">3</span>
+            <span class="ic-row__label">Die Folgen</span>
+          </div>
+          <div class="ic-row__text">${ind.journey.impact}</div>
+        </div>
+        <div class="ic-row ic-row--solution">
+          <div class="ic-row__head">
+            <span class="ic-row__step">4</span>
+            <span class="ic-row__label">Unsere Lösung</span>
+          </div>
+          <div class="ic-row__text">${ind.journey.solution}</div>
+        </div>
+      `;
+    }
+    function selectIndustry(key) {
+      if (key === currentIndustry) return;
+      currentIndustry = key;
+      industryTabs.querySelectorAll('.industry-tab').forEach(b => b.classList.toggle('active', b.dataset.industry === key));
+      // fade transition
+      const panel = document.querySelectorAll('.ic-row');
+      panel.forEach(p => p.classList.add('panel-fade-out'));
+      industryImage.classList.add('panel-fade-out');
+      setTimeout(() => {
+        renderIndustryPanel();
+        industryImage.classList.remove('panel-fade-out');
+      }, 200);
+    }
+    renderIndustryTabs();
+    renderIndustryPanel();
+
+    /* ============== CASES ============== */
+    // Echte Google-Bewertungen, Originalwortlaut.
+    const CASES = [
+      { img:'05-tobias.jpg', industry:'Garten- & Landschaftsbau', name:'Tobias Knauf', role:'Inhaber · GaLaBau-Betrieb', stars:5, when:'vor einem Monat', quote:'Nach kurzer Zeit hatte ich mehr als 20 Bewerber auf meine ausgeschriebene Stelle im Garten- und Landschaftsbau. Ich kann GreenCareers jedem Arbeitgeber und Arbeitnehmer nur empfehlen.', before:'Stelle offen', after:'20+ Bewerber' },
+      { img:'03-daniela.jpg', industry:'Garten- & Landschaftsbau', name:'Nora S.', role:'Geschäftsführung · Kleinunternehmen', stars:5, when:'vor einem Monat', quote:'Wir sind wirklich begeistert von der Zusammenarbeit. Als kleines Unternehmen kann die Suche nach passenden Mitarbeitern ganz schön zeit- und nervenraubend sein, aber dank GreenCareers hat es ganz unkompliziert geklappt.', before:'Nervenraubende Suche', after:'Unkomplizierte Einstellung' },
+      { img:'02-markus.jpg', industry:'Garten- & Landschaftsbau', name:'Boas Diehl', role:'Inhaber · GaLaBau', stars:5, when:'vor einem Monat', quote:'Unkomplizierte Plattform, bei der es einen guten Rücklauf von mehreren Bewerbern pro Tag gegeben hat. Die Kommunikation der Mitarbeiter erleichtert die Zusammenarbeit!', before:'Bewerber-Mangel', after:'Mehrere Bewerber / Tag' },
+      { img:'11-florian.jpg', industry:'Baumschule', name:'Daniel Instenberg', role:'Inhaber · Baumschule', stars:5, when:'vor 10 Monaten', quote:'Wir haben innerhalb von 3 Wochen einen Baumschulgärtner eingestellt. Ohne das Team von GreenCareers hätten wir wahrscheinlich noch Monate gesucht.', before:'Monate Suche befürchtet', after:'3 Wochen · Einstellung' },
+      { img:'04-stefan.jpg', industry:'Garten- & Landschaftsbau', name:'L K', role:'Geschäftsführung', stars:5, when:'vor einem Jahr', quote:'Die Beratung von Julian war super, richtig freundlich und direkt auf unseren Betrieb abgestimmt. Ergebnis: eine perfekte neue Mitarbeiterin.', before:'Passgenaue Suche nötig', after:'Perfekte Mitarbeiterin' },
+      { img:'06-andreas.jpg', industry:'Garten- & Landschaftsbau', name:'Alexander Hildebrand', role:'Google Local Guide · 24 Rezensionen', stars:5, when:'vor 2 Monaten', quote:'Die Zusammenarbeit mit GreenCareers war insgesamt sehr positiv. Das Team ist freundlich, kompetent und engagiert. Besonders angenehm war die offene und wertschätzende Kommunikation.', before:'Suche nach Partner', after:'Verlässliche Zusammenarbeit' },
+      { img:'14-heinrich.jpg', industry:'Landwirtschaft', name:'Peter Sublimation', role:'Google Local Guide · Agrarbetrieb', stars:5, when:'vor 11 Monaten', quote:'Super Plattform für den Agrarbereich. Wir konnten zwei Traktoristen einstellen, wo wir sonst leer ausgegangen wären.', before:'Leer ausgegangen', after:'2 Traktoristen' },
+      { img:'15-thomas.jpg', industry:'Landwirtschaft', name:'Matze', role:'Landwirt', stars:5, when:'vor einem Jahr', quote:'Als Landwirt schön zu sehen, dass es endlich mal ein Portal gibt, wo nicht nur Bürostellen drin sind. GreenCareers hat geliefert. Zwei Bewerbungsgespräche vereinbart und es war ultra einfach.', before:'Nur Bürostellen woanders', after:'2 Gespräche · ultra einfach' },
+      { img:'08-jens.jpg', industry:'Garten- & Landschaftsbau', name:'L. Quick', role:'GaLaBau-Betrieb', stars:5, when:'vor einem Jahr', quote:'Ich kann GreenCareers auf jeden Fall weiterempfehlen. Wir haben für unseren GaLaBau-Betrieb 1 Vorarbeiter und 1 Facharbeiter hierüber finden können! Bis die ersten Bewerbungen kamen, hat es nur ein paar Tage gedauert.', before:'2 Stellen offen', after:'Beide besetzt · in Tagen' },
+      { img:'09-marcel.jpg', industry:'Garten- & Landschaftsbau', name:'Fabian Podzuweit', role:'Google Local Guide · 35 Rezensionen', stars:5, when:'vor einem Jahr', quote:'Ehrlich gesagt war ich skeptisch, weil bei anderen Stellenportalen selten was bei rumkommt. Aber diesmal passte die Qualität echt gut. Stellenanzeige läuft seit 3 Wochen und wir haben 8 Bewerbungen bekommen, davon 3 wirklich brauchbare.', before:'Andere Portale leer', after:'3 brauchbare in 3 Wochen' },
+      { img:'07-lukas.jpg', industry:'Straßen- & Tiefbau', name:'Olaf Behrendt', role:'Inhaber', stars:5, when:'vor einem Jahr', quote:'Danke an Herrn Quick für die nette Unterstützung bei der Anzeigenschaltung. Endlich mal einer, der versteht, was wir suchen.', before:'Niemand versteht die Suche', after:'Treffsicher betreut' },
+      { img:'01-carsten.jpg', industry:'Garten- & Landschaftsbau', name:'Viktor Kolejak', role:'Inhaber · kleiner GaLaBau-Betrieb', stars:5, when:'vor 11 Monaten', quote:'Haben für unseren kleinen GaLaBau-Betrieb echt gute Leute über GreenCareers gefunden. Ging viel schneller als über die üblichen Seiten, wo sonst gar nix kommt.', before:'Übliche Seiten leer', after:'Schnell · gute Leute' },
+      { img:'13-petra.jpg', industry:'Pflanzen- & Gartencenter', name:'Mailyn', role:'Geschäftsführung', stars:5, when:'vor einem Jahr', quote:'Waren überrascht, wie zielgerichtet die Plattform Bewerber anspricht. Viel besser als unsere bisherigen Versuche über andere Portale.', before:'Bisherige Versuche', after:'Zielgerichteter Rücklauf' },
+      { img:'10-birgit.jpg', industry:'Garten- & Landschaftsbau', name:'Julia H.', role:'Personalverantwortlich · GaLaBau', stars:5, when:'vor einem Jahr', quote:'Im Bereich Garten- und Landschaftsbau bekommt man über GreenCareers wirklich Leute, die Ahnung haben und nicht nur Lebensläufe kopieren.', before:'Lebensläufe ohne Substanz', after:'Bewerber mit Ahnung' },
+      { img:'12-sarah.jpg', industry:'Garten- & Landschaftsbau', name:'Ryan Torok', role:'Geschäftsführung', stars:5, when:'vor 10 Monaten', quote:'Anzeigenaufgabe war unkompliziert und GreenCareers hat genau die Bewerber erreicht, die wir wollten. Keine Quereinsteiger, die keine Ahnung haben.', before:'Quereinsteiger ohne Plan', after:'Passende Bewerber' },
+    ];
+    function casesStarsHtml(n) {
+      const full = Math.floor(n);
+      const half = n % 1 >= 0.5;
+      let html = '';
+      for (let i=0; i<full; i++) html += '★';
+      if (half) html += '<span class="case-card__star-half">★</span>';
+      const empty = 5 - full - (half ? 1 : 0);
+      for (let i=0; i<empty; i++) html += '<span class="case-card__star-half">★</span>';
+      return html;
+    }
+    const AVATAR_COLORS = ['#3F8E3F','#2E77BB','#C04D2A','#7B5BAB','#1E7E7E','#B8860B','#8B4A8B','#4A6FB8','#5C8C2F','#A0501F','#3F7FA0','#7A4A36','#8E6B3F','#5E8C5E','#A04A6B'];
+    function initials(name) {
+      const parts = name.replace(/[.,]/g,'').split(/\s+/).filter(Boolean);
+      if (!parts.length) return '?';
+      if (parts.length === 1) return parts[0].charAt(0).toUpperCase();
+      return (parts[0].charAt(0) + parts[parts.length-1].charAt(0)).toUpperCase();
+    }
+    function avatarColor(name) {
+      let h = 0;
+      for (let i=0; i<name.length; i++) h = (h*31 + name.charCodeAt(i)) >>> 0;
+      return AVATAR_COLORS[h % AVATAR_COLORS.length];
+    }
+    function renderCases() {
+      const googleSvg = `<svg class="case-card__google-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Google Bewertung"><path d="M22.501 12.233c0-.737-.06-1.475-.184-2.213H12.218v4.184h5.776a4.875 4.875 0 01-2.139 3.241v2.7h3.466c2.027-1.86 3.18-4.605 3.18-7.912z" fill="#4285F4"/><path d="M12.214 22.5c2.91 0 5.357-.957 7.143-2.605l-3.466-2.7c-.971.66-2.213 1.046-3.677 1.046-2.817 0-5.207-1.9-6.063-4.451H2.564v2.781A10.785 10.785 0 0012.214 22.5z" fill="#34A853"/><path d="M6.146 13.79a6.486 6.486 0 010-4.143V6.867H2.564a10.794 10.794 0 000 9.703l3.582-2.78z" fill="#FBBC04"/><path d="M12.214 5.183c1.541-.025 3.03.555 4.143 1.616l3.067-3.066A10.36 10.36 0 0012.214 1c-4.122 0-7.892 2.331-9.65 6.013l3.582 2.78c.852-2.552 3.243-4.61 6.068-4.61z" fill="#EA4335"/></svg>`;
+      const html = CASES.map(c => `
+        <div class="case-card">
+          <div class="case-card__head">
+            <div class="case-card__avatar" style="background:${avatarColor(c.name)};">${initials(c.name)}</div>
+            <div class="case-card__head-text">
+              <div class="case-card__name">${c.name}</div>
+              <div class="case-card__role">${c.role}</div>
+              <span class="case-card__industry">${c.industry}</span>
+            </div>
+            ${googleSvg}
+          </div>
+          <div class="case-card__body">
+            <div class="case-card__stars-row">
+              <div class="case-card__stars">${casesStarsHtml(c.stars)}</div>
+              ${c.when ? `<span class="case-card__when">${c.when}</span>` : ''}
+            </div>
+            <div class="case-card__quote">${c.quote}</div>
+            <div class="case-card__metrics">
+              <div class="case-card__metric">
+                <div class="lbl">Vorher</div>
+                <div class="val">${c.before}</div>
+              </div>
+              <div class="case-card__metrics-arrow">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+              </div>
+              <div class="case-card__metric case-card__metric--after">
+                <div class="lbl">Nachher</div>
+                <div class="val">${c.after}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `).join('');
+      document.getElementById('casesTrack').innerHTML = html;
+      document.getElementById('casesTotal').textContent = CASES.length;
+      renderCasesDots();
+      updateCasesPosition();
+    }
+    let casesIndex = 0;
+    function casesPerView() {
+      if (window.innerWidth < 640) return 1;
+      if (window.innerWidth < 1000) return 2;
+      return 3;
+    }
+    function casesMaxIndex() { return Math.max(0, CASES.length - casesPerView()); }
+    function updateCasesPosition() {
+      const track = document.getElementById('casesTrack');
+      const viewport = track.parentElement;
+      const cardW = viewport.clientWidth / casesPerView();
+      track.style.transform = `translateX(${-casesIndex * cardW}px)`;
+      document.getElementById('casesCurrent').textContent = Math.min(casesIndex + 1, CASES.length);
+      document.getElementById('casesPrev').disabled = casesIndex === 0;
+      document.getElementById('casesNext').disabled = casesIndex >= casesMaxIndex();
+      updateCasesDots();
+    }
+    function renderCasesDots() {
+      const dotsHtml = CASES.map((_, i) => `<span class="cases__dot" data-i="${i}"></span>`).join('');
+      const wrap = document.getElementById('casesDots');
+      wrap.innerHTML = dotsHtml;
+      wrap.querySelectorAll('.cases__dot').forEach(d => d.addEventListener('click', () => {
+        casesIndex = Math.min(parseInt(d.dataset.i,10), casesMaxIndex());
+        updateCasesPosition();
+      }));
+    }
+    function updateCasesDots() {
+      document.querySelectorAll('.cases__dot').forEach((d, i) => d.classList.toggle('active', i === casesIndex));
+    }
+    document.getElementById('casesPrev').addEventListener('click', () => {
+      casesIndex = Math.max(0, casesIndex - 1);
+      updateCasesPosition();
+    });
+    document.getElementById('casesNext').addEventListener('click', () => {
+      casesIndex = Math.min(casesMaxIndex(), casesIndex + 1);
+      updateCasesPosition();
+    });
+    window.addEventListener('resize', updateCasesPosition);
+    renderCases();
+
+    /* ============== HOW STEPS — NEUKUNDE / BESTAND ============== */
+    const HOW_STEPS = {
+      neukunde: [
+        {
+          num: 'SCHRITT 01',
+          title: 'Stelle anlegen — in 10 Minuten',
+          text: 'Sie öffnen unser Stellen-Formular: Position, Standort, Wunschkriterien, ein paar Bilder Ihres Betriebs. Mehr brauchen wir nicht. Wir bauen daraus eine professionelle, visuell starke Stellenanzeige.',
+          time: '⏱ 10 Min · Einmalig',
+          existing: false,
+        },
+        {
+          num: 'SCHRITT 02',
+          title: 'Wir starten die Suche — am selben Tag',
+          text: 'Ihre Anzeige geht live. Targeting auf Branche und Region ist gesetzt. Wir spielen auf Social Media, Karrierenetzwerken und in unserem Bewerber-Pool aus.',
+          time: '✓ Live ab Tag 1',
+          existing: false,
+          bonus: 'Inkl. 2 Wochen Bewerber-Boost zum Start',
+        },
+        {
+          num: 'SCHRITT 03',
+          title: 'Bewerber kommen — automatisch',
+          text: 'Ab Tag 3 erhalten Sie vorqualifizierte Bewerbungen per E-Mail und WhatsApp. KI-Vorfilterung, Pflege durch unseren Pool, fester Ansprechpartner an Ihrer Seite.',
+          time: '📩 Ab Tag 3 · Laufend',
+          existing: false,
+        },
+      ],
+      bestand: [
+        {
+          num: 'SCHRITT 01',
+          title: 'Stelle anlegen',
+          text: 'Sie haben bereits mit GreenCareers gearbeitet. Wenn Sie die gleiche Position erneut suchen, übernehmen wir Ihre bestehende Anzeige. Dieser Schritt entfällt komplett für Sie.',
+          time: '✓ Bereits erledigt',
+          existing: true,
+          strike: true,
+        },
+        {
+          num: 'SCHRITT 01',
+          title: 'Suche reaktivieren — heute noch',
+          text: 'Sie schließen das Abo ab und wir reaktivieren die bestehende Stellenanzeige inklusive Ihres Brandings, Bewerber-Targeting und Pool-Zugang. Live noch am selben Tag.',
+          time: '⏱ Live in 2 Stunden',
+          existing: false,
+          bonus: 'Inkl. 2 Wochen Bewerber-Boost zum Re-Start',
+        },
+        {
+          num: 'SCHRITT 02',
+          title: 'Bewerber kommen — automatisch',
+          text: 'Sie kennen den Prozess: vorqualifizierte Bewerbungen per E-Mail und WhatsApp, fester Ansprechpartner. Diesmal mit kontinuierlichem Strom statt einmaliger Anzeige.',
+          time: '📩 Ab Tag 1 · Laufend',
+          existing: false,
+        },
+      ],
+    };
+    function renderHowSteps(mode) {
+      const steps = HOW_STEPS[mode];
+      const html = steps.map(s => `
+        <div class="step reveal ${s.existing ? 'step--existing' : ''}">
+          <div class="step__num">${s.num}</div>
+          <div class="step__title ${s.strike ? 'step__strike' : ''}">${s.title}</div>
+          <div class="step__text">${s.text}</div>
+          <div class="step__time">${s.time}</div>
+          ${s.bonus ? `<div class="step__bonus">${s.bonus}</div>` : ''}
+        </div>
+      `).join('');
+      document.getElementById('howSteps').innerHTML = html;
+      document.querySelectorAll('#howSteps .reveal').forEach(el => { observer.observe(el); el.classList.add('visible'); });
+    }
+    document.querySelectorAll('#howToggle button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#howToggle button').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        renderHowSteps(btn.dataset.how);
+      });
+    });
+
+    /* ============== RENDER PRICING ============== */
+    const pkgGrid = document.getElementById('pkgGrid');
+    function renderCards() {
+      pkgGrid.innerHTML = '';
+      Object.entries(PACKAGES).forEach(([key, p], idx) => {
+        const card = document.createElement('div');
+        card.className = 'card reveal' + (p.badge ? ' card--featured' : '');
+        card.style.transitionDelay = (idx * 0.08) + 's';
+        const price = currentTerm === '6m' ? p.price6m : p.price12m;
+        card.innerHTML = `
+          ${p.badge ? `<div class="card__badge">${p.badge}</div>` : ''}
+          <div class="card__name">${p.name}</div>
+          <div class="card__sub">${p.subtitle}</div>
+          <div class="card__price-wrap">
+            <div class="card__price">
+              <span class="amount">${fmtPrice(price)}</span>
+              <span class="currency">€</span>
+            </div>
+            <div class="card__price-sub">pro Monat netto · ${monthsForTerm(currentTerm)} Monate Laufzeit</div>
+          </div>
+          <div class="card__divider"></div>
+          <div class="card__feat-label">${p.featLabel || 'Im Paket enthalten'}</div>
+          <ul class="card__features">
+            ${p.features.map(f => `<li>${f}</li>`).join('')}
+          </ul>
+          <button class="btn card__cta" data-pkg="${key}">
+            ${p.name} wählen
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </button>
+        `;
+        pkgGrid.appendChild(card);
+      });
+      pkgGrid.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+      pkgGrid.querySelectorAll('.card__cta').forEach(btn => btn.addEventListener('click', () => openModal(btn.dataset.pkg)));
+    }
+
+    /* TOGGLE */
+    document.querySelectorAll('.pricing .toggle__btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.pricing .toggle__btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentTerm = btn.dataset.term;
+        renderCards();
+        pkgGrid.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+      });
+    });
+
+    /* ============== MODAL ============== */
+    const modal = document.getElementById('modal');
+    const modalPkg = document.getElementById('modalPkg');
+    const modalPrice = document.getElementById('modalPrice');
+    const modalTotal = document.getElementById('modalTotal');
+    const modalCta = document.getElementById('modalCta');
+    const modalToggle = document.getElementById('modalToggle');
+    const promoToggle = document.getElementById('promoToggle');
+    const promoBody = document.getElementById('promoBody');
+    const promoInput = document.getElementById('promoInput');
+    const promoApply = document.getElementById('promoApply');
+    const promoMsg = document.getElementById('promoMsg');
+
+    function openModal(pkgKey) {
+      modalPkgKey = pkgKey;
+      modalTerm = currentTerm;
+      modalPromo = null;
+      promoBody.classList.remove('open');
+      promoToggle.classList.remove('open');
+      promoInput.value = '';
+      promoMsg.className = 'promo__msg';
+      promoMsg.textContent = '';
+      modalToggle.querySelectorAll('.toggle__btn').forEach(b => b.classList.toggle('active', b.dataset.term === modalTerm));
+      updateModal();
+      modal.classList.add('open');
+      document.body.classList.add('no-scroll');
+    }
+    function closeModal() {
+      modal.classList.remove('open');
+      document.body.classList.remove('no-scroll');
+    }
+    modal.querySelectorAll('[data-close]').forEach(el => el.addEventListener('click', closeModal));
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modal.classList.contains('open')) closeModal(); });
+
+    function updateModal() {
+      const p = PACKAGES[modalPkgKey];
+      const base = modalTerm === '6m' ? p.price6m : p.price12m;
+      const final = modalPromo ? applyPromo(base, modalPromo) : base;
+      const months = monthsForTerm(modalTerm);
+      const total = final * months;
+      modalPkg.textContent = `${p.name} Recruiting-Abo`;
+      const strike = modalPromo ? `<span class="strike">${fmtPrice(base)} €</span>` : '';
+      modalPrice.innerHTML = `${strike}<span class="value">${fmtPrice(final)} €</span><span class="unit">netto / Monat</span>`;
+      modalTotal.innerHTML = `<span>Laufzeit: ${months} Monate</span><strong>Gesamt: ${fmtPrice(total)} € netto</strong>`;
+    }
+
+    modalToggle.querySelectorAll('.toggle__btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        modalToggle.querySelectorAll('.toggle__btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        modalTerm = btn.dataset.term;
+        document.querySelectorAll('.pricing .toggle__btn').forEach(b => b.classList.toggle('active', b.dataset.term === modalTerm));
+        currentTerm = modalTerm;
+        renderCards();
+        pkgGrid.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+        updateModal();
+      });
+    });
+
+    promoToggle.addEventListener('click', () => {
+      const isOpen = promoBody.classList.toggle('open');
+      promoToggle.classList.toggle('open', isOpen);
+      if (isOpen) setTimeout(() => promoInput.focus(), 100);
+    });
+
+    function tryApplyPromo() {
+      const raw = promoInput.value.trim().toUpperCase();
+      if (!raw) { modalPromo = null; promoMsg.className='promo__msg'; promoMsg.textContent=''; updateModal(); return; }
+      if (PROMO_CODES.includes(raw)) {
+        modalPromo = raw;
+        const pct = parseInt(raw.replace('SALE',''),10);
+        promoMsg.className = 'promo__msg ok';
+        promoMsg.textContent = `✓ −${pct} % Rabatt angewendet`;
+      } else {
+        modalPromo = null;
+        promoMsg.className = 'promo__msg err';
+        promoMsg.textContent = '✕ Code ungültig';
+      }
+      updateModal();
+    }
+    promoApply.addEventListener('click', tryApplyPromo);
+    promoInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); tryApplyPromo(); } });
+
+    modalCta.addEventListener('click', () => {
+      const p = PACKAGES[modalPkgKey];
+      const url = p.paymentLinks[modalTerm];
+      const final = modalPromo ? `${url}?prefilled_promo_code=${modalPromo}` : url;
+      window.location.href = final;
+    });
+
+    /* NAV SCROLL */
+    const nav = document.getElementById('nav');
+    const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 30);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    /* REVEAL */
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          if (e.target.classList.contains('cases__summary')) {
+            e.target.querySelectorAll('.cs-bar__fill').forEach(b => { b.style.width = (b.dataset.fill || 0) + '%'; });
+          }
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    renderCards();
+    renderHowSteps('neukunde');
+  </script>
+</body>
+</html>
