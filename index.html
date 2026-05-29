@@ -1682,6 +1682,48 @@
     .promo__msg.err { display: block; color: #c64545; }
 
     .modal__cta { width: 100%; padding: 17px 24px; font-size: 15px; border-radius: var(--r-pill); }
+    .modal__terms {
+      display: flex; gap: 10px;
+      align-items: flex-start;
+      margin-bottom: 18px;
+      padding: 12px 14px;
+      background: var(--cream);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.2s ease;
+    }
+    .modal__terms:hover { border-color: var(--green-deep); background: rgba(0,210,97,0.04); }
+    .modal__terms input[type="checkbox"] {
+      flex-shrink: 0;
+      width: 18px; height: 18px;
+      margin-top: 1px;
+      accent-color: var(--green);
+      cursor: pointer;
+    }
+    .modal__terms-label {
+      font-size: 13px;
+      color: var(--ink-soft);
+      line-height: 1.45;
+    }
+    .modal__terms-label a {
+      color: var(--green-deep);
+      font-weight: 600;
+      text-decoration: underline;
+    }
+    .modal__terms-label a:hover { color: var(--moss-2); }
+    .modal__cta:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+      transform: none !important;
+      filter: grayscale(0.4);
+    }
+    .modal__cta:disabled:hover {
+      transform: none !important;
+      box-shadow: var(--shadow-green) !important;
+      background: var(--green) !important;
+    }
     .modal__legal {
       margin-top: 14px;
       font-size: 11.5px;
@@ -2107,11 +2149,18 @@
         <div class="promo__msg" id="promoMsg"></div>
       </div>
 
-      <button class="btn modal__cta" id="modalCta">
+      <label class="modal__terms" for="modalTerms">
+        <input type="checkbox" id="modalTerms">
+        <span class="modal__terms-label">
+          Ich akzeptiere die <a href="https://www.green-careers.de/agb" target="_blank" rel="noopener">AGB</a> und <a href="https://www.green-careers.de/datenschutz" target="_blank" rel="noopener">Datenschutzerklärung</a> von GreenCareers.
+        </span>
+      </label>
+
+      <button class="btn modal__cta" id="modalCta" disabled>
         Zahlungspflichtig bestellen
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
       </button>
-      <p class="modal__legal">Sichere Zahlungsabwicklung via Stripe · SSL-verschlüsselt</p>
+      <p class="modal__legal">Sichere Zahlungsabwicklung · SSL-verschlüsselt</p>
     </div>
   </div>
 
@@ -2187,7 +2236,7 @@
     const PACKAGES = {
       smart: {
         name: 'Smart',
-        subtitle: 'Für regional aktive Betriebe',
+        subtitle: 'Für einfache und saisonale Stellen (z. B. Helfer, Saisonarbeiter)',
         price6m: 399,
         price12m: 319,
         featLabel: 'Im Abo enthalten',
@@ -2206,7 +2255,7 @@
       },
       premium: {
         name: 'Premium',
-        subtitle: 'Für stark wachsende Unternehmen',
+        subtitle: 'Für qualifizierte Stellen (z. B. Facharbeiter, Vorarbeiter)',
         price6m: 599,
         price12m: 479,
         badge: 'Empfehlung',
@@ -2225,7 +2274,7 @@
       },
       exzellenz: {
         name: 'Exzellenz',
-        subtitle: 'Maximale Reichweite &amp; Vorqualifizierung',
+        subtitle: 'Für hochqualifizierte Stellen (z. B. Bauleiter, Kalkulator, Landschaftsarchitekt)',
         price6m: 799,
         price12m: 639,
         featLabel: 'Alles aus Premium, plus',
@@ -2614,6 +2663,12 @@
       promoMsg.className = 'promo__msg';
       promoMsg.textContent = '';
       modalToggle.querySelectorAll('.toggle__btn').forEach(b => b.classList.toggle('active', b.dataset.term === modalTerm));
+      // Reset AGB checkbox: jeder Modal-Open zwingt zur erneuten Bestätigung
+      const termsBox = document.getElementById('modalTerms');
+      if (termsBox) {
+        termsBox.checked = false;
+        modalCta.disabled = true;
+      }
       updateModal();
       modal.classList.add('open');
       document.body.classList.add('no-scroll');
@@ -2675,10 +2730,17 @@
     promoInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); tryApplyPromo(); } });
 
     modalCta.addEventListener('click', () => {
+      const termsBox = document.getElementById('modalTerms');
+      if (!termsBox || !termsBox.checked) return;
       const p = PACKAGES[modalPkgKey];
       const url = p.paymentLinks[modalTerm];
       const final = modalPromo ? `${url}?prefilled_promo_code=${modalPromo}` : url;
       window.location.href = final;
+    });
+
+    // AGB-Checkbox steuert Disabled-Status des CTA
+    document.getElementById('modalTerms').addEventListener('change', (e) => {
+      modalCta.disabled = !e.target.checked;
     });
 
     /* NAV SCROLL */
