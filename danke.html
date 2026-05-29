@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Vielen Dank · GreenCareers</title>
+  <link rel="icon" href="assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --moss:          #243C24;
+      --moss-2:        #1A2C1A;
+      --moss-3:        #0F1B0F;
+      --green:         #00D261;
+      --green-dark:    #399939;
+      --green-deep:    #2B7F2B;
+      --cream:         #F5F1E8;
+      --cream-2:       #ECE6DB;
+      --ink:           #1A1A1A;
+      --ink-soft:      #4A4A4A;
+      --ink-mute:      #7A7A7A;
+      --line:          #E2DCCF;
+      --white:         #FFFFFF;
+      --r-md: 18px; --r-lg: 24px; --r-pill: 999px;
+      --shadow-md: 0 10px 30px rgba(20,40,15,0.08);
+      --shadow-green: 0 18px 50px rgba(0,210,97,0.28);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { min-height: 100%; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--ink);
+      background: var(--cream);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      display: flex; flex-direction: column;
+    }
+    a { color: inherit; }
+    button { font-family: inherit; cursor: pointer; border: none; }
+    img, svg { max-width: 100%; display: block; }
+
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes scaleIn { from { opacity: 0; transform: scale(0.6); } to { opacity: 1; transform: scale(1); } }
+    @keyframes drawCheck { from { stroke-dashoffset: 60; } to { stroke-dashoffset: 0; } }
+    @keyframes pulse-ring { 0% { box-shadow: 0 0 0 0 rgba(0,210,97,0.4); } 100% { box-shadow: 0 0 0 28px rgba(0,210,97,0); } }
+
+    /* NAV */
+    .nav {
+      padding: 22px 0;
+      background: var(--moss-3);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav__inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav__logo img { height: 36px; width: auto; }
+    .nav__contact {
+      color: rgba(255,255,255,0.7);
+      font-size: 13.5px;
+      font-weight: 500;
+    }
+    .nav__contact a { color: var(--green); text-decoration: none; font-weight: 600; }
+    @media (max-width: 600px) { .nav__contact { display: none; } }
+
+    /* MAIN */
+    main {
+      flex: 1;
+      display: flex; align-items: center; justify-content: center;
+      padding: 60px 24px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    main::before {
+      content: "";
+      position: absolute;
+      top: -200px; left: 50%;
+      transform: translateX(-50%);
+      width: 900px; height: 900px;
+      background: radial-gradient(circle, rgba(0,210,97,0.08), transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .card {
+      position: relative; z-index: 1;
+      max-width: 720px; width: 100%;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--r-lg);
+      padding: 56px 48px 48px;
+      box-shadow: var(--shadow-md);
+      text-align: center;
+      animation: fadeInUp 0.7s cubic-bezier(0.16,1,0.3,1);
+    }
+    @media (max-width: 640px) {
+      .card { padding: 40px 28px 36px; }
+    }
+
+    .check-circle {
+      width: 88px; height: 88px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--green), var(--green-dark));
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 28px;
+      animation: scaleIn 0.6s cubic-bezier(0.34,1.56,0.64,1) 0.15s both, pulse-ring 1.8s ease-out 0.8s both;
+    }
+    .check-circle svg {
+      width: 44px; height: 44px;
+      stroke: var(--white);
+      stroke-width: 3.5;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .check-circle svg path {
+      stroke-dasharray: 60;
+      animation: drawCheck 0.6s ease-out 0.6s both;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--green-deep);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      animation: fadeInUp 0.6s ease 0.3s both;
+    }
+    h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(32px, 4.8vw, 48px);
+      font-weight: 500;
+      letter-spacing: -0.025em;
+      line-height: 1.1;
+      color: var(--moss-2);
+      margin-bottom: 18px;
+      animation: fadeInUp 0.7s ease 0.4s both;
+    }
+    h1 em {
+      font-style: italic;
+      font-weight: 400;
+      color: var(--green-deep);
+    }
+    .lead {
+      font-size: 17px;
+      color: var(--ink-soft);
+      max-width: 540px;
+      margin: 0 auto 38px;
+      line-height: 1.6;
+      animation: fadeInUp 0.7s ease 0.5s both;
+    }
+
+    /* Next-steps box */
+    .next {
+      background: linear-gradient(135deg, rgba(0,210,97,0.06), rgba(0,210,97,0.02));
+      border: 1px solid rgba(0,210,97,0.2);
+      border-radius: var(--r-md);
+      padding: 26px 28px;
+      margin-bottom: 32px;
+      text-align: left;
+      animation: fadeInUp 0.7s ease 0.6s both;
+    }
+    .next__title {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--green-deep);
+      margin-bottom: 14px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .next__title::before {
+      content: "→";
+      color: var(--green);
+      font-weight: 700;
+    }
+    .next__list { list-style: none; }
+    .next__list li {
+      display: flex; gap: 12px;
+      padding: 7px 0;
+      font-size: 14.5px;
+      color: var(--ink-soft);
+      line-height: 1.5;
+    }
+    .next__list li::before {
+      content: "";
+      flex-shrink: 0;
+      width: 18px; height: 18px;
+      margin-top: 2px;
+      background: rgba(0,210,97,0.18) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2300D261' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5 9-11'/%3E%3C/svg%3E") center/11px no-repeat;
+      border-radius: 50%;
+    }
+    .next__list li strong { color: var(--moss-2); font-weight: 600; }
+
+    /* CTA buttons */
+    .cta-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 24px;
+      animation: fadeInUp 0.7s ease 0.7s both;
+    }
+    @media (max-width: 560px) { .cta-row { grid-template-columns: 1fr; } }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      padding: 18px 24px;
+      font-size: 15px; font-weight: 700;
+      letter-spacing: -0.005em;
+      border-radius: var(--r-pill);
+      transition: all 0.25s cubic-bezier(0.4,0,0.2,1);
+      text-decoration: none;
+    }
+    .btn--primary {
+      background: var(--green);
+      color: #08260C;
+      box-shadow: var(--shadow-green);
+    }
+    .btn--primary:hover {
+      background: #00E870;
+      transform: translateY(-2px);
+      box-shadow: 0 24px 60px rgba(0,210,97,0.4);
+    }
+    .btn--secondary {
+      background: var(--moss-3);
+      color: var(--white);
+      box-shadow: 0 10px 28px rgba(15,27,15,0.2);
+    }
+    .btn--secondary:hover {
+      background: #000;
+      transform: translateY(-2px);
+    }
+
+    .help {
+      font-size: 13px;
+      color: var(--ink-mute);
+      line-height: 1.55;
+      animation: fadeInUp 0.7s ease 0.8s both;
+    }
+    .help strong { color: var(--moss-2); font-weight: 600; }
+    .help a {
+      color: var(--green-deep);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .help a:hover { color: var(--moss-2); }
+    .help__divider {
+      width: 60px; height: 1px;
+      background: var(--line);
+      margin: 20px auto 18px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--moss-3);
+      color: rgba(255,255,255,0.55);
+      padding: 26px 0;
+      text-align: center;
+      font-size: 12.5px;
+    }
+    footer a { color: rgba(255,255,255,0.7); text-decoration: none; margin: 0 12px; }
+    footer a:hover { color: var(--green); }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav__inner">
+      <a class="nav__logo" href="https://www.green-careers.de" aria-label="GreenCareers">
+        <img src="assets/logo-white.png" alt="GreenCareers">
+      </a>
+      <div class="nav__contact">
+        Fragen? <a href="mailto:hello@green-careers.de">hello@green-careers.de</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <div class="card">
+      <div class="check-circle" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-11"/></svg>
+      </div>
+
+      <span class="eyebrow">Zahlung erfolgreich</span>
+      <h1>Willkommen <em>an Bord.</em></h1>
+      <p class="lead">Ihr Recruiting-Abo ist gebucht. In den nächsten Schritten richten wir gemeinsam alles ein, damit Ihre Stelle schnellstmöglich live geht.</p>
+
+      <div class="next">
+        <div class="next__title">So geht's weiter</div>
+        <ul class="next__list">
+          <li><span><strong>Account anlegen oder einloggen.</strong> Damit Sie Ihre Stelle anlegen und Bewerbungen verwalten können.</span></li>
+          <li><span><strong>Wir melden uns innerhalb einer Stunde.</strong> Ihr persönlicher Ansprechpartner ruft Sie an und schaltet Ihr Kontingent frei.</span></li>
+          <li><span><strong>Stelle live schalten.</strong> Sobald das Kontingent freigegeben ist, geht Ihre Anzeige auf GreenCareers online.</span></li>
+        </ul>
+      </div>
+
+      <div class="cta-row">
+        <a href="https://www.green-careers.de/register" class="btn btn--primary">
+          Jetzt Account anlegen
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <a href="https://www.green-careers.de/login" class="btn btn--secondary">
+          Bereits Kunde · Einloggen
+        </a>
+      </div>
+
+      <div class="help">
+        <div class="help__divider"></div>
+        <strong>Sie haben Fragen?</strong><br>
+        Schreiben Sie uns an <a href="mailto:hello@green-careers.de">hello@green-careers.de</a> oder rufen Sie an: <a href="tel:+4922196882408">+49 221 96 88 24 08</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div>© 2026 GreenCareers · Der Recruiting-Partner der grünen Branche</div>
+    <div style="margin-top:8px;">
+      <a href="https://www.green-careers.de/impressum" target="_blank" rel="noopener">Impressum</a>
+      <a href="https://www.green-careers.de/datenschutz" target="_blank" rel="noopener">Datenschutz</a>
+      <a href="https://www.green-careers.de/agb" target="_blank" rel="noopener">AGB</a>
+    </div>
+  </footer>
+
+</body>
+</html>
