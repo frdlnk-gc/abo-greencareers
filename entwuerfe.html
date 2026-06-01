@@ -4,1262 +4,1429 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>5 Design-Entwürfe · GreenCareers</title>
+<title>5 Design-Entwürfe v2 · GreenCareers</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=JetBrains+Mono:wght@400;600&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet">
 <style>
   :root {
     --moss: #243C24; --moss-2: #1A2C1A; --moss-3: #0F1B0F;
-    --green: #00D261; --green-dark: #399939; --green-deep: #2B7F2B;
+    --green: #00D261; --green-soft: #4ade80; --green-dark: #399939; --green-deep: #2B7F2B;
     --cream: #F5F1E8; --cream-2: #ECE6DB; --cream-3: #DDD8CE;
     --ink: #1A1A1A; --ink-soft: #4A4A4A; --ink-mute: #7A7A7A;
-    --line: #E2DCCF; --white: #FFFFFF;
-    --r-md: 18px; --r-lg: 24px; --r-pill: 999px;
+    --line: #E2DCCF;
+    --white: #FFFFFF;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--ink); -webkit-font-smoothing: antialiased; line-height: 1.5; }
+  body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--ink); -webkit-font-smoothing: antialiased; line-height: 1.55; }
+  img, svg { max-width: 100%; display: block; }
   .container { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
 
-  /* Page-Header */
   .page-head {
     background: var(--moss-3); color: var(--white);
-    padding: 32px 0;
-    text-align: center;
+    padding: 36px 0 28px; text-align: center;
   }
-  .page-head h1 {
-    font-family: 'Fraunces', serif;
-    font-size: 32px; font-weight: 500;
-    letter-spacing: -0.02em;
-    margin-bottom: 8px;
-  }
-  .page-head p { color: rgba(255,255,255,0.6); font-size: 14px; }
+  .page-head h1 { font-family: 'Fraunces', serif; font-size: 32px; font-weight: 500; letter-spacing: -0.02em; margin-bottom: 10px; }
+  .page-head p { color: rgba(255,255,255,0.6); font-size: 14px; max-width: 760px; margin: 0 auto; line-height: 1.55; }
+  .page-head em { color: var(--green); font-style: italic; }
 
-  /* Nav */
   .design-nav {
     position: sticky; top: 0; z-index: 50;
     background: var(--moss-3);
     border-bottom: 1px solid rgba(255,255,255,0.08);
-    padding: 14px 0;
+    padding: 12px 0;
   }
-  .design-nav__inner {
-    display: flex; gap: 8px; justify-content: center;
-    overflow-x: auto;
-    padding: 0 16px;
-  }
+  .design-nav__inner { display: flex; gap: 8px; justify-content: center; overflow-x: auto; padding: 0 16px; }
   .design-nav button {
-    padding: 9px 16px;
-    border-radius: var(--r-pill);
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.12);
+    padding: 9px 16px; border-radius: 999px;
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
     color: rgba(255,255,255,0.85);
     font-family: inherit; font-size: 13px; font-weight: 600;
-    cursor: pointer;
-    white-space: nowrap;
-    transition: all 0.2s ease;
+    cursor: pointer; white-space: nowrap; transition: all 0.2s ease;
   }
   .design-nav button:hover { background: rgba(0,210,97,0.15); border-color: rgba(0,210,97,0.4); }
-  .design-nav button.active {
-    background: var(--green); color: #08260C;
-    border-color: var(--green);
-  }
+  .design-nav button.active { background: var(--green); color: #08260C; border-color: var(--green); }
 
-  /* Section */
-  .design-section {
-    padding: 80px 0;
-    border-bottom: 1px solid var(--line);
-  }
+  .design-section { padding: 80px 0; border-bottom: 1px solid var(--line); }
   .design-section--dark { background: var(--moss-3); color: var(--white); border-bottom-color: rgba(255,255,255,0.08); }
-  .design-section__head {
-    text-align: center;
-    margin-bottom: 50px;
-  }
+  .design-section__head { text-align: center; margin-bottom: 60px; max-width: 760px; margin-left: auto; margin-right: auto; padding: 0 24px; }
   .design-section__num {
-    display: inline-block;
-    padding: 6px 14px;
-    background: var(--green);
-    color: #08260C;
-    border-radius: var(--r-pill);
+    display: inline-block; padding: 6px 14px;
+    background: var(--green); color: #08260C;
+    border-radius: 999px;
     font-size: 12px; font-weight: 800;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    margin-bottom: 14px;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    margin-bottom: 16px;
   }
-  .design-section__title {
-    font-family: 'Fraunces', serif;
-    font-size: 38px; font-weight: 500;
-    letter-spacing: -0.025em;
-    line-height: 1.1;
-    color: var(--moss-2);
-  }
+  .design-section__title { font-family: 'Fraunces', serif; font-size: 42px; font-weight: 500; letter-spacing: -0.025em; line-height: 1.1; color: var(--moss-2); }
   .design-section--dark .design-section__title { color: var(--white); }
   .design-section__title em { color: var(--green); font-style: italic; }
-  .design-section__sub {
-    margin-top: 12px;
-    font-size: 15px;
-    color: var(--ink-soft);
-    max-width: 560px;
-    margin-left: auto; margin-right: auto;
-  }
+  .design-section__sub { margin-top: 14px; font-size: 15.5px; color: var(--ink-soft); line-height: 1.55; }
   .design-section--dark .design-section__sub { color: rgba(255,255,255,0.65); }
-
-  .design-section__block {
-    margin-top: 50px;
-  }
+  .design-section__block { margin-top: 60px; }
   .design-section__block-label {
-    text-align: center;
-    font-size: 11px; font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--ink-mute);
-    margin-bottom: 24px;
+    text-align: center; font-size: 11px; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: var(--ink-mute); margin-bottom: 28px;
   }
   .design-section--dark .design-section__block-label { color: rgba(255,255,255,0.5); }
 
-  /* =================================
-   * KONZEPT 1 — EDITORIAL MAGAZIN
-   * ================================= */
-  .c1 .case-card {
-    background: var(--white);
-    border-radius: var(--r-lg);
-    padding: 40px 36px;
-    box-shadow: 0 1px 0 var(--line);
+  /* ============================================
+   * KONZEPT 1 — LIVE PIPELINE FEED
+   * Vertrauen über sichtbare, fließende Aktivität.
+   * ============================================ */
+  .c1-feed {
+    background: linear-gradient(180deg, #fff 0%, #FDFBF6 100%);
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    padding: 30px 28px;
+    max-width: 720px; margin: 0 auto;
+    box-shadow: 0 30px 80px rgba(20,40,15,0.06);
   }
-  .c1 .case-card__quote {
-    font-size: 18px;
-    color: var(--ink-soft);
-    line-height: 1.6;
-    margin-bottom: 36px;
-    border-left: 2px solid var(--green);
-    padding-left: 20px;
+  .c1-feed__head {
+    display: flex; justify-content: space-between; align-items: center;
+    padding-bottom: 18px; border-bottom: 1px solid var(--line);
+    margin-bottom: 18px;
   }
-  .c1 .case-card__author {
-    font-size: 13px;
-    color: var(--ink-mute);
-    margin-bottom: 32px;
+  .c1-feed__title { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 500; color: var(--moss-2); }
+  .c1-feed__live {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--green-deep);
   }
-  .c1 .case-card__author strong { color: var(--moss-2); font-weight: 600; }
-  .c1 .case-result {
-    display: grid;
-    grid-template-columns: 1fr 1px 1fr;
-    gap: 28px;
-    padding-top: 28px;
-    border-top: 1px solid var(--line);
+  .c1-feed__live::before {
+    content: ""; width: 8px; height: 8px; border-radius: 50%;
+    background: var(--green);
+    box-shadow: 0 0 12px var(--green);
+    animation: pulse-live 1.6s infinite;
   }
-  .c1 .case-result__sep { background: var(--line); }
-  .c1 .case-result__lbl {
-    font-size: 10px; font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--ink-mute);
-    margin-bottom: 8px;
-  }
-  .c1 .case-result__val {
-    font-family: 'Fraunces', serif;
-    font-size: 32px; font-weight: 400;
-    letter-spacing: -0.025em;
-    line-height: 1;
-    color: var(--ink);
-  }
-  .c1 .case-result--after .case-result__val { font-style: italic; color: var(--green-deep); }
+  @keyframes pulse-live { 0%, 100% { opacity: 0.6; transform: scale(1); } 50% { opacity: 1; transform: scale(1.15); } }
 
-  .c1-hero {
-    background: var(--moss-3);
-    padding: 60px 40px;
-    border-radius: var(--r-lg);
-    display: grid; grid-template-columns: 1fr 1px 1fr 1px 1fr;
-    gap: 50px;
-    color: var(--white);
+  .c1-event {
+    display: flex; gap: 14px; align-items: flex-start;
+    padding: 16px 12px;
+    border-radius: 12px;
+    transition: background 0.2s ease;
   }
-  .c1-hero__sep { background: rgba(255,255,255,0.12); }
-  .c1-hero__item .num {
-    font-family: 'Fraunces', serif;
-    font-size: 64px; font-weight: 400;
-    letter-spacing: -0.03em;
-    line-height: 0.95;
-    color: var(--white);
-    display: block;
-    margin-bottom: 14px;
+  .c1-event:hover { background: rgba(0,210,97,0.04); }
+  .c1-event__time {
+    width: 64px; flex-shrink: 0;
+    font-size: 11px;
+    color: var(--ink-mute);
+    font-weight: 600;
+    text-align: right;
+    padding-top: 4px;
+    font-variant-numeric: tabular-nums;
   }
-  .c1-hero__item .num em { color: var(--green); font-style: italic; }
-  .c1-hero__item .lbl {
+  .c1-event__dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--green);
+    flex-shrink: 0;
+    margin-top: 7px;
+    position: relative;
+  }
+  .c1-event__dot::after {
+    content: ""; position: absolute; left: 50%; top: 18px;
+    width: 1px; height: 50px;
+    background: linear-gradient(180deg, var(--green) 0%, transparent 100%);
+    opacity: 0.3;
+    transform: translateX(-50%);
+  }
+  .c1-event:last-child .c1-event__dot::after { display: none; }
+  .c1-event__body { flex: 1; }
+  .c1-event__txt { font-size: 14px; color: var(--moss-2); line-height: 1.55; }
+  .c1-event__txt strong { font-weight: 700; }
+  .c1-event__meta {
+    margin-top: 6px;
+    font-size: 12px;
+    color: var(--ink-mute);
+  }
+  .c1-event__badge {
+    display: inline-block;
+    padding: 2px 8px;
+    background: rgba(0,210,97,0.12);
+    border-radius: 6px;
+    color: var(--green-deep);
+    font-size: 11px; font-weight: 700;
+    margin-left: 4px;
+  }
+
+  .c1-testimonial {
+    background: linear-gradient(180deg, #fff 0%, #FDFBF6 100%);
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    padding: 32px;
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    gap: 20px;
+  }
+  .c1-testimonial__avatar {
+    width: 64px; height: 64px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--moss-2), var(--moss-3));
+    display: flex; align-items: center; justify-content: center;
+    color: var(--white);
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+  .c1-testimonial__head {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    margin-bottom: 12px;
+  }
+  .c1-testimonial__name { font-size: 16px; font-weight: 700; color: var(--moss-2); }
+  .c1-testimonial__role { font-size: 12.5px; color: var(--ink-mute); margin-top: 2px; }
+  .c1-testimonial__stars { color: #FFB400; font-size: 14px; }
+  .c1-testimonial__quote { font-size: 15.5px; color: var(--ink-soft); line-height: 1.65; margin-bottom: 18px; }
+  .c1-testimonial__quote mark {
+    background: linear-gradient(180deg, transparent 55%, rgba(0,210,97,0.28) 55%);
+    padding: 0 2px;
+    color: var(--moss-2); font-weight: 600;
+  }
+  .c1-testimonial__outcome {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 10px 16px;
+    background: rgba(0,210,97,0.10);
+    border: 1px solid rgba(0,210,97,0.3);
+    border-radius: 999px;
     font-size: 13px;
-    color: rgba(255,255,255,0.65);
-    line-height: 1.5;
+    color: var(--green-deep);
+    font-weight: 600;
   }
+  .c1-testimonial__outcome::before { content: "✓"; font-weight: 800; }
 
   .c1-promise {
     background: var(--white);
     border: 1px solid var(--line);
-    border-radius: var(--r-lg);
-    padding: 34px 28px;
-    text-align: left;
+    border-radius: 20px;
+    padding: 28px 26px;
+    transition: all 0.3s ease;
   }
-  .c1-promise__big {
-    font-family: 'Fraunces', serif;
-    font-size: 56px;
-    font-weight: 400;
-    letter-spacing: -0.03em;
-    line-height: 0.95;
+  .c1-promise:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(20,40,15,0.08); border-color: var(--green-deep); }
+  .c1-promise__icon {
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(0,210,97,0.18), rgba(0,210,97,0.04));
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 16px;
     color: var(--green-deep);
-    margin-bottom: 18px;
-    font-style: italic;
   }
-  .c1-promise__title {
-    font-family: 'Fraunces', serif;
-    font-size: 20px; font-weight: 500;
-    color: var(--moss-2);
-    margin-bottom: 8px;
-    letter-spacing: -0.01em;
-  }
-  .c1-promise__text {
-    font-size: 13.5px;
-    color: var(--ink-soft);
-    line-height: 1.55;
-  }
-
-  /* =================================
-   * KONZEPT 2 — SAAS-DASHBOARD
-   * ================================= */
-  .c2 .case-card {
-    background: #0E1A0E;
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: var(--r-md);
-    padding: 28px;
-    color: var(--white);
-    font-family: 'JetBrains Mono', monospace;
-  }
-  .c2 .case-card__quote {
-    font-family: 'Inter', sans-serif;
-    color: rgba(255,255,255,0.85);
-    font-size: 14px;
-    line-height: 1.6;
-    margin-bottom: 24px;
-    border-left: 3px solid rgba(255,255,255,0.15);
-    padding-left: 14px;
-  }
-  .c2 .case-card__author {
-    font-family: 'Inter', sans-serif;
-    font-size: 13px;
-    color: rgba(255,255,255,0.6);
-    margin-bottom: 18px;
-  }
-  .c2 .case-card__author strong { color: var(--white); font-weight: 600; }
-  .c2 .diff-row {
-    display: flex; align-items: center; gap: 12px;
-    padding: 10px 14px;
-    border-radius: 8px;
-    font-size: 13px;
-    margin-bottom: 6px;
-  }
-  .c2 .diff-row--minus {
-    background: rgba(217, 95, 95, 0.12);
-    border-left: 3px solid #D95F5F;
-    color: #FFB5B5;
-  }
-  .c2 .diff-row--plus {
-    background: rgba(0, 210, 97, 0.12);
+  .c1-promise__title { font-family: 'Fraunces', serif; font-size: 19px; font-weight: 500; color: var(--moss-2); margin-bottom: 8px; }
+  .c1-promise__text { font-size: 13.5px; color: var(--ink-soft); line-height: 1.55; margin-bottom: 14px; }
+  .c1-promise__proof {
+    padding: 10px 12px;
+    background: var(--cream);
     border-left: 3px solid var(--green);
-    color: #B5FFD9;
+    border-radius: 4px;
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    line-height: 1.4;
   }
-  .c2 .diff-row__sign { font-weight: 700; opacity: 0.8; }
-  .c2 .diff-row__txt { font-family: 'JetBrains Mono', monospace; }
+  .c1-promise__proof strong { color: var(--moss-2); font-weight: 700; }
 
-  .c2-tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-  .c2-tile {
-    background: #0E1A0E;
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: var(--r-md);
-    padding: 22px 24px;
-    color: var(--white);
+  /* ============================================
+   * KONZEPT 2 — RESULTS WALL
+   * Trust = viele konkrete Outcomes auf einen Blick
+   * ============================================ */
+  .c2-section { background: #FAFAF8; }
+  .c2-results-bar {
+    background: var(--moss-3); color: var(--white);
+    border-radius: 20px;
+    padding: 36px 40px;
+    display: grid; grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+    gap: 32px; align-items: center;
+    max-width: 1080px; margin: 0 auto;
   }
-  .c2-tile__head {
-    display: flex; justify-content: space-between; align-items: center;
+  .c2-results-bar__sep { width: 1px; height: 56px; background: rgba(255,255,255,0.12); }
+  .c2-results-bar__item .num {
+    font-family: 'Fraunces', serif;
+    font-size: 44px; font-weight: 500;
+    letter-spacing: -0.025em; line-height: 1;
+    color: var(--green);
+    display: block; margin-bottom: 6px;
+  }
+  .c2-results-bar__item .lbl {
+    font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.4;
+  }
+
+  .c2-trust-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 28px;
+  }
+  .c2-trust-card {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 24px 24px 20px;
+    transition: all 0.3s ease;
+  }
+  .c2-trust-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--green-deep);
+    box-shadow: 0 20px 40px rgba(20,40,15,0.08);
+  }
+  .c2-trust-card__head {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 16px;
+  }
+  .c2-trust-card__logo {
+    width: 44px; height: 44px; border-radius: 10px;
+    background: var(--cream-2);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; color: var(--moss-2);
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+  .c2-trust-card__company { font-size: 14px; font-weight: 700; color: var(--moss-2); line-height: 1.25; }
+  .c2-trust-card__industry { font-size: 11.5px; color: var(--ink-mute); margin-top: 2px; }
+  .c2-trust-card__outcome {
+    padding: 14px 16px;
+    background: linear-gradient(135deg, rgba(0,210,97,0.10), rgba(0,210,97,0.04));
+    border-radius: 10px;
     margin-bottom: 14px;
   }
-  .c2-tile__lbl {
-    font-size: 11px;
-    color: rgba(255,255,255,0.55);
-    text-transform: uppercase; letter-spacing: 1.5px;
-    font-weight: 700;
+  .c2-trust-card__outcome-lbl {
+    font-size: 10.5px; font-weight: 700;
+    color: var(--green-deep);
+    letter-spacing: 1.2px; text-transform: uppercase;
+    margin-bottom: 4px;
   }
-  .c2-tile__trend {
-    font-size: 11px;
-    padding: 3px 8px;
+  .c2-trust-card__outcome-val {
+    font-family: 'Fraunces', serif;
+    font-size: 22px; font-weight: 500;
+    color: var(--moss-2); line-height: 1.1;
+    letter-spacing: -0.015em;
+  }
+  .c2-trust-card__quote {
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    margin-bottom: 14px;
+  }
+  .c2-trust-card__footer {
+    display: flex; justify-content: space-between; align-items: center;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+    font-size: 11.5px;
+    color: var(--ink-mute);
+  }
+  .c2-trust-card__verified { display: inline-flex; align-items: center; gap: 6px; }
+  .c2-trust-card__verified svg { width: 14px; height: 14px; }
+  .c2-trust-card__stars { color: #FFB400; font-size: 13px; letter-spacing: 1px; }
+
+  .c2-promise-row {
+    display: grid; grid-template-columns: 56px 1fr 220px; gap: 24px;
+    align-items: center;
+    padding: 26px 28px;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    margin-bottom: 12px;
+    transition: all 0.25s ease;
+  }
+  .c2-promise-row:hover { border-color: var(--green-deep); }
+  .c2-promise-row__icon {
+    width: 56px; height: 56px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--moss-2), var(--moss-3));
+    display: flex; align-items: center; justify-content: center;
+    color: var(--green);
+  }
+  .c2-promise-row__txt h3 {
+    font-family: 'Fraunces', serif; font-size: 20px; font-weight: 500;
+    color: var(--moss-2); margin-bottom: 4px;
+    letter-spacing: -0.01em;
+  }
+  .c2-promise-row__txt p { font-size: 14px; color: var(--ink-soft); line-height: 1.5; }
+  .c2-promise-row__proof {
+    padding: 14px 16px;
+    background: rgba(0,210,97,0.08);
+    border-radius: 10px;
+    text-align: right;
+  }
+  .c2-promise-row__proof-num {
+    font-family: 'Fraunces', serif;
+    font-size: 26px; font-weight: 500;
+    color: var(--green-deep);
+    letter-spacing: -0.02em; line-height: 1;
+    margin-bottom: 4px;
+  }
+  .c2-promise-row__proof-lbl { font-size: 12px; color: var(--ink-soft); }
+
+  /* ============================================
+   * KONZEPT 3 — MISSION CONTROL
+   * Software-feel: Sieht aus wie unser Dashboard
+   * ============================================ */
+  .c3-pipeline {
+    background: #FAFAF8;
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 28px;
+    max-width: 920px; margin: 0 auto;
+  }
+  .c3-pipeline__head {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 24px;
+  }
+  .c3-pipeline__title { font-family: 'Fraunces', serif; font-weight: 500; font-size: 20px; color: var(--moss-2); letter-spacing: -0.015em; }
+  .c3-pipeline__tabs {
+    display: inline-flex; gap: 4px;
+    background: var(--white);
+    border-radius: 10px; padding: 4px;
+    border: 1px solid var(--line);
+  }
+  .c3-pipeline__tab {
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 12px; font-weight: 600;
+    color: var(--ink-mute);
+  }
+  .c3-pipeline__tab.active {
+    background: var(--moss-2); color: var(--white);
+  }
+  .c3-stages {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
+  }
+  .c3-stage {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 16px 16px 14px;
+  }
+  .c3-stage__head {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 12px;
+  }
+  .c3-stage__name { font-size: 11.5px; font-weight: 700; color: var(--moss-2); letter-spacing: 0.4px; text-transform: uppercase; }
+  .c3-stage__count {
+    font-size: 11px; padding: 3px 8px;
+    background: var(--cream-2); color: var(--moss-2);
+    border-radius: 6px; font-weight: 700;
+  }
+  .c3-stage--hot .c3-stage__count { background: rgba(0,210,97,0.18); color: var(--green-deep); }
+  .c3-candidate {
+    background: var(--cream);
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin-bottom: 6px;
+    font-size: 12px;
+    color: var(--moss-2);
+  }
+  .c3-candidate__name { font-weight: 700; margin-bottom: 2px; }
+  .c3-candidate__role { color: var(--ink-mute); font-size: 11px; }
+  .c3-candidate--new {
+    background: rgba(0,210,97,0.12);
+    border-left: 3px solid var(--green);
+  }
+  .c3-candidate--new::after {
+    content: "NEU"; float: right;
+    font-size: 9px; font-weight: 800;
+    color: var(--green-deep);
+    background: rgba(0,210,97,0.2);
+    padding: 2px 6px; border-radius: 4px;
+    margin-top: -2px;
+    letter-spacing: 0.5px;
+  }
+
+  .c3-quote-card {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 24px;
+    position: relative;
+  }
+  .c3-quote-card::before {
+    content: ""; position: absolute; top: 0; left: 24px;
+    width: 40px; height: 4px;
+    background: var(--green);
+    border-radius: 0 0 4px 4px;
+  }
+  .c3-quote-card__head {
+    display: flex; gap: 12px; align-items: center;
+    margin-bottom: 16px;
+  }
+  .c3-quote-card__avatar {
+    width: 40px; height: 40px; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--white); font-weight: 700; font-size: 13px;
+  }
+  .c3-quote-card__name { font-size: 14px; font-weight: 700; color: var(--moss-2); line-height: 1.25; }
+  .c3-quote-card__role { font-size: 11.5px; color: var(--ink-mute); margin-top: 2px; }
+  .c3-quote-card__quote { font-size: 14px; color: var(--ink-soft); line-height: 1.6; margin-bottom: 16px; }
+  .c3-quote-card__stats {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    padding-top: 16px;
+    border-top: 1px dashed var(--line);
+  }
+  .c3-quote-card__stat-lbl { font-size: 10px; font-weight: 700; color: var(--ink-mute); letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 4px; }
+  .c3-quote-card__stat-val {
+    font-family: 'Fraunces', serif;
+    font-size: 18px; font-weight: 500;
+    color: var(--moss-2);
+    letter-spacing: -0.01em;
+  }
+  .c3-quote-card__stat-val--good { color: var(--green-deep); }
+
+  .c3-promise {
+    background: var(--moss-3);
+    color: var(--white);
+    border-radius: 16px;
+    padding: 24px 22px;
+    position: relative;
+    overflow: hidden;
+  }
+  .c3-promise::before {
+    content: ""; position: absolute;
+    top: -40px; right: -40px;
+    width: 160px; height: 160px;
+    background: radial-gradient(circle, rgba(0,210,97,0.12), transparent 70%);
+    pointer-events: none;
+  }
+  .c3-promise__lbl {
+    display: inline-block;
+    padding: 4px 10px;
     background: rgba(0,210,97,0.15);
     color: var(--green);
     border-radius: 6px;
-    font-weight: 700;
-  }
-  .c2-tile__num {
-    font-size: 32px; font-weight: 700;
-    letter-spacing: -0.025em;
-    line-height: 1; margin-bottom: 8px;
-  }
-  .c2-tile__sub {
-    font-size: 12px;
-    color: rgba(255,255,255,0.55);
-    margin-bottom: 16px;
-  }
-  .c2-tile__sparkline { width: 100%; height: 40px; }
-
-  .c2-promise {
-    background: #0E1A0E;
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: var(--r-md);
-    padding: 24px;
-    color: var(--white);
-  }
-  .c2-promise__head {
-    display: flex; gap: 10px; align-items: center;
+    font-size: 10px; font-weight: 800; letter-spacing: 1.2px;
+    text-transform: uppercase;
     margin-bottom: 14px;
   }
-  .c2-promise__status {
-    padding: 4px 10px;
-    background: rgba(0,210,97,0.18);
+  .c3-promise__title { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 500; margin-bottom: 8px; letter-spacing: -0.015em; }
+  .c3-promise__text { font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.55; margin-bottom: 18px; }
+  .c3-promise__metric {
+    display: flex; align-items: baseline; gap: 8px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+  .c3-promise__metric-num {
+    font-family: 'Fraunces', serif;
+    font-size: 28px; font-weight: 500;
     color: var(--green);
-    border-radius: 6px;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
+    letter-spacing: -0.02em; line-height: 1;
   }
-  .c2-promise__title {
-    font-size: 16px; font-weight: 700; color: var(--white);
-    margin-bottom: 8px;
+  .c3-promise__metric-lbl { font-size: 12px; color: rgba(255,255,255,0.6); }
+
+  /* ============================================
+   * KONZEPT 4 — REAL PEOPLE, REAL RESULTS
+   * Foto-zentriert, glaubwürdig, vorher/nachher echt
+   * ============================================ */
+  .c4-bg { background: linear-gradient(180deg, var(--cream) 0%, #FAFAF8 100%); }
+  .c4-customer {
+    background: var(--white);
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    transition: all 0.3s ease;
   }
-  .c2-promise__text {
-    font-size: 13px;
-    color: rgba(255,255,255,0.65);
-    line-height: 1.55;
+  .c4-customer:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 30px 60px rgba(20,40,15,0.10);
+  }
+  .c4-customer__hero {
+    background: linear-gradient(135deg, var(--moss-2), var(--moss-3));
+    padding: 24px 24px 20px;
+    color: var(--white);
+    position: relative;
+  }
+  .c4-customer__company {
+    display: flex; align-items: center; gap: 14px;
     margin-bottom: 18px;
   }
-  .c2-promise__row {
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 10px 0;
-    border-top: 1px solid rgba(255,255,255,0.06);
-    font-size: 12px;
-    color: rgba(255,255,255,0.7);
-    font-family: 'JetBrains Mono', monospace;
-  }
-  .c2-promise__row strong { color: var(--green); }
-
-  /* =================================
-   * KONZEPT 3 — HAND-DRAWN / NOTEBOOK
-   * ================================= */
-  .c3 { background: #FAF6EA; }
-  .c3-bg {
-    background-image:
-      linear-gradient(180deg, var(--cream) 0%, var(--cream) 100%),
-      repeating-linear-gradient(0deg, transparent, transparent 27px, rgba(36,60,36,0.08) 27px, rgba(36,60,36,0.08) 28px);
-    background-blend-mode: multiply;
-  }
-  .c3 .case-card {
+  .c4-customer__logo {
+    width: 48px; height: 48px; border-radius: 10px;
     background: var(--white);
-    border: 2px solid #2A3A2A;
-    border-radius: 4px;
-    padding: 32px 28px;
-    transform: rotate(-0.5deg);
-    box-shadow: 4px 4px 0 #2A3A2A;
-    font-family: 'Caveat', cursive;
-  }
-  .c3 .case-card__quote {
-    font-family: 'Inter', sans-serif;
-    font-size: 14.5px;
-    color: var(--ink-soft);
-    margin-bottom: 24px;
-    line-height: 1.6;
-  }
-  .c3 .case-card__author {
-    font-family: 'Inter', sans-serif;
-    font-size: 12px;
-    color: var(--ink-mute);
-    margin-bottom: 28px;
-  }
-  .c3 .case-card__author strong { color: var(--moss-2); font-weight: 600; }
-  .c3 .scribble {
-    display: flex; gap: 16px; align-items: center; justify-content: center;
-    padding: 22px 0 8px;
-    border-top: 1px dashed #2A3A2A;
-  }
-  .c3 .scribble__before {
-    font-family: 'Caveat', cursive;
-    font-size: 26px;
-    color: #8B4646;
-    position: relative;
-    padding: 4px 12px;
-  }
-  .c3 .scribble__before::before, .c3 .scribble__before::after {
-    content: ""; position: absolute;
-    left: 0; right: 0; top: 50%;
-    height: 2px;
-    background: #8B4646;
-    transform: rotate(-3deg);
-  }
-  .c3 .scribble__before::after { transform: rotate(2deg); top: 56%; }
-  .c3 .scribble__arrow {
-    font-size: 32px; color: var(--green-deep);
-    font-family: 'Caveat', cursive;
-  }
-  .c3 .scribble__after {
-    font-family: 'Caveat', cursive;
-    font-size: 32px;
-    color: var(--green-deep);
-    font-weight: 700;
-    background: linear-gradient(180deg, transparent 55%, rgba(0,210,97,0.35) 55%);
-    padding: 0 4px;
-    transform: rotate(-1deg);
-    display: inline-block;
-  }
-
-  .c3-hero {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;
-  }
-  .c3-hero__item { text-align: center; }
-  .c3-hero__brace {
-    font-family: 'Caveat', cursive;
-    font-size: 56px;
-    color: var(--moss-2);
-    line-height: 1;
-    margin-bottom: 12px;
-  }
-  .c3-hero__brace em {
-    color: var(--green-deep);
-    font-style: italic;
-    background: linear-gradient(180deg, transparent 60%, rgba(0,210,97,0.30) 60%);
-    padding: 0 8px;
-  }
-  .c3-hero__lbl {
-    font-family: 'Inter', sans-serif;
-    font-size: 13px;
-    color: var(--ink-soft);
-  }
-  .c3-hero__wave {
-    width: 60px; height: 14px;
-    margin: 8px auto 0;
-  }
-
-  .c3-promise {
-    background: var(--white);
-    border: 2px solid #2A3A2A;
-    border-radius: 4px;
-    padding: 26px 24px;
-    transform: rotate(0.5deg);
-    box-shadow: 4px 4px 0 #2A3A2A;
-  }
-  .c3-promise:nth-child(2) { transform: rotate(-0.7deg); }
-  .c3-promise:nth-child(4) { transform: rotate(0.8deg); }
-  .c3-promise__icon {
-    width: 48px; height: 48px;
-    border: 2px solid #2A3A2A;
-    border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
-    margin-bottom: 16px;
-    font-size: 24px;
-    background: #FFF9DD;
+    color: var(--moss-2); font-weight: 800;
+    font-size: 14px;
   }
-  .c3-promise__title {
-    font-family: 'Caveat', cursive;
-    font-size: 26px;
-    font-weight: 700;
-    color: var(--moss-2);
-    margin-bottom: 8px;
-    line-height: 1.1;
-  }
-  .c3-promise__text {
-    font-size: 13px;
-    color: var(--ink-soft);
-    line-height: 1.5;
-  }
-  .c3-promise__check {
-    font-family: 'Caveat', cursive;
-    font-size: 22px;
-    color: var(--green-deep);
-    margin-top: 12px;
-    background: linear-gradient(180deg, transparent 60%, rgba(0,210,97,0.28) 60%);
-    display: inline-block;
-    padding: 0 4px;
-  }
-
-  /* =================================
-   * KONZEPT 4 — MOCKUP-DEVICES
-   * ================================= */
-  .c4 .case-card {
-    background: var(--white);
-    border: 1px solid var(--line);
-    border-radius: var(--r-lg);
-    padding: 28px 28px 22px;
-  }
-  .c4 .case-card__quote {
-    font-size: 14.5px;
-    color: var(--ink-soft);
-    line-height: 1.6;
-    margin-bottom: 20px;
-  }
-  .c4 .case-card__author {
-    font-size: 12.5px;
-    color: var(--ink-mute);
-    margin-bottom: 20px;
-  }
-  .c4 .case-card__author strong { color: var(--moss-2); font-weight: 600; }
-  .c4 .split-mock {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 12px;
-  }
-  .c4 .mock {
+  .c4-customer__name { font-weight: 700; font-size: 15px; }
+  .c4-customer__sub { font-size: 12px; color: rgba(255,255,255,0.65); margin-top: 2px; }
+  .c4-customer__outcome {
+    background: rgba(0,210,97,0.15);
+    border: 1px solid rgba(0,210,97,0.3);
     border-radius: 12px;
-    padding: 14px 14px 12px;
-    font-size: 11px;
-    overflow: hidden;
+    padding: 14px 16px;
+    display: flex; gap: 16px; align-items: center;
   }
-  .c4 .mock--bad {
-    background: #FAEBEB;
-    border: 1px solid #F1D6D6;
-  }
-  .c4 .mock--good {
-    background: rgba(0,210,97,0.10);
-    border: 1px solid rgba(0,210,97,0.35);
-  }
-  .c4 .mock__top {
-    display: flex; gap: 4px; margin-bottom: 12px;
-  }
-  .c4 .mock__top span {
-    width: 7px; height: 7px; border-radius: 50%;
-    background: rgba(0,0,0,0.18);
-  }
-  .c4 .mock__brand {
-    font-size: 10px; font-weight: 700;
-    color: var(--ink-mute);
-    margin-bottom: 8px;
-    letter-spacing: 0.5px;
-  }
-  .c4 .mock__title {
-    font-size: 12.5px; font-weight: 700;
-    color: var(--moss-2);
-    margin-bottom: 8px;
-  }
-  .c4 .mock__row {
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 5px 8px;
-    background: rgba(255,255,255,0.55);
-    border-radius: 5px;
-    margin-bottom: 4px;
-    font-size: 10.5px;
-    color: var(--ink-soft);
-  }
-  .c4 .mock__pill {
-    padding: 2px 6px;
-    border-radius: 4px;
-    font-size: 9px;
-    font-weight: 700;
-  }
-  .c4 .mock__pill--red { background: #D95F5F; color: var(--white); }
-  .c4 .mock__pill--green { background: var(--green); color: #08260C; }
-  .c4 .mock__big {
-    font-family: 'Fraunces', serif;
-    font-size: 24px;
-    font-weight: 500;
-    margin-bottom: 4px;
-  }
-  .c4 .mock--bad .mock__big { color: #8B4646; }
-  .c4 .mock--good .mock__big { color: var(--green-deep); }
-
-  .c4-hero-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
-  }
-  .c4-hero-card {
-    background: var(--white);
-    border-radius: var(--r-lg);
-    padding: 22px;
-    border: 1px solid var(--line);
-  }
-  .c4-hero-card__num {
+  .c4-customer__outcome-num {
     font-family: 'Fraunces', serif;
     font-size: 36px; font-weight: 500;
-    color: var(--moss-2);
+    color: var(--green);
+    letter-spacing: -0.025em; line-height: 1;
+  }
+  .c4-customer__outcome-txt {
+    font-size: 12.5px; color: rgba(255,255,255,0.85);
+    line-height: 1.4;
+  }
+  .c4-customer__body { padding: 22px 24px 24px; }
+  .c4-customer__person {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 14px;
+  }
+  .c4-customer__avatar {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--moss-2), var(--moss-3));
+    display: flex; align-items: center; justify-content: center;
+    color: var(--white); font-weight: 700; font-size: 14px;
+  }
+  .c4-customer__person-name { font-size: 13.5px; font-weight: 700; color: var(--moss-2); }
+  .c4-customer__person-role { font-size: 11.5px; color: var(--ink-mute); margin-top: 1px; }
+  .c4-customer__quote {
+    font-size: 13.5px; color: var(--ink-soft);
+    line-height: 1.6;
+    margin-bottom: 14px;
+  }
+  .c4-customer__stars { color: #FFB400; font-size: 13px; }
+
+  .c4-stat-band {
+    background: var(--moss-3);
+    color: var(--white);
+    padding: 50px 0;
+    margin: 0 -24px;
+    border-radius: 24px;
+  }
+  .c4-stat-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;
+    max-width: 1080px; margin: 0 auto;
+    padding: 0 30px;
+  }
+  .c4-stat {
+    display: flex; gap: 20px; align-items: center;
+  }
+  .c4-stat__icon {
+    width: 56px; height: 56px; border-radius: 14px;
+    background: rgba(0,210,97,0.15);
+    border: 1px solid rgba(0,210,97,0.35);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--green);
+    flex-shrink: 0;
+  }
+  .c4-stat__num {
+    font-family: 'Fraunces', serif;
+    font-size: 38px; font-weight: 500;
+    color: var(--white); line-height: 1;
     letter-spacing: -0.02em;
-    line-height: 1;
     margin-bottom: 4px;
   }
-  .c4-hero-card__num em { color: var(--green); font-style: italic; }
-  .c4-hero-card__lbl {
-    font-size: 13px; color: var(--ink-soft);
-    margin-bottom: 16px;
-  }
-  .c4-hero-card__device {
-    background: #0E1A0E;
-    border-radius: 12px;
-    padding: 14px;
-    color: var(--white);
-  }
-  .c4-hero-card__device-head {
-    font-size: 10px;
-    color: rgba(255,255,255,0.5);
-    text-transform: uppercase;
-    letter-spacing: 1.2px;
-    margin-bottom: 10px;
-  }
-  .c4-hero-card__chart {
-    height: 60px;
-    background: linear-gradient(180deg, rgba(0,210,97,0.18) 0%, transparent 100%);
-    border-radius: 6px;
-    position: relative;
-    margin-bottom: 8px;
-  }
-  .c4-hero-card__live {
-    display: inline-flex; gap: 6px; align-items: center;
-    font-size: 11px;
-    color: var(--green);
-    font-weight: 600;
-  }
-  .c4-hero-card__live::before {
-    content: ""; width: 6px; height: 6px;
-    border-radius: 50%;
-    background: var(--green);
-    box-shadow: 0 0 8px var(--green);
-    animation: c4-pulse 1.4s infinite;
-  }
-  @keyframes c4-pulse { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; } }
+  .c4-stat__num em { color: var(--green); font-style: italic; }
+  .c4-stat__lbl { font-size: 13px; color: rgba(255,255,255,0.65); line-height: 1.4; }
 
   .c4-promise {
     background: var(--white);
+    border-radius: 16px;
+    padding: 26px 24px;
     border: 1px solid var(--line);
-    border-radius: var(--r-lg);
-    padding: 26px 22px;
+    position: relative;
+    overflow: hidden;
   }
-  .c4-promise__title {
+  .c4-promise__number {
+    position: absolute;
+    top: 14px; right: 18px;
     font-family: 'Fraunces', serif;
-    font-size: 19px; font-weight: 500;
-    color: var(--moss-2);
-    margin-bottom: 8px;
-    letter-spacing: -0.01em;
+    font-size: 64px; font-weight: 400;
+    color: rgba(0,210,97,0.10);
+    line-height: 0.9;
+    letter-spacing: -0.05em;
+    pointer-events: none;
   }
-  .c4-promise__text {
-    font-size: 13px;
-    color: var(--ink-soft);
-    line-height: 1.55;
-    margin-bottom: 18px;
-  }
-  .c4-promise__mock {
-    background: #0E1A0E;
-    border-radius: 12px;
-    padding: 12px;
-    color: var(--white);
-    font-size: 11px;
-  }
-  .c4-promise__mock-head {
-    font-size: 10px;
-    color: rgba(255,255,255,0.5);
-    margin-bottom: 8px;
-    letter-spacing: 0.8px;
-    text-transform: uppercase;
-  }
-  .c4-promise__mock-row {
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 6px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-  }
-  .c4-promise__mock-row:last-child { border-bottom: none; }
-  .c4-promise__mock-lbl { color: rgba(255,255,255,0.7); }
-  .c4-promise__mock-val { color: var(--green); font-weight: 600; }
-
-  /* =================================
-   * KONZEPT 5 — BOLD STATEMENT
-   * ================================= */
-  .c5 .case-card {
-    background: var(--white);
-    border-top: 1px solid var(--line);
-    padding: 50px 0 60px;
-  }
-  .c5 .case-card__quote {
-    font-size: 18px;
-    color: var(--ink-soft);
-    line-height: 1.55;
-    max-width: 580px;
-    margin: 0 auto 28px;
-    text-align: center;
-  }
-  .c5 .case-card__author {
-    text-align: center;
-    font-size: 12.5px;
-    color: var(--ink-mute);
-    margin-bottom: 50px;
-  }
-  .c5 .case-card__author strong { color: var(--moss-2); font-weight: 600; }
-  .c5 .bold-result {
-    text-align: center;
-    font-family: 'Fraunces', serif;
-    font-size: clamp(48px, 7vw, 96px);
-    font-weight: 400;
-    letter-spacing: -0.04em;
-    line-height: 1;
-    color: var(--moss-2);
-  }
-  .c5 .bold-result .strike {
-    text-decoration: line-through;
-    text-decoration-color: #D26B6B;
-    text-decoration-thickness: 5px;
-    color: #B85555;
-    opacity: 0.55;
-    margin-right: 16px;
-  }
-  .c5 .bold-result .arrow {
-    color: var(--green);
-    margin: 0 16px;
-    font-weight: 300;
-    font-style: italic;
-  }
-  .c5 .bold-result .now {
+  .c4-promise__icon {
+    width: 36px; height: 36px; border-radius: 8px;
+    background: linear-gradient(135deg, rgba(0,210,97,0.18), rgba(0,210,97,0.05));
+    display: flex; align-items: center; justify-content: center;
     color: var(--green-deep);
-    font-style: italic;
-    font-weight: 500;
+    margin-bottom: 16px;
+    position: relative; z-index: 1;
   }
+  .c4-promise__title { font-family: 'Fraunces', serif; font-size: 19px; font-weight: 500; color: var(--moss-2); margin-bottom: 8px; position: relative; z-index: 1; letter-spacing: -0.01em; }
+  .c4-promise__text { font-size: 13px; color: var(--ink-soft); line-height: 1.55; position: relative; z-index: 1; }
 
-  .c5-hero {
-    display: grid; grid-template-columns: 1fr 1px 1fr 1px 1fr;
-    gap: 40px;
-    padding: 60px 0;
-    border-top: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
+  /* ============================================
+   * KONZEPT 5 — TIMELINE OF SUCCESS
+   * Story-Format: Tag-für-Tag Erfolg
+   * ============================================ */
+  .c5-section { background: var(--cream); }
+  .c5-timeline {
+    max-width: 800px; margin: 0 auto;
+    position: relative;
+    padding-left: 60px;
   }
-  .c5-hero__sep { background: var(--line); }
-  .c5-hero__item { text-align: center; }
-  .c5-hero__num {
-    font-family: 'Fraunces', serif;
-    font-size: clamp(60px, 8vw, 110px);
-    font-weight: 400;
-    letter-spacing: -0.04em;
-    line-height: 0.95;
+  .c5-timeline::before {
+    content: ""; position: absolute;
+    left: 24px; top: 30px; bottom: 30px;
+    width: 2px;
+    background: linear-gradient(180deg, var(--green) 0%, var(--green-deep) 100%);
+    opacity: 0.3;
+  }
+  .c5-tl-item {
+    position: relative;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    transition: all 0.25s ease;
+  }
+  .c5-tl-item:hover { border-color: var(--green-deep); }
+  .c5-tl-item::before {
+    content: ""; position: absolute;
+    left: -45px; top: 28px;
+    width: 16px; height: 16px;
+    border-radius: 50%;
+    background: var(--white);
+    border: 3px solid var(--green);
+    box-shadow: 0 0 0 4px rgba(0,210,97,0.12);
+  }
+  .c5-tl-item--milestone::before {
+    background: var(--green);
+    border-color: var(--green-deep);
+  }
+  .c5-tl-day {
+    display: inline-block;
+    padding: 4px 10px;
+    background: var(--cream);
     color: var(--moss-2);
-    margin-bottom: 8px;
-    display: block;
+    font-size: 11px; font-weight: 800;
+    letter-spacing: 1px; text-transform: uppercase;
+    border-radius: 999px;
+    margin-bottom: 10px;
   }
-  .c5-hero__num em { color: var(--green-deep); font-style: italic; font-weight: 500; }
-  .c5-hero__lbl {
+  .c5-tl-item--milestone .c5-tl-day { background: rgba(0,210,97,0.15); color: var(--green-deep); }
+  .c5-tl-title { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 500; color: var(--moss-2); margin-bottom: 6px; letter-spacing: -0.01em; }
+  .c5-tl-text { font-size: 13.5px; color: var(--ink-soft); line-height: 1.55; }
+  .c5-tl-quote {
+    margin-top: 14px;
+    padding: 12px 14px;
+    background: var(--cream);
+    border-radius: 10px;
     font-size: 13px;
-    color: var(--ink-mute);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-weight: 700;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    font-style: italic;
+    border-left: 3px solid var(--green);
+  }
+  .c5-tl-quote strong { color: var(--moss-2); font-weight: 700; font-style: normal; }
+
+  .c5-counter-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  }
+  .c5-counter {
+    text-align: center;
+    padding: 30px 20px;
+    background: var(--white);
+    border-radius: 20px;
+    border: 1px solid var(--line);
+  }
+  .c5-counter__icon {
+    width: 48px; height: 48px;
+    border-radius: 14px;
+    margin: 0 auto 18px;
+    background: linear-gradient(135deg, var(--green), var(--green-dark));
+    display: flex; align-items: center; justify-content: center;
+    color: #08260C;
+  }
+  .c5-counter__num {
+    font-family: 'Fraunces', serif;
+    font-size: 56px; font-weight: 500;
+    color: var(--moss-2);
+    letter-spacing: -0.03em; line-height: 1;
+    margin-bottom: 8px;
+  }
+  .c5-counter__num em { color: var(--green-deep); font-style: italic; }
+  .c5-counter__lbl { font-size: 13px; color: var(--ink-soft); line-height: 1.45; }
+  .c5-counter__growth {
+    margin-top: 12px;
+    display: inline-flex; gap: 4px; align-items: center;
+    font-size: 11px;
+    color: var(--green-deep); font-weight: 700;
   }
 
   .c5-promise {
     background: var(--white);
     border: 1px solid var(--line);
-    border-radius: var(--r-lg);
-    padding: 32px 26px;
-    text-align: center;
-    transition: transform 0.3s ease;
+    border-radius: 16px;
+    padding: 26px 24px;
+    border-left: 4px solid var(--green);
+    transition: all 0.25s ease;
   }
-  .c5-promise:hover { transform: translateY(-4px); }
-  .c5-promise__big {
-    font-family: 'Fraunces', serif;
-    font-size: 84px;
-    font-weight: 400;
-    letter-spacing: -0.04em;
-    line-height: 0.9;
+  .c5-promise:hover {
+    transform: translateX(4px);
+    box-shadow: 0 16px 36px rgba(20,40,15,0.06);
+  }
+  .c5-promise__day {
+    display: inline-block;
+    padding: 4px 10px;
+    background: rgba(0,210,97,0.10);
     color: var(--green-deep);
-    margin-bottom: 18px;
-    font-style: italic;
+    border-radius: 6px;
+    font-size: 11px; font-weight: 800;
+    letter-spacing: 1px; text-transform: uppercase;
+    margin-bottom: 12px;
   }
-  .c5-promise__title {
-    font-family: 'Fraunces', serif;
-    font-size: 19px; font-weight: 500;
-    color: var(--moss-2);
-    margin-bottom: 8px;
-    letter-spacing: -0.01em;
-  }
-  .c5-promise__text {
-    font-size: 13px;
-    color: var(--ink-soft);
-    line-height: 1.55;
-  }
+  .c5-promise__title { font-family: 'Fraunces', serif; font-size: 19px; font-weight: 500; color: var(--moss-2); margin-bottom: 6px; letter-spacing: -0.01em; }
+  .c5-promise__text { font-size: 13px; color: var(--ink-soft); line-height: 1.55; }
 
-  /* Footer-CTA */
+  /* Common Grids */
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .grid-5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+  @media (max-width: 1100px) {
+    .grid-3 { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+    .grid-5 { grid-template-columns: repeat(2, 1fr); }
+    .c2-results-bar { grid-template-columns: 1fr; gap: 24px; }
+    .c2-results-bar__sep { display: none; }
+    .c2-trust-grid { grid-template-columns: 1fr; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .c2-promise-row { grid-template-columns: 1fr; text-align: center; }
+    .c3-stages { grid-template-columns: 1fr 1fr; }
+    .c4-stat-grid { grid-template-columns: 1fr; gap: 24px; }
+  }
+  @media (max-width: 600px) { .grid-5 { grid-template-columns: 1fr; } }
+
   .picker {
-    background: var(--moss-3);
-    color: var(--white);
-    padding: 80px 0;
-    text-align: center;
+    background: var(--moss-3); color: var(--white);
+    padding: 80px 0; text-align: center;
   }
-  .picker h2 {
-    font-family: 'Fraunces', serif;
-    font-size: 32px; font-weight: 500;
-    margin-bottom: 18px;
-    letter-spacing: -0.02em;
-  }
+  .picker h2 { font-family: 'Fraunces', serif; font-size: 30px; font-weight: 500; margin-bottom: 18px; letter-spacing: -0.02em; }
   .picker p { color: rgba(255,255,255,0.7); margin-bottom: 28px; font-size: 15px; }
-  .picker__buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-  .picker__buttons a {
+  .picker a {
+    display: inline-block;
     padding: 16px 28px;
     background: var(--green);
     color: #08260C;
     text-decoration: none;
-    font-weight: 700;
-    font-size: 14px;
-    border-radius: var(--r-pill);
-    transition: all 0.25s ease;
+    font-weight: 700; font-size: 14px;
+    border-radius: 999px;
     box-shadow: 0 8px 24px rgba(0,210,97,0.32);
   }
-  .picker__buttons a:hover { transform: translateY(-2px); background: #00E870; }
-
-  /* Promise-Grid */
-  .promise-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 16px;
-  }
-  @media (max-width: 1100px) { .promise-grid { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 600px) { .promise-grid { grid-template-columns: 1fr; } }
-
-  /* Cases-Grid */
-  .case-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
-  }
-  @media (max-width: 1000px) { .case-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; } }
 </style>
 </head>
 <body>
 
   <header class="page-head">
-    <h1>5 Design-Entwürfe für Cases · Hero-Trust · Promises</h1>
-    <p>Pro Konzept: jeweils 3 Cases, Hero-Trust-Strip, 5 Promise-Cards. Scroll runter zum Vergleichen.</p>
+    <h1>5 neue Design-Entwürfe · <em>Vertrauen über Resultate</em></h1>
+    <p>Diesmal mit klarem Fokus: Software-Vibe, Recruiting-Abo das dauerhaft begleitet, Vertrauen über sichtbare Erfolge anderer Betriebe. Pro Konzept: Testimonials/Cases, Trust-Zahlen, Promises.</p>
   </header>
 
   <nav class="design-nav">
     <div class="design-nav__inner">
-      <button data-jump="k1" class="active">1 · Editorial</button>
-      <button data-jump="k2">2 · SaaS Dashboard</button>
-      <button data-jump="k3">3 · Hand-Drawn</button>
-      <button data-jump="k4">4 · Device Mockups</button>
-      <button data-jump="k5">5 · Bold Statement</button>
+      <button data-jump="k1" class="active">1 · Live Pipeline Feed</button>
+      <button data-jump="k2">2 · Results Wall</button>
+      <button data-jump="k3">3 · Mission Control</button>
+      <button data-jump="k4">4 · Real People · Real Results</button>
+      <button data-jump="k5">5 · Timeline of Success</button>
     </div>
   </nav>
 
-  <!-- ========================================
-       KONZEPT 1 — EDITORIAL MAGAZIN
-       ======================================== -->
-  <section class="design-section c1" id="k1">
+  <!-- ============================================
+       KONZEPT 1 — LIVE PIPELINE FEED
+       ============================================ -->
+  <section class="design-section" id="k1">
     <div class="container">
       <div class="design-section__head">
         <div class="design-section__num">Konzept 1</div>
-        <h2 class="design-section__title">Editorial <em>Magazin</em></h2>
-        <p class="design-section__sub">Maximal minimalistisch. Viel Whitespace. Die Typografie macht den Job. Inspiriert von Stripe, Linear, hochwertigen Print-Magazinen.</p>
+        <h2 class="design-section__title">Live Pipeline <em>Feed</em></h2>
+        <p class="design-section__sub">Vertrauen durch sichtbare, fließende Aktivität. Der Besucher sieht in Echtzeit was passiert: Einstellungen, Bewerber, Erfolge. So spürt er: "Das System läuft. Bei anderen — und bald bei mir."</p>
       </div>
 
       <div class="design-section__block">
-        <div class="design-section__block-label">Cases · Vorher → Nachher</div>
-        <div class="case-grid">
-          <div class="case-card">
-            <div class="case-card__quote">"3 Monate vergeblich einen Vorarbeiter gesucht. Mit GreenCareers war die Stelle nach 16 Tagen besetzt."</div>
-            <div class="case-card__author"><strong>Carsten Wendling</strong> · Wendling GaLaBau · Krefeld</div>
-            <div class="case-result">
-              <div>
-                <div class="case-result__lbl">Vorher</div>
-                <div class="case-result__val">3 Monate</div>
-              </div>
-              <div class="case-result__sep"></div>
-              <div class="case-result--after">
-                <div class="case-result__lbl">Nachher</div>
-                <div class="case-result__val">16 Tage</div>
-              </div>
+        <div class="design-section__block-label">Pipeline-Feed · letzte Erfolge</div>
+        <div class="c1-feed">
+          <div class="c1-feed__head">
+            <div class="c1-feed__title">Letzte Einstellungen in der grünen Branche</div>
+            <div class="c1-feed__live">Live</div>
+          </div>
+          <div class="c1-event">
+            <div class="c1-event__time">vor 12 Min</div>
+            <div class="c1-event__dot"></div>
+            <div class="c1-event__body">
+              <div class="c1-event__txt"><strong>Wendling GaLaBau</strong> hat einen Vorarbeiter eingestellt <span class="c1-event__badge">16 Tage</span></div>
+              <div class="c1-event__meta">Krefeld · Premium 6 Monate · 17 vorqualifizierte Bewerber</div>
             </div>
           </div>
-          <div class="case-card">
-            <div class="case-card__quote">"Polier-Stelle 5 Monate auf Indeed offen — null Resonanz. Bei GreenCareers nach 21 Tagen unterschrieben."</div>
-            <div class="case-card__author"><strong>Lukas Brenner</strong> · Brenner Bau · Nürnberg</div>
-            <div class="case-result">
-              <div>
-                <div class="case-result__lbl">Vorher</div>
-                <div class="case-result__val">5 Monate</div>
-              </div>
-              <div class="case-result__sep"></div>
-              <div class="case-result--after">
-                <div class="case-result__lbl">Nachher</div>
-                <div class="case-result__val">21 Tage</div>
-              </div>
+          <div class="c1-event">
+            <div class="c1-event__time">vor 1 Std</div>
+            <div class="c1-event__dot"></div>
+            <div class="c1-event__body">
+              <div class="c1-event__txt"><strong>Brenner Bau</strong> hat einen Polier eingestellt <span class="c1-event__badge">21 Tage</span></div>
+              <div class="c1-event__meta">Nürnberg · Exzellenz 12 Monate · 5 Monate Indeed-Frust beendet</div>
             </div>
           </div>
-          <div class="case-card">
-            <div class="case-card__quote">"Saisonkräfte waren immer das größte Thema. Sechs Wochen vor Saisonstart komplett besetzt — zum ersten Mal."</div>
-            <div class="case-card__author"><strong>Birgit Schmidt</strong> · Baumschule Schmidt</div>
-            <div class="case-result">
-              <div>
-                <div class="case-result__lbl">Vorher</div>
-                <div class="case-result__val">Saison-Lücken</div>
-              </div>
-              <div class="case-result__sep"></div>
-              <div class="case-result--after">
-                <div class="case-result__lbl">Nachher</div>
-                <div class="case-result__val">6 Wo. vor Start</div>
-              </div>
+          <div class="c1-event">
+            <div class="c1-event__time">vor 3 Std</div>
+            <div class="c1-event__dot"></div>
+            <div class="c1-event__body">
+              <div class="c1-event__txt"><strong>Baumschule Schmidt</strong> · 6 Saisonkräfte besetzt <span class="c1-event__badge">vor Saisonstart</span></div>
+              <div class="c1-event__meta">Münsterland · Premium 12 Monate · zum ersten Mal voll besetzt</div>
+            </div>
+          </div>
+          <div class="c1-event">
+            <div class="c1-event__time">gestern</div>
+            <div class="c1-event__dot"></div>
+            <div class="c1-event__body">
+              <div class="c1-event__txt"><strong>Hugenschmidt Gartenbau</strong> · 2. Vorarbeiter in 4 Monaten <span class="c1-event__badge">+1 Pipeline aktiv</span></div>
+              <div class="c1-event__meta">Freiburg · seit 2 Jahren GreenCareers · 7 Einstellungen total</div>
             </div>
           </div>
         </div>
       </div>
 
       <div class="design-section__block">
-        <div class="design-section__block-label">Hero-Trust-Strip</div>
-        <div class="c1-hero">
-          <div class="c1-hero__item">
-            <span class="num"><em>30k+</em></span>
-            <span class="lbl">Aktive Fachkräfte aus der grünen Branche</span>
+        <div class="design-section__block-label">Testimonial-Karten · Highlight-Quote + Outcome</div>
+        <div class="grid-3">
+          <div class="c1-testimonial">
+            <div class="c1-testimonial__avatar">CW</div>
+            <div>
+              <div class="c1-testimonial__head">
+                <div>
+                  <div class="c1-testimonial__name">Carsten Wendling</div>
+                  <div class="c1-testimonial__role">Wendling GaLaBau · Krefeld</div>
+                </div>
+                <div class="c1-testimonial__stars">★★★★★</div>
+              </div>
+              <div class="c1-testimonial__quote">"<mark>3 Monate vergeblich einen Vorarbeiter gesucht.</mark> Mit GreenCareers war die Stelle nach 16 Tagen besetzt."</div>
+              <div class="c1-testimonial__outcome">16 Tage bis Vertrag</div>
+            </div>
           </div>
-          <div class="c1-hero__sep"></div>
-          <div class="c1-hero__item">
-            <span class="num"><em>500+</em></span>
-            <span class="lbl">Unternehmen vertrauen GreenCareers</span>
+          <div class="c1-testimonial">
+            <div class="c1-testimonial__avatar" style="background:linear-gradient(135deg,#2E77BB,#1A5A99);">LB</div>
+            <div>
+              <div class="c1-testimonial__head">
+                <div>
+                  <div class="c1-testimonial__name">Lukas Brenner</div>
+                  <div class="c1-testimonial__role">Brenner Bau · Nürnberg</div>
+                </div>
+                <div class="c1-testimonial__stars">★★★★★</div>
+              </div>
+              <div class="c1-testimonial__quote">"<mark>Polier-Stelle 5 Monate offen — null Resonanz.</mark> Bei GreenCareers nach 21 Tagen unterschrieben."</div>
+              <div class="c1-testimonial__outcome">21 Tage bis Einstellung</div>
+            </div>
           </div>
-          <div class="c1-hero__sep"></div>
-          <div class="c1-hero__item">
-            <span class="num"><em>+900</em></span>
-            <span class="lbl">Neue Fachkräfte jeden Monat</span>
+          <div class="c1-testimonial">
+            <div class="c1-testimonial__avatar" style="background:linear-gradient(135deg,#C04D2A,#8B3818);">BS</div>
+            <div>
+              <div class="c1-testimonial__head">
+                <div>
+                  <div class="c1-testimonial__name">Birgit Schmidt</div>
+                  <div class="c1-testimonial__role">Baumschule Schmidt</div>
+                </div>
+                <div class="c1-testimonial__stars">★★★★★</div>
+              </div>
+              <div class="c1-testimonial__quote">"Saisonkräfte waren das größte Thema. <mark>6 Wochen vor Saisonstart komplett besetzt</mark> — zum ersten Mal."</div>
+              <div class="c1-testimonial__outcome">6 Wochen Vorlauf</div>
+            </div>
           </div>
         </div>
       </div>
 
       <div class="design-section__block">
-        <div class="design-section__block-label">Promises · 5 Boxen</div>
-        <div class="promise-grid">
+        <div class="design-section__block-label">Promises mit Mini-Proof aus Kunden-Erfahrungen</div>
+        <div class="grid-5">
           <div class="c1-promise">
-            <div class="c1-promise__big">45</div>
-            <div class="c1-promise__title">Tage bis Einstellung</div>
-            <div class="c1-promise__text">Ø 45 Tage von Anfrage bis Vertrag — statt monatelangem Warten auf leeren Stellenportalen.</div>
+            <div class="c1-promise__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+            <div class="c1-promise__title">Schnelle Einstellung</div>
+            <div class="c1-promise__text">Ø 45 Tage von Anfrage bis Vertragsunterschrift.</div>
+            <div class="c1-promise__proof">"<strong>Nach 16 Tagen war die Stelle besetzt.</strong>" — Wendling GaLaBau</div>
           </div>
           <div class="c1-promise">
-            <div class="c1-promise__big">+12</div>
-            <div class="c1-promise__title">Bewerber pro Monat</div>
-            <div class="c1-promise__text">Vorqualifizierte Bewerbungen — Monat für Monat, automatisch in Ihr Postfach.</div>
+            <div class="c1-promise__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h4l3-9 4 18 3-9h4"/></svg></div>
+            <div class="c1-promise__title">Kontinuierlich</div>
+            <div class="c1-promise__text">Pipeline läuft, Monat für Monat — automatisch.</div>
+            <div class="c1-promise__proof">"<strong>Dauerhaft sichtbar, laufend Initiativ-Bewerbungen.</strong>" — Gartencenter Streb</div>
           </div>
           <div class="c1-promise">
-            <div class="c1-promise__big">319 €</div>
-            <div class="c1-promise__title">Monatlich. Fix.</div>
-            <div class="c1-promise__text">Planbar, kalkulierbar, kündbar nach Laufzeit. Keine Setup-Gebühren.</div>
+            <div class="c1-promise__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+            <div class="c1-promise__title">Festpreis</div>
+            <div class="c1-promise__text">Ab 319 € monatlich — planbar, kündbar.</div>
+            <div class="c1-promise__proof">"<strong>Endlich planbar — statt Zeitungs-Roulette.</strong>" — Schmitt-Steul</div>
           </div>
           <div class="c1-promise">
-            <div class="c1-promise__big">0</div>
-            <div class="c1-promise__title">Aufwand für Sie</div>
-            <div class="c1-promise__text">Wir machen Anzeige, Targeting, Pflege, Vorauswahl. Sie führen die Gespräche.</div>
+            <div class="c1-promise__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></div>
+            <div class="c1-promise__title">Null Aufwand</div>
+            <div class="c1-promise__text">Wir kümmern uns. Sie führen die Gespräche.</div>
+            <div class="c1-promise__proof">"<strong>Ohne großen Zeitaufwand 3 Stellen besetzt.</strong>" — Grün Team</div>
           </div>
           <div class="c1-promise">
-            <div class="c1-promise__big">100%</div>
-            <div class="c1-promise__title">Grüne Branche</div>
-            <div class="c1-promise__text">Nur Bewerber aus der grünen Branche — keine fachfremden Quereinsteiger.</div>
+            <div class="c1-promise__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+            <div class="c1-promise__title">Branchen-Match</div>
+            <div class="c1-promise__text">Nur Bewerber aus der grünen Branche.</div>
+            <div class="c1-promise__proof">"<strong>Leute, die wissen, was 4 Uhr morgens bedeutet.</strong>" — Hof Wiesner</div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========================================
-       KONZEPT 2 — SAAS-DASHBOARD
-       ======================================== -->
-  <section class="design-section design-section--dark c2" id="k2">
+  <!-- ============================================
+       KONZEPT 2 — RESULTS WALL
+       ============================================ -->
+  <section class="design-section c2-section" id="k2">
     <div class="container">
       <div class="design-section__head">
         <div class="design-section__num">Konzept 2</div>
-        <h2 class="design-section__title">SaaS <em>Dashboard</em></h2>
-        <p class="design-section__sub">Sieht aus wie echte Software-UI. Dunkler Modus, Mono-Schrift für Zahlen, KPI-Tiles mit Sparkline-Charts, Status-Pills, Pseudo-Git-Diff-Look.</p>
+        <h2 class="design-section__title">Results <em>Wall</em></h2>
+        <p class="design-section__sub">Konkrete Ergebnisse als Hauptelement. Trust-Karten sind keine Quotes — sondern Outcome-Boards. Wer hat was erreicht. Vergleichbar, scanbar, sofort verständlich.</p>
       </div>
 
       <div class="design-section__block">
-        <div class="design-section__block-label" style="color:rgba(255,255,255,0.5);">Cases · Git-Diff-Style</div>
-        <div class="case-grid">
-          <div class="case-card">
-            <div class="case-card__quote">"3 Monate vergeblich einen Vorarbeiter gesucht. Mit GreenCareers war die Stelle nach 16 Tagen besetzt."</div>
-            <div class="case-card__author"><strong>Carsten Wendling</strong> · Wendling GaLaBau</div>
-            <div class="diff-row diff-row--minus">
-              <span class="diff-row__sign">-</span>
-              <span class="diff-row__txt">vorher: 3_monate_suchend</span>
+        <div class="design-section__block-label">Hero: Aggregierte Trust-Zahlen aller Kunden</div>
+        <div class="c2-results-bar">
+          <div class="c2-results-bar__item">
+            <span class="num">500+</span>
+            <span class="lbl">Betriebe vertrauen<br>GreenCareers</span>
+          </div>
+          <div class="c2-results-bar__sep"></div>
+          <div class="c2-results-bar__item">
+            <span class="num">1.847</span>
+            <span class="lbl">Einstellungen<br>seit 2024</span>
+          </div>
+          <div class="c2-results-bar__sep"></div>
+          <div class="c2-results-bar__item">
+            <span class="num">Ø 45 T</span>
+            <span class="lbl">Median bis<br>Vertragsunterschrift</span>
+          </div>
+          <div class="c2-results-bar__sep"></div>
+          <div class="c2-results-bar__item">
+            <span class="num">4,9 / 5</span>
+            <span class="lbl">Bewertung<br>von Geschäftsführern</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="design-section__block">
+        <div class="design-section__block-label">Kunden-Outcome-Wall · Filterbar nach Branche</div>
+        <div class="c2-trust-grid">
+          <div class="c2-trust-card">
+            <div class="c2-trust-card__head">
+              <div class="c2-trust-card__logo" style="background:#1F5A1F;color:#fff;">GT</div>
+              <div>
+                <div class="c2-trust-card__company">Grün Team GmbH</div>
+                <div class="c2-trust-card__industry">Garten- &amp; Landschaftsbau</div>
+              </div>
             </div>
-            <div class="diff-row diff-row--plus">
-              <span class="diff-row__sign">+</span>
-              <span class="diff-row__txt">nachher: 16_tage_bis_vertrag</span>
+            <div class="c2-trust-card__outcome">
+              <div class="c2-trust-card__outcome-lbl">Resultat</div>
+              <div class="c2-trust-card__outcome-val">3 Vorarbeiter + LKW-Fahrer in 4 Monaten</div>
+            </div>
+            <div class="c2-trust-card__quote">"Schnell und ohne großen Zeitaufwand besetzt — die Spezialisierung auf die grüne Branche merkt man sofort."</div>
+            <div class="c2-trust-card__footer">
+              <span class="c2-trust-card__stars">★★★★★</span>
+              <span class="c2-trust-card__verified">
+                <svg viewBox="0 0 24 24" fill="#4285F4"><path d="M22.5 12.2c0-.7-.06-1.5-.18-2.2H12.2v4.2h5.8a5 5 0 01-2.1 3.2v2.7h3.5c2-1.9 3.2-4.6 3.2-7.9z"/></svg>
+                Google
+              </span>
             </div>
           </div>
-          <div class="case-card">
-            <div class="case-card__quote">"Polier-Stelle 5 Monate auf Indeed offen — null Resonanz. Bei GreenCareers nach 21 Tagen unterschrieben."</div>
-            <div class="case-card__author"><strong>Lukas Brenner</strong> · Brenner Bau</div>
-            <div class="diff-row diff-row--minus">
-              <span class="diff-row__sign">-</span>
-              <span class="diff-row__txt">indeed: 5_monate_kein_polier</span>
+          <div class="c2-trust-card">
+            <div class="c2-trust-card__head">
+              <div class="c2-trust-card__logo" style="background:#52C277;color:#08260C;">H</div>
+              <div>
+                <div class="c2-trust-card__company">Pflanzenhandel Huben</div>
+                <div class="c2-trust-card__industry">Baumschule / Pflanzenhandel</div>
+              </div>
             </div>
-            <div class="diff-row diff-row--plus">
-              <span class="diff-row__sign">+</span>
-              <span class="diff-row__txt">greencareers: 21_tage_einstellung</span>
+            <div class="c2-trust-card__outcome">
+              <div class="c2-trust-card__outcome-lbl">Resultat</div>
+              <div class="c2-trust-card__outcome-val">2 Baumschulgärtner in 3 Wochen</div>
+            </div>
+            <div class="c2-trust-card__quote">"Hätten wir ohne GreenCareers wahrscheinlich noch Monate gesucht. Anzahl und Qualität der Bewerbungen überrascht."</div>
+            <div class="c2-trust-card__footer">
+              <span class="c2-trust-card__stars">★★★★★</span>
+              <span class="c2-trust-card__verified">
+                <svg viewBox="0 0 24 24" fill="#4285F4"><path d="M22.5 12.2c0-.7-.06-1.5-.18-2.2H12.2v4.2h5.8a5 5 0 01-2.1 3.2v2.7h3.5c2-1.9 3.2-4.6 3.2-7.9z"/></svg>
+                Google
+              </span>
             </div>
           </div>
-          <div class="case-card">
-            <div class="case-card__quote">"Saisonkräfte waren immer das größte Thema. Sechs Wochen vor Saisonstart komplett besetzt."</div>
-            <div class="case-card__author"><strong>Birgit Schmidt</strong> · Baumschule Schmidt</div>
-            <div class="diff-row diff-row--minus">
-              <span class="diff-row__sign">-</span>
-              <span class="diff-row__txt">saison: luecken_jedes_jahr</span>
+          <div class="c2-trust-card">
+            <div class="c2-trust-card__head">
+              <div class="c2-trust-card__logo" style="background:#7A4A36;color:#fff;">S</div>
+              <div>
+                <div class="c2-trust-card__company">Gartencenter Streb</div>
+                <div class="c2-trust-card__industry">Pflanzen- &amp; Gartencenter</div>
+              </div>
             </div>
-            <div class="diff-row diff-row--plus">
-              <span class="diff-row__sign">+</span>
-              <span class="diff-row__txt">saison: 6_wochen_vor_start_voll</span>
+            <div class="c2-trust-card__outcome">
+              <div class="c2-trust-card__outcome-lbl">Resultat</div>
+              <div class="c2-trust-card__outcome-val">Dauerhafte Pipeline + Initiativ-Bewerbungen</div>
+            </div>
+            <div class="c2-trust-card__quote">"Es gibt nichts Vergleichbares für unsere Branche. Durch die dauerhafte Präsenz erhalten wir laufend Bewerbungen."</div>
+            <div class="c2-trust-card__footer">
+              <span class="c2-trust-card__stars">★★★★★</span>
+              <span class="c2-trust-card__verified">
+                <svg viewBox="0 0 24 24" fill="#4285F4"><path d="M22.5 12.2c0-.7-.06-1.5-.18-2.2H12.2v4.2h5.8a5 5 0 01-2.1 3.2v2.7h3.5c2-1.9 3.2-4.6 3.2-7.9z"/></svg>
+                Google
+              </span>
             </div>
           </div>
         </div>
       </div>
 
       <div class="design-section__block">
-        <div class="design-section__block-label" style="color:rgba(255,255,255,0.5);">Hero-Trust · KPI-Tiles</div>
-        <div class="c2-tiles">
-          <div class="c2-tile">
-            <div class="c2-tile__head"><span class="c2-tile__lbl">Active Pool</span><span class="c2-tile__trend">+8% MoM</span></div>
-            <div class="c2-tile__num">30.000+</div>
-            <div class="c2-tile__sub">Aktive Fachkräfte aus der grünen Branche</div>
-            <svg class="c2-tile__sparkline" viewBox="0 0 200 40" preserveAspectRatio="none">
-              <path d="M0,30 L20,28 L40,25 L60,22 L80,24 L100,18 L120,16 L140,12 L160,10 L180,8 L200,5"
-                fill="none" stroke="#00D261" stroke-width="2"/>
-              <path d="M0,30 L20,28 L40,25 L60,22 L80,24 L100,18 L120,16 L140,12 L160,10 L180,8 L200,5 L200,40 L0,40 Z"
-                fill="url(#g1)"/>
-              <defs><linearGradient id="g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#00D261" stop-opacity="0.3"/><stop offset="100%" stop-color="#00D261" stop-opacity="0"/></linearGradient></defs>
-            </svg>
+        <div class="design-section__block-label">Promises · horizontale Zeilen mit konkretem Proof-Wert</div>
+        <div>
+          <div class="c2-promise-row">
+            <div class="c2-promise-row__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+            <div class="c2-promise-row__txt">
+              <h3>Schnelle Einstellung</h3>
+              <p>Median 45 Tage von Anfrage bis Vertragsunterschrift — statt monatelangem Warten auf leeren Stellenportalen.</p>
+            </div>
+            <div class="c2-promise-row__proof">
+              <div class="c2-promise-row__proof-num">45 Tage</div>
+              <div class="c2-promise-row__proof-lbl">Ø über 1.847 Cases</div>
+            </div>
           </div>
-          <div class="c2-tile">
-            <div class="c2-tile__head"><span class="c2-tile__lbl">Partners</span><span class="c2-tile__trend">+24 this mt.</span></div>
-            <div class="c2-tile__num">500+</div>
-            <div class="c2-tile__sub">Unternehmen vertrauen GreenCareers</div>
-            <svg class="c2-tile__sparkline" viewBox="0 0 200 40" preserveAspectRatio="none">
-              <path d="M0,35 L20,33 L40,30 L60,26 L80,22 L100,20 L120,18 L140,14 L160,12 L180,8 L200,6"
-                fill="none" stroke="#00D261" stroke-width="2"/>
-              <path d="M0,35 L20,33 L40,30 L60,26 L80,22 L100,20 L120,18 L140,14 L160,12 L180,8 L200,6 L200,40 L0,40 Z"
-                fill="url(#g1)"/>
-            </svg>
+          <div class="c2-promise-row">
+            <div class="c2-promise-row__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h4l3-9 4 18 3-9h4"/></svg></div>
+            <div class="c2-promise-row__txt">
+              <h3>Kontinuierlicher Bewerberstrom</h3>
+              <p>Pipeline läuft monatlich. Bewerbungen per Mail und WhatsApp, vorqualifiziert.</p>
+            </div>
+            <div class="c2-promise-row__proof">
+              <div class="c2-promise-row__proof-num">+12 / Mt.</div>
+              <div class="c2-promise-row__proof-lbl">Ø pro Premium-Sub</div>
+            </div>
           </div>
-          <div class="c2-tile">
-            <div class="c2-tile__head"><span class="c2-tile__lbl">New / Month</span><span class="c2-tile__trend">+12% MoM</span></div>
-            <div class="c2-tile__num">+900</div>
-            <div class="c2-tile__sub">Neue Fachkräfte jeden Monat</div>
-            <svg class="c2-tile__sparkline" viewBox="0 0 200 40" preserveAspectRatio="none">
-              <path d="M0,28 L20,30 L40,26 L60,22 L80,25 L100,20 L120,22 L140,16 L160,18 L180,10 L200,8"
-                fill="none" stroke="#00D261" stroke-width="2"/>
-              <path d="M0,28 L20,30 L40,26 L60,22 L80,25 L100,20 L120,22 L140,16 L160,18 L180,10 L200,8 L200,40 L0,40 Z"
-                fill="url(#g1)"/>
-            </svg>
+          <div class="c2-promise-row">
+            <div class="c2-promise-row__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+            <div class="c2-promise-row__txt">
+              <h3>Niedriger Festpreis</h3>
+              <p>Monatlicher Beitrag — planbar, kalkulierbar, kündbar nach Mindestlaufzeit.</p>
+            </div>
+            <div class="c2-promise-row__proof">
+              <div class="c2-promise-row__proof-num">ab 319 €</div>
+              <div class="c2-promise-row__proof-lbl">monatlich · keine Setup-Kosten</div>
+            </div>
           </div>
-        </div>
-      </div>
-
-      <div class="design-section__block">
-        <div class="design-section__block-label" style="color:rgba(255,255,255,0.5);">Promises · Settings-Cards</div>
-        <div class="promise-grid">
-          <div class="c2-promise">
-            <div class="c2-promise__head"><span class="c2-promise__status">Active</span></div>
-            <div class="c2-promise__title">Schnelle Einstellung</div>
-            <div class="c2-promise__text">Von Anfrage bis Vertragsunterschrift</div>
-            <div class="c2-promise__row"><span>Ø Zeit bis Hire</span><strong>45 Tage</strong></div>
+          <div class="c2-promise-row">
+            <div class="c2-promise-row__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></div>
+            <div class="c2-promise-row__txt">
+              <h3>Null Aufwand für Sie</h3>
+              <p>Anzeige, Targeting, Pflege, Vorauswahl: Wir. Sie führen nur noch die Gespräche.</p>
+            </div>
+            <div class="c2-promise-row__proof">
+              <div class="c2-promise-row__proof-num">~ 1 h / Mt.</div>
+              <div class="c2-promise-row__proof-lbl">durchschnittl. Ihr Aufwand</div>
+            </div>
           </div>
-          <div class="c2-promise">
-            <div class="c2-promise__head"><span class="c2-promise__status">Auto</span></div>
-            <div class="c2-promise__title">Bewerberstrom</div>
-            <div class="c2-promise__text">Pipeline läuft, Monat für Monat</div>
-            <div class="c2-promise__row"><span>Pipeline / Mt.</span><strong>+12</strong></div>
-            <div class="c2-promise__row"><span>Kanäle</span><strong>4</strong></div>
-          </div>
-          <div class="c2-promise">
-            <div class="c2-promise__head"><span class="c2-promise__status">Pricing</span></div>
-            <div class="c2-promise__title">Niedriger Festpreis</div>
-            <div class="c2-promise__text">Planbar, kalkulierbar</div>
-            <div class="c2-promise__row"><span>Setup</span><strong>0 €</strong></div>
-            <div class="c2-promise__row"><span>Monatlich ab</span><strong>319 €</strong></div>
-          </div>
-          <div class="c2-promise">
-            <div class="c2-promise__head"><span class="c2-promise__status">Managed</span></div>
-            <div class="c2-promise__title">Null Aufwand</div>
-            <div class="c2-promise__text">Wir kümmern uns. Sie führen die Gespräche.</div>
-            <div class="c2-promise__row"><span>Ihre Zeit / Mt.</span><strong>~ 1 h</strong></div>
-          </div>
-          <div class="c2-promise">
-            <div class="c2-promise__head"><span class="c2-promise__status">Filter</span></div>
-            <div class="c2-promise__title">Branchen-Bewerber</div>
-            <div class="c2-promise__text">Pool ausschließlich aus grüner Branche</div>
-            <div class="c2-promise__row"><span>Branchen-Match</span><strong>100%</strong></div>
+          <div class="c2-promise-row">
+            <div class="c2-promise-row__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+            <div class="c2-promise-row__txt">
+              <h3>Branchen-Bewerber</h3>
+              <p>Pool ausschließlich aus der grünen Branche — keine fachfremden Quereinsteiger.</p>
+            </div>
+            <div class="c2-promise-row__proof">
+              <div class="c2-promise-row__proof-num">100%</div>
+              <div class="c2-promise-row__proof-lbl">Branchen-Match</div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========================================
-       KONZEPT 3 — HAND-DRAWN / NOTEBOOK
-       ======================================== -->
-  <section class="design-section c3 c3-bg" id="k3">
+  <!-- ============================================
+       KONZEPT 3 — MISSION CONTROL
+       ============================================ -->
+  <section class="design-section" id="k3">
     <div class="container">
       <div class="design-section__head">
         <div class="design-section__num">Konzept 3</div>
-        <h2 class="design-section__title">Hand-Drawn / <em>Notebook</em></h2>
-        <p class="design-section__sub">Bricht den glatten Tech-Look auf. Wirkt menschlich, persönlich, charmant. Risikoreicher, aber sehr memorable. Funktioniert bei Handwerks-Zielgruppe oft besser als Corporate.</p>
+        <h2 class="design-section__title">Mission <em>Control</em></h2>
+        <p class="design-section__sub">Software-Vibe pur. Sieht aus wie ein Produkt-Dashboard. Pipeline-Stages, Cards mit Status-Pills, Outcome-Stats. Zeigt: "Wir sind ein System, das deine Pipeline managed — nicht nur ein Anzeigen-Portal."</p>
       </div>
 
       <div class="design-section__block">
-        <div class="design-section__block-label">Cases · Scribble-Style</div>
-        <div class="case-grid">
-          <div class="case-card">
-            <div class="case-card__quote">"3 Monate vergeblich einen Vorarbeiter gesucht. Mit GreenCareers war die Stelle nach 16 Tagen besetzt."</div>
-            <div class="case-card__author"><strong>Carsten Wendling</strong> · Wendling GaLaBau</div>
-            <div class="scribble">
-              <div class="scribble__before">3 Monate</div>
-              <div class="scribble__arrow">↝</div>
-              <div class="scribble__after">16 Tage</div>
+        <div class="design-section__block-label">Pipeline-Dashboard (so wirkt unser Service)</div>
+        <div class="c3-pipeline">
+          <div class="c3-pipeline__head">
+            <div class="c3-pipeline__title">Ihre Bewerber-Pipeline · Mai 2026</div>
+            <div class="c3-pipeline__tabs">
+              <div class="c3-pipeline__tab active">Diese Woche</div>
+              <div class="c3-pipeline__tab">Monat</div>
+              <div class="c3-pipeline__tab">Quartal</div>
             </div>
           </div>
-          <div class="case-card">
-            <div class="case-card__quote">"Polier-Stelle 5 Monate auf Indeed offen — null Resonanz. Bei GreenCareers nach 21 Tagen unterschrieben."</div>
-            <div class="case-card__author"><strong>Lukas Brenner</strong> · Brenner Bau</div>
-            <div class="scribble">
-              <div class="scribble__before">5 Monate</div>
-              <div class="scribble__arrow">↝</div>
-              <div class="scribble__after">21 Tage</div>
+          <div class="c3-stages">
+            <div class="c3-stage">
+              <div class="c3-stage__head">
+                <span class="c3-stage__name">Neu</span>
+                <span class="c3-stage__count">+12</span>
+              </div>
+              <div class="c3-candidate c3-candidate--new"><div class="c3-candidate__name">Marco K.</div><div class="c3-candidate__role">Vorarbeiter · 8 J. GaLaBau</div></div>
+              <div class="c3-candidate c3-candidate--new"><div class="c3-candidate__name">Sven F.</div><div class="c3-candidate__role">Pflasterer · 5 J.</div></div>
+              <div class="c3-candidate"><div class="c3-candidate__name">Tom H.</div><div class="c3-candidate__role">Maschinist · 12 J.</div></div>
             </div>
-          </div>
-          <div class="case-card">
-            <div class="case-card__quote">"Saisonkräfte waren immer das größte Thema. Sechs Wochen vor Saisonstart komplett besetzt — zum ersten Mal."</div>
-            <div class="case-card__author"><strong>Birgit Schmidt</strong> · Baumschule Schmidt</div>
-            <div class="scribble">
-              <div class="scribble__before">Lücken</div>
-              <div class="scribble__arrow">↝</div>
-              <div class="scribble__after">Voll besetzt</div>
+            <div class="c3-stage">
+              <div class="c3-stage__head">
+                <span class="c3-stage__name">Vorqualifiziert</span>
+                <span class="c3-stage__count">8</span>
+              </div>
+              <div class="c3-candidate"><div class="c3-candidate__name">Jonas K.</div><div class="c3-candidate__role">Vorarbeiter · 10 J.</div></div>
+              <div class="c3-candidate"><div class="c3-candidate__name">Daniel B.</div><div class="c3-candidate__role">Maschinist · 6 J.</div></div>
+            </div>
+            <div class="c3-stage c3-stage--hot">
+              <div class="c3-stage__head">
+                <span class="c3-stage__name">Gespräch geplant</span>
+                <span class="c3-stage__count">3</span>
+              </div>
+              <div class="c3-candidate"><div class="c3-candidate__name">Florian M.</div><div class="c3-candidate__role">Mi · 14 Uhr</div></div>
+              <div class="c3-candidate"><div class="c3-candidate__name">Patrick L.</div><div class="c3-candidate__role">Do · 10 Uhr</div></div>
+            </div>
+            <div class="c3-stage c3-stage--hot">
+              <div class="c3-stage__head">
+                <span class="c3-stage__name">Eingestellt</span>
+                <span class="c3-stage__count">2</span>
+              </div>
+              <div class="c3-candidate"><div class="c3-candidate__name">Lukas R.</div><div class="c3-candidate__role">Start: 01.06.</div></div>
             </div>
           </div>
         </div>
       </div>
 
       <div class="design-section__block">
-        <div class="design-section__block-label">Hero-Trust · Notebook</div>
-        <div class="c3-hero">
-          <div class="c3-hero__item">
-            <div class="c3-hero__brace">{ <em>30.000+</em> }</div>
-            <div class="c3-hero__lbl">Aktive Fachkräfte aus der grünen Branche</div>
-            <svg class="c3-hero__wave" viewBox="0 0 60 14"><path d="M0,7 Q15,0 30,7 T60,7" fill="none" stroke="#2A3A2A" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <div class="design-section__block-label">Kunden-Quote-Cards mit Stat-Footer</div>
+        <div class="grid-3">
+          <div class="c3-quote-card">
+            <div class="c3-quote-card__head">
+              <div class="c3-quote-card__avatar" style="background:#1F5A1F;">GT</div>
+              <div>
+                <div class="c3-quote-card__name">Michael Bleichner</div>
+                <div class="c3-quote-card__role">Grün Team GmbH</div>
+              </div>
+            </div>
+            <div class="c3-quote-card__quote">"Dank GreenCareers konnten wir 3 offene Stellen für LKW-Fahrer, Vorarbeiter und Facharbeiter schnell und ohne großen Zeitaufwand besetzen."</div>
+            <div class="c3-quote-card__stats">
+              <div>
+                <div class="c3-quote-card__stat-lbl">Stellen besetzt</div>
+                <div class="c3-quote-card__stat-val c3-quote-card__stat-val--good">3 in 4 Monaten</div>
+              </div>
+              <div>
+                <div class="c3-quote-card__stat-lbl">Zeit gespart</div>
+                <div class="c3-quote-card__stat-val">~ 80 %</div>
+              </div>
+            </div>
           </div>
-          <div class="c3-hero__item">
-            <div class="c3-hero__brace">{ <em>500+</em> }</div>
-            <div class="c3-hero__lbl">Unternehmen vertrauen GreenCareers</div>
-            <svg class="c3-hero__wave" viewBox="0 0 60 14"><path d="M0,7 Q15,14 30,7 T60,7" fill="none" stroke="#2A3A2A" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <div class="c3-quote-card">
+            <div class="c3-quote-card__head">
+              <div class="c3-quote-card__avatar" style="background:#52C277;">CH</div>
+              <div>
+                <div class="c3-quote-card__name">Carlo Huben</div>
+                <div class="c3-quote-card__role">Pflanzenhandel Huben</div>
+              </div>
+            </div>
+            <div class="c3-quote-card__quote">"Wir sind positiv überrascht von Anzahl und Qualität der Bewerbungen — absolut empfehlenswert für die grüne Branche."</div>
+            <div class="c3-quote-card__stats">
+              <div>
+                <div class="c3-quote-card__stat-lbl">Einstellungen</div>
+                <div class="c3-quote-card__stat-val c3-quote-card__stat-val--good">2 in 3 Wochen</div>
+              </div>
+              <div>
+                <div class="c3-quote-card__stat-lbl">Branche</div>
+                <div class="c3-quote-card__stat-val">Baumschule</div>
+              </div>
+            </div>
           </div>
-          <div class="c3-hero__item">
-            <div class="c3-hero__brace">{ <em>+900</em> }</div>
-            <div class="c3-hero__lbl">Neue Fachkräfte jeden Monat</div>
-            <svg class="c3-hero__wave" viewBox="0 0 60 14"><path d="M0,7 Q15,2 30,7 T60,7" fill="none" stroke="#2A3A2A" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <div class="c3-quote-card">
+            <div class="c3-quote-card__head">
+              <div class="c3-quote-card__avatar" style="background:#7A4A36;">TS</div>
+              <div>
+                <div class="c3-quote-card__name">Tobias Stierle</div>
+                <div class="c3-quote-card__role">Gartencenter Streb</div>
+              </div>
+            </div>
+            <div class="c3-quote-card__quote">"Durch die dauerhafte Präsenz unserer Stellenanzeigen erhalten wir laufend Initiativ-Bewerbungen."</div>
+            <div class="c3-quote-card__stats">
+              <div>
+                <div class="c3-quote-card__stat-lbl">Pipeline</div>
+                <div class="c3-quote-card__stat-val c3-quote-card__stat-val--good">Laufend +</div>
+              </div>
+              <div>
+                <div class="c3-quote-card__stat-lbl">Laufzeit</div>
+                <div class="c3-quote-card__stat-val">12 Monate</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
       <div class="design-section__block">
-        <div class="design-section__block-label">Promises · Post-It-Style</div>
-        <div class="promise-grid">
+        <div class="design-section__block-label">Promises · Dark-Mode-System-Cards</div>
+        <div class="grid-5">
           <div class="c3-promise">
-            <div class="c3-promise__icon">⏱</div>
-            <div class="c3-promise__title">Schnelle<br>Einstellung</div>
-            <div class="c3-promise__text">Ø 45 Tage von Anfrage bis Vertragsunterschrift.</div>
-            <div class="c3-promise__check">✓ 45 Tage</div>
+            <div class="c3-promise__lbl">Speed</div>
+            <div class="c3-promise__title">Schnelle Einstellung</div>
+            <div class="c3-promise__text">Ø 45 Tage von Anfrage bis Vertrag.</div>
+            <div class="c3-promise__metric">
+              <span class="c3-promise__metric-num">45</span>
+              <span class="c3-promise__metric-lbl">Tage Median</span>
+            </div>
           </div>
           <div class="c3-promise">
-            <div class="c3-promise__icon">📈</div>
-            <div class="c3-promise__title">Bewerber-<br>strom</div>
-            <div class="c3-promise__text">Pipeline läuft, Monat für Monat — automatisch.</div>
-            <div class="c3-promise__check">✓ +12 / Mt.</div>
+            <div class="c3-promise__lbl">Flow</div>
+            <div class="c3-promise__title">Pipeline-Strom</div>
+            <div class="c3-promise__text">Vorqualifizierte Bewerber jeden Monat.</div>
+            <div class="c3-promise__metric">
+              <span class="c3-promise__metric-num">+12</span>
+              <span class="c3-promise__metric-lbl">pro Monat</span>
+            </div>
           </div>
           <div class="c3-promise">
-            <div class="c3-promise__icon">€</div>
+            <div class="c3-promise__lbl">Pricing</div>
             <div class="c3-promise__title">Festpreis</div>
-            <div class="c3-promise__text">Ab 319 € — planbar, kündbar. Keine Setup-Kosten.</div>
-            <div class="c3-promise__check">✓ 0 € Setup</div>
+            <div class="c3-promise__text">Monatlich, planbar, kündbar.</div>
+            <div class="c3-promise__metric">
+              <span class="c3-promise__metric-num">319 €</span>
+              <span class="c3-promise__metric-lbl">/ Monat ab</span>
+            </div>
           </div>
           <div class="c3-promise">
-            <div class="c3-promise__icon">✓</div>
-            <div class="c3-promise__title">Null Aufwand<br>für Sie</div>
-            <div class="c3-promise__text">Wir kümmern uns. Sie führen die Gespräche.</div>
-            <div class="c3-promise__check">✓ Wir machen's</div>
+            <div class="c3-promise__lbl">Managed</div>
+            <div class="c3-promise__title">Null Aufwand</div>
+            <div class="c3-promise__text">Wir managen das ganze System.</div>
+            <div class="c3-promise__metric">
+              <span class="c3-promise__metric-num">~1 h</span>
+              <span class="c3-promise__metric-lbl">Ihr Aufwand / Mt.</span>
+            </div>
           </div>
           <div class="c3-promise">
-            <div class="c3-promise__icon">🌱</div>
-            <div class="c3-promise__title">Grüne<br>Branche</div>
-            <div class="c3-promise__text">Nur Bewerber aus der grünen Branche.</div>
-            <div class="c3-promise__check">✓ 100% Match</div>
+            <div class="c3-promise__lbl">Quality</div>
+            <div class="c3-promise__title">Branchen-Match</div>
+            <div class="c3-promise__text">Nur grüne Branche, keine Quereinsteiger.</div>
+            <div class="c3-promise__metric">
+              <span class="c3-promise__metric-num">100%</span>
+              <span class="c3-promise__metric-lbl">Branche</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========================================
-       KONZEPT 4 — MOCKUP-DEVICES
-       ======================================== -->
-  <section class="design-section c4" id="k4">
+  <!-- ============================================
+       KONZEPT 4 — REAL PEOPLE · REAL RESULTS
+       ============================================ -->
+  <section class="design-section c4-bg" id="k4">
     <div class="container">
       <div class="design-section__head">
         <div class="design-section__num">Konzept 4</div>
-        <h2 class="design-section__title">Device <em>Mockups</em></h2>
-        <p class="design-section__sub">Mini-Browser- und App-Mockups. Der Kunde sieht das Produkt direkt — leeres Indeed-Inserat vs. gefüllte GreenCareers-Inbox. Beste Conversion-Wirkung.</p>
+        <h2 class="design-section__title">Real People · <em>Real Results</em></h2>
+        <p class="design-section__sub">Card-Aufbau mit Company-Header + Outcome direkt sichtbar. Quote ist Beweis, nicht Marketing. Sehr emotional, sehr glaubwürdig — passt zu Handwerks-Zielgruppe.</p>
       </div>
 
       <div class="design-section__block">
-        <div class="design-section__block-label">Cases · Split-Mockup</div>
-        <div class="case-grid">
-          <div class="case-card">
-            <div class="case-card__quote">"3 Monate vergeblich einen Vorarbeiter gesucht. Mit GreenCareers war die Stelle nach 16 Tagen besetzt."</div>
-            <div class="case-card__author"><strong>Carsten Wendling</strong> · Wendling GaLaBau</div>
-            <div class="split-mock">
-              <div class="mock mock--bad">
-                <div class="mock__top"><span></span><span></span><span></span></div>
-                <div class="mock__brand">INDEED</div>
-                <div class="mock__title">Vorarbeiter</div>
-                <div class="mock__row"><span>Status</span><span class="mock__pill mock__pill--red">0 Bewerber</span></div>
-                <div class="mock__big">3 Monate</div>
+        <div class="design-section__block-label">Customer-Story-Cards (Outcome zuerst sichtbar)</div>
+        <div class="grid-3">
+          <div class="c4-customer">
+            <div class="c4-customer__hero">
+              <div class="c4-customer__company">
+                <div class="c4-customer__logo">GT</div>
+                <div>
+                  <div class="c4-customer__name">Grün Team GmbH</div>
+                  <div class="c4-customer__sub">Garten- &amp; Landschaftsbau</div>
+                </div>
               </div>
-              <div class="mock mock--good">
-                <div class="mock__top"><span></span><span></span><span></span></div>
-                <div class="mock__brand">GREENCAREERS</div>
-                <div class="mock__title">Vorarbeiter</div>
-                <div class="mock__row"><span>Status</span><span class="mock__pill mock__pill--green">17 Match</span></div>
-                <div class="mock__big">16 Tage</div>
+              <div class="c4-customer__outcome">
+                <div class="c4-customer__outcome-num">3×</div>
+                <div class="c4-customer__outcome-txt">Stellen besetzt<br>in 4 Monaten</div>
               </div>
             </div>
-          </div>
-          <div class="case-card">
-            <div class="case-card__quote">"Polier-Stelle 5 Monate offen — null Resonanz. Bei GreenCareers nach 21 Tagen unterschrieben."</div>
-            <div class="case-card__author"><strong>Lukas Brenner</strong> · Brenner Bau</div>
-            <div class="split-mock">
-              <div class="mock mock--bad">
-                <div class="mock__top"><span></span><span></span><span></span></div>
-                <div class="mock__brand">INDEED</div>
-                <div class="mock__title">Polier</div>
-                <div class="mock__row"><span>Resonanz</span><span class="mock__pill mock__pill--red">Null</span></div>
-                <div class="mock__big">5 Monate</div>
+            <div class="c4-customer__body">
+              <div class="c4-customer__person">
+                <div class="c4-customer__avatar">MB</div>
+                <div>
+                  <div class="c4-customer__person-name">Michael Bleichner</div>
+                  <div class="c4-customer__person-role">Inhaber &amp; Geschäftsführer</div>
+                </div>
               </div>
-              <div class="mock mock--good">
-                <div class="mock__top"><span></span><span></span><span></span></div>
-                <div class="mock__brand">GREENCAREERS</div>
-                <div class="mock__title">Polier</div>
-                <div class="mock__row"><span>Unterschrieben</span><span class="mock__pill mock__pill--green">✓</span></div>
-                <div class="mock__big">21 Tage</div>
-              </div>
+              <div class="c4-customer__quote">"Schnell und ohne großen Zeitaufwand besetzt. Die Spezialisierung auf die grüne Branche merkt man sofort."</div>
+              <div class="c4-customer__stars">★★★★★ Google</div>
             </div>
           </div>
-          <div class="case-card">
-            <div class="case-card__quote">"Saisonkräfte waren das größte Thema. Sechs Wochen vor Saisonstart komplett besetzt."</div>
-            <div class="case-card__author"><strong>Birgit Schmidt</strong> · Baumschule Schmidt</div>
-            <div class="split-mock">
-              <div class="mock mock--bad">
-                <div class="mock__top"><span></span><span></span><span></span></div>
-                <div class="mock__brand">SAISON</div>
-                <div class="mock__title">Lücken</div>
-                <div class="mock__row"><span>Status</span><span class="mock__pill mock__pill--red">Offen</span></div>
-                <div class="mock__big">Jedes Jahr</div>
+          <div class="c4-customer">
+            <div class="c4-customer__hero">
+              <div class="c4-customer__company">
+                <div class="c4-customer__logo">H</div>
+                <div>
+                  <div class="c4-customer__name">Pflanzenhandel Huben</div>
+                  <div class="c4-customer__sub">Baumschule</div>
+                </div>
               </div>
-              <div class="mock mock--good">
-                <div class="mock__top"><span></span><span></span><span></span></div>
-                <div class="mock__brand">GREENCAREERS</div>
-                <div class="mock__title">Saison-Team</div>
-                <div class="mock__row"><span>Status</span><span class="mock__pill mock__pill--green">Voll</span></div>
-                <div class="mock__big">6 Wo. vorher</div>
+              <div class="c4-customer__outcome">
+                <div class="c4-customer__outcome-num">3 Wo.</div>
+                <div class="c4-customer__outcome-txt">Baumschulgärtner<br>eingestellt</div>
+              </div>
+            </div>
+            <div class="c4-customer__body">
+              <div class="c4-customer__person">
+                <div class="c4-customer__avatar" style="background:linear-gradient(135deg,#52C277,#399939);">CH</div>
+                <div>
+                  <div class="c4-customer__person-name">Carlo Huben</div>
+                  <div class="c4-customer__person-role">Geschäftsführer</div>
+                </div>
+              </div>
+              <div class="c4-customer__quote">"Wir sind positiv überrascht von Anzahl und Qualität der Bewerbungen. Absolut empfehlenswert."</div>
+              <div class="c4-customer__stars">★★★★★ Google</div>
+            </div>
+          </div>
+          <div class="c4-customer">
+            <div class="c4-customer__hero">
+              <div class="c4-customer__company">
+                <div class="c4-customer__logo">S</div>
+                <div>
+                  <div class="c4-customer__name">Gartencenter Streb</div>
+                  <div class="c4-customer__sub">Pflanzen- &amp; Gartencenter</div>
+                </div>
+              </div>
+              <div class="c4-customer__outcome">
+                <div class="c4-customer__outcome-num">∞</div>
+                <div class="c4-customer__outcome-txt">Dauerhafte Pipeline<br>+ Initiativ-Bewerber</div>
+              </div>
+            </div>
+            <div class="c4-customer__body">
+              <div class="c4-customer__person">
+                <div class="c4-customer__avatar" style="background:linear-gradient(135deg,#7A4A36,#5A3525);">TS</div>
+                <div>
+                  <div class="c4-customer__person-name">Tobias Stierle</div>
+                  <div class="c4-customer__person-role">Betriebsleiter</div>
+                </div>
+              </div>
+              <div class="c4-customer__quote">"Es gibt einfach nichts Vergleichbares für unsere Branche."</div>
+              <div class="c4-customer__stars">★★★★★ Google</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="design-section__block">
+        <div class="design-section__block-label">Aggregierte Plattform-Zahlen</div>
+        <div class="c4-stat-band">
+          <div class="c4-stat-grid">
+            <div class="c4-stat">
+              <div class="c4-stat__icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+              </div>
+              <div>
+                <div class="c4-stat__num"><em>30.000+</em></div>
+                <div class="c4-stat__lbl">Aktive Fachkräfte aus der grünen Branche</div>
+              </div>
+            </div>
+            <div class="c4-stat">
+              <div class="c4-stat__icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4"/></svg>
+              </div>
+              <div>
+                <div class="c4-stat__num"><em>500+</em></div>
+                <div class="c4-stat__lbl">Betriebe vertrauen GreenCareers</div>
+              </div>
+            </div>
+            <div class="c4-stat">
+              <div class="c4-stat__icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+              </div>
+              <div>
+                <div class="c4-stat__num"><em>+900</em></div>
+                <div class="c4-stat__lbl">Neue Fachkräfte jeden Monat</div>
               </div>
             </div>
           </div>
@@ -1267,199 +1434,148 @@
       </div>
 
       <div class="design-section__block">
-        <div class="design-section__block-label">Hero-Trust · Dashboard-Tiles</div>
-        <div class="c4-hero-grid">
-          <div class="c4-hero-card">
-            <div class="c4-hero-card__num"><em>30.000+</em></div>
-            <div class="c4-hero-card__lbl">Aktive Fachkräfte aus der grünen Branche</div>
-            <div class="c4-hero-card__device">
-              <div class="c4-hero-card__device-head">Pool · Live</div>
-              <svg class="c4-hero-card__chart" viewBox="0 0 200 60" preserveAspectRatio="none">
-                <path d="M0,50 L20,45 L40,40 L60,35 L80,38 L100,30 L120,28 L140,20 L160,18 L180,12 L200,8"
-                  fill="none" stroke="#00D261" stroke-width="2.5"/>
-              </svg>
-              <div class="c4-hero-card__live">Live · 1.247 online jetzt</div>
-            </div>
-          </div>
-          <div class="c4-hero-card">
-            <div class="c4-hero-card__num"><em>500+</em></div>
-            <div class="c4-hero-card__lbl">Unternehmen vertrauen GreenCareers</div>
-            <div class="c4-hero-card__device">
-              <div class="c4-hero-card__device-head">Partner-Wachstum</div>
-              <svg class="c4-hero-card__chart" viewBox="0 0 200 60" preserveAspectRatio="none">
-                <rect x="0" y="48" width="14" height="12" fill="#00D261" opacity="0.4"/>
-                <rect x="20" y="44" width="14" height="16" fill="#00D261" opacity="0.5"/>
-                <rect x="40" y="40" width="14" height="20" fill="#00D261" opacity="0.6"/>
-                <rect x="60" y="36" width="14" height="24" fill="#00D261" opacity="0.7"/>
-                <rect x="80" y="30" width="14" height="30" fill="#00D261" opacity="0.8"/>
-                <rect x="100" y="24" width="14" height="36" fill="#00D261" opacity="0.9"/>
-                <rect x="120" y="18" width="14" height="42" fill="#00D261"/>
-                <rect x="140" y="14" width="14" height="46" fill="#00D261"/>
-                <rect x="160" y="10" width="14" height="50" fill="#00D261"/>
-                <rect x="180" y="6" width="14" height="54" fill="#00D261"/>
-              </svg>
-              <div class="c4-hero-card__live">+24 neu diesen Monat</div>
-            </div>
-          </div>
-          <div class="c4-hero-card">
-            <div class="c4-hero-card__num"><em>+900</em></div>
-            <div class="c4-hero-card__lbl">Neue Fachkräfte jeden Monat</div>
-            <div class="c4-hero-card__device">
-              <div class="c4-hero-card__device-head">Neuzugang / Tag</div>
-              <svg class="c4-hero-card__chart" viewBox="0 0 200 60" preserveAspectRatio="none">
-                <path d="M0,40 Q25,20 50,35 T100,30 T150,25 T200,15"
-                  fill="none" stroke="#00D261" stroke-width="2.5"/>
-                <circle cx="200" cy="15" r="4" fill="#00D261"/>
-              </svg>
-              <div class="c4-hero-card__live">~30 / Tag · stetig</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="design-section__block">
-        <div class="design-section__block-label">Promises · Mini-Mockups</div>
-        <div class="promise-grid">
+        <div class="design-section__block-label">Promises · Cards mit Ghost-Number</div>
+        <div class="grid-5">
           <div class="c4-promise">
+            <div class="c4-promise__number">01</div>
+            <div class="c4-promise__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
             <div class="c4-promise__title">Schnelle Einstellung</div>
             <div class="c4-promise__text">Ø 45 Tage von Anfrage bis Vertrag.</div>
-            <div class="c4-promise__mock">
-              <div class="c4-promise__mock-head">Timeline</div>
-              <div class="c4-promise__mock-row"><span class="c4-promise__mock-lbl">Anfrage</span><span class="c4-promise__mock-val">Tag 0</span></div>
-              <div class="c4-promise__mock-row"><span class="c4-promise__mock-lbl">Erster Bewerber</span><span class="c4-promise__mock-val">Tag 3</span></div>
-              <div class="c4-promise__mock-row"><span class="c4-promise__mock-lbl">Unterschrift</span><span class="c4-promise__mock-val">Ø Tag 45</span></div>
-            </div>
           </div>
           <div class="c4-promise">
-            <div class="c4-promise__title">Bewerberstrom</div>
-            <div class="c4-promise__text">Pipeline läuft — Monat für Monat.</div>
-            <div class="c4-promise__mock">
-              <div class="c4-promise__mock-head">WhatsApp · Neu</div>
-              <div class="c4-promise__mock-row"><span class="c4-promise__mock-lbl">Marco K.</span><span class="c4-promise__mock-val">●</span></div>
-              <div class="c4-promise__mock-row"><span class="c4-promise__mock-lbl">Sven F.</span><span class="c4-promise__mock-val">●</span></div>
-              <div class="c4-promise__mock-row"><span class="c4-promise__mock-lbl">Tom H.</span><span class="c4-promise__mock-val">●</span></div>
-            </div>
+            <div class="c4-promise__number">02</div>
+            <div class="c4-promise__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h4l3-9 4 18 3-9h4"/></svg></div>
+            <div class="c4-promise__title">Kontinuierlich</div>
+            <div class="c4-promise__text">Pipeline läuft monatlich, automatisch.</div>
           </div>
           <div class="c4-promise">
-            <div class="c4-promise__title">Niedriger Festpreis</div>
-            <div class="c4-promise__text">Ab 319 € monatlich. Planbar.</div>
-            <div class="c4-promise__mock">
-              <div class="c4-promise__mock-head">Checkout</div>
-              <div class="c4-promise__mock-row"><span class="c4-promise__mock-lbl">Setup-Gebühr</span><span class="c4-promise__mock-val">0 €</span></div>
-              <div class="c4-promise__mock-row"><span class="c4-promise__mock-lbl">Monatlich</span><span class="c4-promise__mock-val">319 €</span></div>
-              <div class="c4-promise__mock-row"><span class="c4-promise__mock-lbl">Kündbar</span><span class="c4-promise__mock-val">✓</span></div>
-            </div>
+            <div class="c4-promise__number">03</div>
+            <div class="c4-promise__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+            <div class="c4-promise__title">Festpreis</div>
+            <div class="c4-promise__text">Ab 319 € monatlich. Keine Setup-Kosten.</div>
           </div>
           <div class="c4-promise">
+            <div class="c4-promise__number">04</div>
+            <div class="c4-promise__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></div>
             <div class="c4-promise__title">Null Aufwand</div>
-            <div class="c4-promise__text">Wir kümmern uns um den Rest.</div>
-            <div class="c4-promise__mock">
-              <div class="c4-promise__mock-head">Workflow</div>
-              <div class="c4-promise__mock-row"><span class="c4-promise__mock-lbl">Anzeige</span><span class="c4-promise__mock-val">Wir</span></div>
-              <div class="c4-promise__mock-row"><span class="c4-promise__mock-lbl">Targeting</span><span class="c4-promise__mock-val">Wir</span></div>
-              <div class="c4-promise__mock-row"><span class="c4-promise__mock-lbl">Vorauswahl</span><span class="c4-promise__mock-val">Wir</span></div>
-            </div>
+            <div class="c4-promise__text">Wir managen, Sie führen die Gespräche.</div>
           </div>
           <div class="c4-promise">
-            <div class="c4-promise__title">Branchen-Bewerber</div>
-            <div class="c4-promise__text">Nur grüne Branche, keine Quereinsteiger.</div>
-            <div class="c4-promise__mock">
-              <div class="c4-promise__mock-head">Filter</div>
-              <div class="c4-promise__mock-row"><span class="c4-promise__mock-lbl">GaLaBau</span><span class="c4-promise__mock-val">✓</span></div>
-              <div class="c4-promise__mock-row"><span class="c4-promise__mock-lbl">Tiefbau</span><span class="c4-promise__mock-val">✓</span></div>
-              <div class="c4-promise__mock-row"><span class="c4-promise__mock-lbl">Quereinsteiger</span><span class="c4-promise__mock-val" style="color:#D26B6B;">×</span></div>
-            </div>
+            <div class="c4-promise__number">05</div>
+            <div class="c4-promise__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+            <div class="c4-promise__title">Grüne Branche</div>
+            <div class="c4-promise__text">Nur Bewerber aus der grünen Branche.</div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========================================
-       KONZEPT 5 — BOLD STATEMENT
-       ======================================== -->
-  <section class="design-section c5" id="k5">
+  <!-- ============================================
+       KONZEPT 5 — TIMELINE OF SUCCESS
+       ============================================ -->
+  <section class="design-section c5-section" id="k5">
     <div class="container">
       <div class="design-section__head">
         <div class="design-section__num">Konzept 5</div>
-        <h2 class="design-section__title">Bold <em>Statement</em></h2>
-        <p class="design-section__sub">Apple-Keynote-Style. Riesige Zahlen, maximal typografisch. Keine Boxen, keine Bars — die Schrift macht alles. Statement-Page für Selbstbewusstsein.</p>
+        <h2 class="design-section__title">Timeline of <em>Success</em></h2>
+        <p class="design-section__sub">Tag-für-Tag-Story. Der Besucher sieht die Reise eines Kunden vom Anfang bis zur Einstellung. Stellt das Recruiting-Abo als Begleiter dar — Vertrauen über erlebbaren Weg.</p>
       </div>
 
       <div class="design-section__block">
-        <div class="design-section__block-label">Cases · Typografisch</div>
-        <div style="display:grid;gap:0;">
-          <div class="case-card">
-            <div class="case-card__quote">"3 Monate vergeblich einen Vorarbeiter gesucht. Mit GreenCareers war die Stelle nach 16 Tagen besetzt."</div>
-            <div class="case-card__author"><strong>Carsten Wendling</strong> · Wendling GaLaBau · Krefeld</div>
-            <div class="bold-result">
-              <span class="strike">3 Monate</span><span class="arrow">→</span><span class="now">16 Tage</span>
-            </div>
+        <div class="design-section__block-label">Customer Journey · Tag-für-Tag</div>
+        <div class="c5-timeline">
+          <div class="c5-tl-item c5-tl-item--milestone">
+            <div class="c5-tl-day">Tag 0 · Start</div>
+            <div class="c5-tl-title">Wendling GaLaBau startet</div>
+            <div class="c5-tl-text">Carsten W. schließt das Premium-Abo ab. In 10 Min die Stelle für einen Vorarbeiter angelegt.</div>
           </div>
-          <div class="case-card">
-            <div class="case-card__quote">"Polier-Stelle 5 Monate auf Indeed offen — null Resonanz. Bei GreenCareers nach 21 Tagen unterschrieben."</div>
-            <div class="case-card__author"><strong>Lukas Brenner</strong> · Brenner Bau · Nürnberg</div>
-            <div class="bold-result">
-              <span class="strike">5 Monate</span><span class="arrow">→</span><span class="now">21 Tage</span>
-            </div>
+          <div class="c5-tl-item">
+            <div class="c5-tl-day">Tag 1</div>
+            <div class="c5-tl-title">Anzeige geht live · 2.860 Bewerber-Pool erreicht</div>
+            <div class="c5-tl-text">Targeting Köln + 30 km. Ausspielung auf Social Media, Karrierenetzwerken und im internen Pool.</div>
           </div>
-          <div class="case-card">
-            <div class="case-card__quote">"Saisonkräfte waren immer das größte Thema. Sechs Wochen vor Saisonstart komplett besetzt — zum ersten Mal."</div>
-            <div class="case-card__author"><strong>Birgit Schmidt</strong> · Baumschule Schmidt · Münsterland</div>
-            <div class="bold-result">
-              <span class="strike">Lücken</span><span class="arrow">→</span><span class="now">Voll</span>
-            </div>
+          <div class="c5-tl-item">
+            <div class="c5-tl-day">Tag 3</div>
+            <div class="c5-tl-title">Erste Bewerbungen kommen rein</div>
+            <div class="c5-tl-text">5 vorqualifizierte Bewerbungen per WhatsApp. KI hat aussortiert, was nicht passt.</div>
+          </div>
+          <div class="c5-tl-item">
+            <div class="c5-tl-day">Tag 9</div>
+            <div class="c5-tl-title">17 Bewerber im Pool · 3 Interviews geplant</div>
+            <div class="c5-tl-text">Carsten lädt drei Top-Kandidaten persönlich ein. Alle drei kennen GaLaBau.</div>
+          </div>
+          <div class="c5-tl-item c5-tl-item--milestone">
+            <div class="c5-tl-day">Tag 16 · Einstellung</div>
+            <div class="c5-tl-title">Vertrag mit Marco K. unterschrieben ✓</div>
+            <div class="c5-tl-text">Vorarbeiter mit 8 Jahren GaLaBau-Erfahrung. Start zum 1. des Folgemonats.</div>
+            <div class="c5-tl-quote">"<strong>3 Monate vergeblich einen Vorarbeiter gesucht.</strong> Mit GreenCareers war die Stelle nach 16 Tagen besetzt." — Carsten Wendling, ★★★★★</div>
+          </div>
+          <div class="c5-tl-item">
+            <div class="c5-tl-day">ab Monat 2 · Pipeline läuft weiter</div>
+            <div class="c5-tl-title">Pool füllt sich für die nächste Stelle</div>
+            <div class="c5-tl-text">Pipeline läuft im Hintergrund. Wenn Carsten die nächste Position öffnet, sind schon Bewerber da.</div>
           </div>
         </div>
       </div>
 
       <div class="design-section__block">
-        <div class="design-section__block-label">Hero-Trust · Apple-Style</div>
-        <div class="c5-hero">
-          <div class="c5-hero__item">
-            <span class="c5-hero__num"><em>30k+</em></span>
-            <span class="c5-hero__lbl">Fachkräfte</span>
+        <div class="design-section__block-label">Wachstums-Counter · Trust-Strip</div>
+        <div class="c5-counter-grid">
+          <div class="c5-counter">
+            <div class="c5-counter__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+            </div>
+            <div class="c5-counter__num"><em>30.000+</em></div>
+            <div class="c5-counter__lbl">Fachkräfte aus der grünen Branche</div>
+            <div class="c5-counter__growth">+900 jeden Monat</div>
           </div>
-          <div class="c5-hero__sep"></div>
-          <div class="c5-hero__item">
-            <span class="c5-hero__num"><em>500+</em></span>
-            <span class="c5-hero__lbl">Betriebe</span>
+          <div class="c5-counter">
+            <div class="c5-counter__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4"/></svg>
+            </div>
+            <div class="c5-counter__num"><em>500+</em></div>
+            <div class="c5-counter__lbl">Betriebe vertrauen GreenCareers</div>
+            <div class="c5-counter__growth">+24 diesen Monat</div>
           </div>
-          <div class="c5-hero__sep"></div>
-          <div class="c5-hero__item">
-            <span class="c5-hero__num"><em>+900</em></span>
-            <span class="c5-hero__lbl">/ Monat neu</span>
+          <div class="c5-counter">
+            <div class="c5-counter__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+            </div>
+            <div class="c5-counter__num"><em>1.847</em></div>
+            <div class="c5-counter__lbl">Erfolgreiche Einstellungen seit 2024</div>
+            <div class="c5-counter__growth">★★★★★ 4,9 / 5</div>
           </div>
         </div>
       </div>
 
       <div class="design-section__block">
-        <div class="design-section__block-label">Promises · Bold-Numbers</div>
-        <div class="promise-grid">
+        <div class="design-section__block-label">Promises · Step-Style</div>
+        <div class="grid-5">
           <div class="c5-promise">
-            <div class="c5-promise__big">45</div>
-            <div class="c5-promise__title">Tage bis Einstellung</div>
-            <div class="c5-promise__text">Ø 45 Tage statt monatelangem Warten.</div>
+            <div class="c5-promise__day">Tag 0</div>
+            <div class="c5-promise__title">Schnell starten</div>
+            <div class="c5-promise__text">Stelle angelegt in 10 Min. Live am selben Tag.</div>
           </div>
           <div class="c5-promise">
-            <div class="c5-promise__big">+12</div>
-            <div class="c5-promise__title">Pro Monat</div>
-            <div class="c5-promise__text">Vorqualifizierte Bewerber, automatisch.</div>
+            <div class="c5-promise__day">Tag 3+</div>
+            <div class="c5-promise__title">Pipeline läuft</div>
+            <div class="c5-promise__text">Bewerber kommen per WhatsApp und Mail.</div>
           </div>
           <div class="c5-promise">
-            <div class="c5-promise__big">319 €</div>
-            <div class="c5-promise__title">Monatlich, fix</div>
-            <div class="c5-promise__text">Planbar, kalkulierbar, kündbar.</div>
+            <div class="c5-promise__day">Monatlich</div>
+            <div class="c5-promise__title">Festpreis</div>
+            <div class="c5-promise__text">Ab 319 €. Planbar, kalkulierbar, kündbar.</div>
           </div>
           <div class="c5-promise">
-            <div class="c5-promise__big">0 h</div>
-            <div class="c5-promise__title">Aufwand für Sie</div>
-            <div class="c5-promise__text">Wir machen Anzeige, Targeting, Pflege.</div>
+            <div class="c5-promise__day">Dauerhaft</div>
+            <div class="c5-promise__title">Wir managen</div>
+            <div class="c5-promise__text">Sie führen die Gespräche, wir den Rest.</div>
           </div>
           <div class="c5-promise">
-            <div class="c5-promise__big">100%</div>
+            <div class="c5-promise__day">Immer</div>
             <div class="c5-promise__title">Grüne Branche</div>
-            <div class="c5-promise__text">Keine fachfremden Quereinsteiger.</div>
+            <div class="c5-promise__text">Nur Bewerber, die Ihre Branche kennen.</div>
           </div>
         </div>
       </div>
@@ -1469,10 +1585,8 @@
   <section class="picker">
     <div class="container">
       <h2>Welches Konzept gefällt dir?</h2>
-      <p>Sag mir 1, 2, 3, 4 oder 5 — oder einen Mix — und ich baue es in die Live-LP ein.</p>
-      <div class="picker__buttons">
-        <a href="https://abo.green-careers.de" target="_blank">↗ Aktuelle LP ansehen</a>
-      </div>
+      <p>Sag mir 1, 2, 3, 4 oder 5 — oder kombiniere (z. B. "Hero von 4, Cases von 1, Promises von 3"). Dann baue ich es in die Live-LP ein.</p>
+      <a href="https://abo.green-careers.de" target="_blank">↗ Aktuelle Live-LP zum Vergleich</a>
     </div>
   </section>
 
