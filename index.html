@@ -667,7 +667,7 @@
     }
     .explainer__caption strong { color: var(--moss-2); font-weight: 600; }
 
-    /* ============== PROMISES ============== */
+    /* ============== PROMISES (Dark-Mode System-Cards) ============== */
     .promises {
       background: var(--cream);
       padding: 110px 0 90px;
@@ -681,164 +681,269 @@
     @media (max-width: 1100px) { .promises__grid { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 560px) { .promises__grid { grid-template-columns: 1fr; } }
     .promise {
-      padding: 28px 24px;
-      background: var(--white);
-      border: 1px solid var(--line);
+      background: linear-gradient(160deg, var(--moss-3) 0%, var(--moss-2) 100%);
+      color: var(--white);
+      border: 1px solid rgba(0,210,97,0.18);
       border-radius: var(--r-md);
-      transition: background 0.35s ease, transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+      padding: 26px 24px;
       position: relative;
-      cursor: pointer;
+      overflow: hidden;
+      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+    }
+    .promise::before {
+      content: "";
+      position: absolute;
+      top: -40px; right: -40px;
+      width: 200px; height: 200px;
+      background: radial-gradient(circle, rgba(0,210,97,0.15) 0%, transparent 65%);
+      pointer-events: none;
+      filter: blur(10px);
     }
     .promise:hover {
       transform: translateY(-6px);
-      background: linear-gradient(160deg, var(--moss-3) 0%, var(--moss-2) 100%);
-      border-color: var(--green);
-      box-shadow: 0 20px 50px rgba(15,27,15,0.22), 0 0 0 1px var(--green);
+      border-color: rgba(0,210,97,0.55);
+      box-shadow: 0 24px 50px rgba(15,27,15,0.32);
     }
-    .promise__icon {
-      width: 44px; height: 44px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, rgba(0,210,97,0.14), rgba(0,210,97,0.04));
-      border: 1px solid rgba(0,210,97,0.2);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--green-deep);
-      margin-bottom: 18px;
-      transition: all 0.35s ease;
-    }
-    .promise:hover .promise__icon {
-      background: var(--green);
-      border-color: var(--green);
-      color: #08260C;
-      transform: scale(1.05);
+    .promise__lbl {
+      display: inline-block;
+      padding: 4px 10px;
+      background: rgba(0,210,97,0.15);
+      color: var(--green);
+      border-radius: 6px;
+      font-size: 10px; font-weight: 800;
+      letter-spacing: 1.2px; text-transform: uppercase;
+      margin-bottom: 14px;
+      position: relative; z-index: 1;
     }
     .promise__title {
       font-family: 'Fraunces', serif;
-      font-size: 20px;
-      font-weight: 500;
-      letter-spacing: -0.015em;
-      color: var(--moss-2);
+      font-size: 20px; font-weight: 500;
+      color: var(--white);
       margin-bottom: 8px;
-      line-height: 1.2;
-      transition: color 0.35s ease;
+      letter-spacing: -0.015em;
+      line-height: 1.18;
+      position: relative; z-index: 1;
     }
-    .promise:hover .promise__title { color: var(--white); }
     .promise__text {
       font-size: 13.5px;
-      color: var(--ink-soft);
-      line-height: 1.5;
-      transition: color 0.35s ease;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.55;
+      margin-bottom: 18px;
+      position: relative; z-index: 1;
     }
-    .promise:hover .promise__text { color: rgba(255,255,255,0.85); }
-    .promise__viz {
-      margin-top: 16px;
-      padding-top: 16px;
-      border-top: 1px solid var(--line);
-      transition: border-color 0.35s ease;
+    .promise__metric {
+      display: flex; align-items: baseline; gap: 8px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      position: relative; z-index: 1;
     }
-    .promise:hover .promise__viz { border-top-color: rgba(255,255,255,0.12); }
-    .promise__viz .viz-pair {
-      display: flex; justify-content: space-between; align-items: baseline;
-      gap: 8px;
-      font-size: 12px;
-      color: var(--ink-mute);
-      margin-bottom: 4px;
-      transition: color 0.35s ease;
-    }
-    .promise:hover .promise__viz .viz-pair { color: rgba(255,255,255,0.6); }
-    .promise__viz .viz-pair strong {
+    .promise__metric-num {
       font-family: 'Fraunces', serif;
-      font-size: 18px;
-      font-weight: 500;
+      font-size: 28px; font-weight: 500;
+      color: var(--green);
+      letter-spacing: -0.02em; line-height: 1;
+    }
+    .promise__metric-lbl {
+      font-size: 12px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.3;
+    }
+
+    /* ============== PIPELINE DASHBOARD ============== */
+    .pipeline-section {
+      background: var(--cream);
+      padding: 110px 0;
+    }
+    .pipeline-section__head { max-width: 760px; margin-bottom: 50px; }
+    .pipeline-dashboard {
+      background: #FAFAF8;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: 0 30px 80px rgba(20,40,15,0.08);
+    }
+    .pipeline-dashboard__head {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 24px; flex-wrap: wrap; gap: 12px;
+    }
+    .pipeline-dashboard__title {
+      font-family: 'Fraunces', serif;
+      font-weight: 500; font-size: 22px;
+      color: var(--moss-2); letter-spacing: -0.015em;
+    }
+    .pipeline-dashboard__tabs {
+      display: inline-flex; gap: 4px;
+      background: var(--white);
+      border-radius: 10px; padding: 4px;
+      border: 1px solid var(--line);
+    }
+    .pipeline-dashboard__tab {
+      padding: 7px 14px;
+      border-radius: 6px;
+      font-size: 12.5px; font-weight: 600;
+      color: var(--ink-mute);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .pipeline-dashboard__tab.active {
+      background: var(--moss-2);
+      color: var(--white);
+    }
+    .pipeline-stages {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
+    }
+    @media (max-width: 900px) { .pipeline-stages { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 540px) { .pipeline-stages { grid-template-columns: 1fr; } }
+    .pipeline-stage {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 16px 14px 14px;
+      min-height: 220px;
+    }
+    .pipeline-stage__head {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 12px;
+    }
+    .pipeline-stage__name {
+      font-size: 11.5px; font-weight: 700;
       color: var(--moss-2);
-      letter-spacing: -0.01em;
-      transition: color 0.35s ease;
+      letter-spacing: 0.4px; text-transform: uppercase;
     }
-    .promise:hover .promise__viz .viz-pair strong { color: var(--green); }
-    .promise__viz .viz-pair strong.bad {
-      color: #B85555;
-      text-decoration: line-through;
-      text-decoration-color: rgba(184,85,85,0.5);
+    .pipeline-stage__count {
+      font-size: 11px; padding: 3px 9px;
+      background: var(--cream-2); color: var(--moss-2);
+      border-radius: 6px; font-weight: 700;
     }
-    .promise:hover .promise__viz .viz-pair strong.bad { color: #ff8888; }
-    .promise__viz .bar-track {
-      height: 5px;
-      background: var(--cream-2);
-      border-radius: 999px;
-      overflow: hidden;
-      margin-top: 4px;
-      transition: background 0.35s ease;
-    }
-    .promise:hover .promise__viz .bar-track { background: rgba(255,255,255,0.1); }
-    .promise__viz .bar-fill {
-      height: 100%;
-      background: linear-gradient(90deg, var(--green-dark), var(--green));
-      border-radius: 999px;
-    }
-    .promise__viz .dots-pair {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 14px;
-      margin-top: 4px;
-    }
-    .promise__viz .dots-pair .col {
-      display: flex; flex-direction: column; gap: 6px;
-    }
-    .promise__viz .dots-pair .col-label {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: var(--ink-mute);
-      transition: color 0.35s ease;
-    }
-    .promise:hover .promise__viz .dots-pair .col-label { color: rgba(255,255,255,0.55); }
-    .promise__viz .dots-pair .row-dots { display: inline-flex; flex-wrap: wrap; gap: 3px; }
-    .promise__viz .dots-pair .row-dots span {
-      width: 7px; height: 7px; border-radius: 50%;
-      background: var(--green);
-    }
-    .promise__viz .dots-pair .row-dots span.muted { background: var(--cream-3); }
-    .promise:hover .promise__viz .dots-pair .row-dots span.muted { background: rgba(255,255,255,0.15); }
-    .promise__viz .flow-anim {
-      display: inline-flex; gap: 4px; margin-top: 2px;
-    }
-    .promise__viz .flow-anim span {
-      width: 4px; height: 14px;
-      background: linear-gradient(180deg, transparent, var(--green));
-      border-radius: 2px;
-      animation: flow-up 2s ease-in-out infinite;
-    }
-    .promise__viz .flow-anim span:nth-child(2) { animation-delay: 0.2s; }
-    .promise__viz .flow-anim span:nth-child(3) { animation-delay: 0.4s; }
-    .promise__viz .flow-anim span:nth-child(4) { animation-delay: 0.6s; }
-    .promise__viz .flow-anim span:nth-child(5) { animation-delay: 0.8s; }
-    .promise__viz .flow-anim span:nth-child(6) { animation-delay: 1.0s; }
-    .promise__viz .icon-row {
-      display: flex; align-items: center; gap: 8px;
-      font-size: 11px;
-      color: var(--ink-mute);
-      font-weight: 600;
-      margin-top: 4px;
-      transition: color 0.35s ease;
-    }
-    .promise:hover .promise__viz .icon-row { color: rgba(255,255,255,0.6); }
-    .promise__viz .icon-row .badge {
-      padding: 3px 8px;
-      border-radius: 999px;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.3px;
-    }
-    .promise__viz .icon-row .badge.green {
-      background: rgba(0,210,97,0.15);
+    .pipeline-stage--hot .pipeline-stage__count {
+      background: rgba(0,210,97,0.18);
       color: var(--green-deep);
     }
-    .promise:hover .promise__viz .icon-row .badge.green {
-      background: rgba(0,210,97,0.25);
-      color: var(--green);
+    .pipeline-candidate {
+      background: var(--cream);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-bottom: 6px;
+      font-size: 12px;
+      color: var(--moss-2);
+      position: relative;
     }
-    .promise__viz .icon-row .badge.red {
-      background: rgba(208,107,107,0.18);
-      color: #B85555;
+    .pipeline-candidate__name { font-weight: 700; margin-bottom: 2px; line-height: 1.2; }
+    .pipeline-candidate__role { color: var(--ink-mute); font-size: 11px; }
+    .pipeline-candidate--new {
+      background: rgba(0,210,97,0.12);
+      border-left: 3px solid var(--green);
+      padding-right: 38px;
+    }
+    .pipeline-candidate--new::after {
+      content: "NEU";
+      position: absolute; top: 8px; right: 8px;
+      font-size: 9px; font-weight: 800;
+      color: var(--green-deep);
+      background: rgba(0,210,97,0.22);
+      padding: 2px 6px; border-radius: 4px;
+      letter-spacing: 0.5px;
+    }
+    .pipeline-dashboard__footnote {
+      margin-top: 22px;
+      padding-top: 18px;
+      border-top: 1px dashed var(--line);
+      text-align: center;
+      font-size: 13px;
+      color: var(--ink-mute);
+    }
+    .pipeline-dashboard__footnote strong { color: var(--moss-2); font-weight: 700; }
+
+    /* ============== ABLAUF TIMELINE ============== */
+    .ablauf-section {
+      background: var(--cream);
+      padding: 110px 0;
+    }
+    .ablauf-section__head { max-width: 720px; margin-bottom: 50px; text-align: center; margin-left: auto; margin-right: auto; }
+    .ablauf-timeline {
+      max-width: 820px;
+      margin: 0 auto;
+      position: relative;
+      padding-left: 60px;
+    }
+    .ablauf-timeline::before {
+      content: ""; position: absolute;
+      left: 23px; top: 30px; bottom: 30px;
+      width: 2px;
+      background: linear-gradient(180deg, var(--green) 0%, var(--green-dark) 100%);
+      opacity: 0.3;
+    }
+    .ablauf-item {
+      position: relative;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 22px 26px;
+      margin-bottom: 18px;
+      transition: all 0.3s ease;
+    }
+    .ablauf-item:hover {
+      border-color: var(--green-deep);
+      transform: translateX(4px);
+      box-shadow: 0 16px 40px rgba(20,40,15,0.08);
+    }
+    .ablauf-item::before {
+      content: "";
+      position: absolute;
+      left: -46px; top: 26px;
+      width: 18px; height: 18px;
+      border-radius: 50%;
+      background: var(--white);
+      border: 3px solid var(--green);
+      box-shadow: 0 0 0 4px rgba(0,210,97,0.12);
+    }
+    .ablauf-item--milestone::before {
+      background: var(--green);
+      border-color: var(--green-deep);
+    }
+    .ablauf-day {
+      display: inline-block;
+      padding: 4px 11px;
+      background: var(--cream);
+      color: var(--moss-2);
+      font-size: 11px; font-weight: 800;
+      letter-spacing: 1px; text-transform: uppercase;
+      border-radius: 999px;
+      margin-bottom: 10px;
+    }
+    .ablauf-item--milestone .ablauf-day {
+      background: rgba(0,210,97,0.18);
+      color: var(--green-deep);
+    }
+    .ablauf-title {
+      font-family: 'Fraunces', serif;
+      font-size: 19px; font-weight: 500;
+      color: var(--moss-2); margin-bottom: 6px;
+      letter-spacing: -0.01em;
+      line-height: 1.25;
+    }
+    .ablauf-text {
+      font-size: 13.5px;
+      color: var(--ink-soft);
+      line-height: 1.55;
+    }
+    .ablauf-quote {
+      margin-top: 14px;
+      padding: 14px 16px;
+      background: rgba(0,210,97,0.06);
+      border-radius: 10px;
+      font-size: 13px;
+      color: var(--ink-soft);
+      line-height: 1.55;
+      font-style: italic;
+      border-left: 3px solid var(--green);
+    }
+    .ablauf-quote strong { color: var(--moss-2); font-weight: 700; font-style: normal; }
+    .ablauf-quote .stars {
+      display: inline-block;
+      margin-left: 6px;
+      color: #FFB400;
+      font-style: normal;
     }
 
     /* ============== INDUSTRY SECTION ============== */
@@ -2215,6 +2320,92 @@
     </div>
   </section>
 
+  <!-- ============== PIPELINE DASHBOARD ============== -->
+  <section class="pipeline-section">
+    <div class="container">
+      <div class="pipeline-section__head reveal" style="margin-left:auto;margin-right:auto;text-align:center;">
+        <span class="eyebrow">So funktioniert Ihre Pipeline</span>
+        <h2 class="title" style="margin: 0 auto;">Eine Bewerber-Pipeline, die <em>nie leer läuft.</em></h2>
+        <p class="lead" style="margin-left:auto;margin-right:auto;">Mit dem Recruiting-Abo bauen Sie keine einmalige Anzeige auf — Sie haben dauerhaft Bewerber in der Pipeline. So sieht das in der Praxis aus:</p>
+      </div>
+      <div class="pipeline-dashboard reveal">
+        <div class="pipeline-dashboard__head">
+          <div class="pipeline-dashboard__title">Ihre Bewerber-Pipeline · diese Woche</div>
+          <div class="pipeline-dashboard__tabs">
+            <div class="pipeline-dashboard__tab active">Diese Woche</div>
+            <div class="pipeline-dashboard__tab">Monat</div>
+            <div class="pipeline-dashboard__tab">Quartal</div>
+          </div>
+        </div>
+        <div class="pipeline-stages">
+          <div class="pipeline-stage">
+            <div class="pipeline-stage__head">
+              <span class="pipeline-stage__name">Neu</span>
+              <span class="pipeline-stage__count">+12</span>
+            </div>
+            <div class="pipeline-candidate pipeline-candidate--new">
+              <div class="pipeline-candidate__name">Marco K.</div>
+              <div class="pipeline-candidate__role">Vorarbeiter · 8 J. GaLaBau</div>
+            </div>
+            <div class="pipeline-candidate pipeline-candidate--new">
+              <div class="pipeline-candidate__name">Sven F.</div>
+              <div class="pipeline-candidate__role">Pflasterer · 5 J.</div>
+            </div>
+            <div class="pipeline-candidate">
+              <div class="pipeline-candidate__name">Tom H.</div>
+              <div class="pipeline-candidate__role">Maschinist · 12 J.</div>
+            </div>
+          </div>
+          <div class="pipeline-stage">
+            <div class="pipeline-stage__head">
+              <span class="pipeline-stage__name">Vorqualifiziert</span>
+              <span class="pipeline-stage__count">8</span>
+            </div>
+            <div class="pipeline-candidate">
+              <div class="pipeline-candidate__name">Jonas K.</div>
+              <div class="pipeline-candidate__role">Vorarbeiter · 10 J.</div>
+            </div>
+            <div class="pipeline-candidate">
+              <div class="pipeline-candidate__name">Daniel B.</div>
+              <div class="pipeline-candidate__role">Maschinist · 6 J.</div>
+            </div>
+          </div>
+          <div class="pipeline-stage pipeline-stage--hot">
+            <div class="pipeline-stage__head">
+              <span class="pipeline-stage__name">Gespräch geplant</span>
+              <span class="pipeline-stage__count">3</span>
+            </div>
+            <div class="pipeline-candidate">
+              <div class="pipeline-candidate__name">Florian M.</div>
+              <div class="pipeline-candidate__role">Mi · 14 Uhr</div>
+            </div>
+            <div class="pipeline-candidate">
+              <div class="pipeline-candidate__name">Patrick L.</div>
+              <div class="pipeline-candidate__role">Do · 10 Uhr</div>
+            </div>
+          </div>
+          <div class="pipeline-stage pipeline-stage--hot">
+            <div class="pipeline-stage__head">
+              <span class="pipeline-stage__name">Eingestellt</span>
+              <span class="pipeline-stage__count">2</span>
+            </div>
+            <div class="pipeline-candidate">
+              <div class="pipeline-candidate__name">Lukas R.</div>
+              <div class="pipeline-candidate__role">Start: 01.06.</div>
+            </div>
+            <div class="pipeline-candidate">
+              <div class="pipeline-candidate__name">Anna S.</div>
+              <div class="pipeline-candidate__role">Start: 15.06.</div>
+            </div>
+          </div>
+        </div>
+        <div class="pipeline-dashboard__footnote">
+          Beispielhafte Darstellung. <strong>Ihre echte Pipeline</strong> bekommen Sie nach Vertragsabschluss live in WhatsApp und per Mail.
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ============== PROMISES ============== -->
   <section class="promises">
     <div class="container">
@@ -2225,82 +2416,48 @@
       </div>
       <div class="promises__grid">
         <div class="promise reveal">
-          <div class="promise__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <div class="promise__lbl">Speed</div>
           <div class="promise__title">Schnelle Einstellung</div>
           <div class="promise__text">Ø 45 Tage von Anfrage bis Vertragsunterschrift — statt monatelangem Warten auf leeren Stellenportalen.</div>
-          <div class="promise__viz">
-            <div class="viz-pair">
-              <span>Indeed / StepStone</span><strong class="bad">~ 6 Mt.</strong>
-            </div>
-            <div class="viz-pair">
-              <span>Mit GreenCareers</span><strong>Ø 45 Tage</strong>
-            </div>
-            <div class="bar-track"><div class="bar-fill" style="width:25%"></div></div>
+          <div class="promise__metric">
+            <span class="promise__metric-num">45</span>
+            <span class="promise__metric-lbl">Tage Median</span>
           </div>
         </div>
         <div class="promise reveal">
-          <div class="promise__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3-9 4 18 3-9h4"/></svg></div>
+          <div class="promise__lbl">Flow</div>
           <div class="promise__title">Kontinuierlicher Bewerberstrom</div>
           <div class="promise__text">Vorqualifizierte Bewerbungen — Monat für Monat, automatisch in Ihr Postfach und auf Ihr WhatsApp.</div>
-          <div class="promise__viz">
-            <div class="viz-pair"><span>Pipeline · jeden Monat</span><strong>+12 / Mt.</strong></div>
-            <div class="flow-anim" aria-hidden="true">
-              <span></span><span></span><span></span><span></span><span></span><span></span>
-            </div>
-            <div class="bar-track"><div class="bar-fill" style="width:85%"></div></div>
+          <div class="promise__metric">
+            <span class="promise__metric-num">+12</span>
+            <span class="promise__metric-lbl">pro Monat</span>
           </div>
         </div>
         <div class="promise reveal">
-          <div class="promise__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+          <div class="promise__lbl">Pricing</div>
           <div class="promise__title">Niedriger Festpreis</div>
           <div class="promise__text">Monatlicher Beitrag ab 319 € — planbar, kalkulierbar, kündbar nach Laufzeit. Keine versteckten Setup-Kosten.</div>
-          <div class="promise__viz">
-            <div class="viz-pair">
-              <span>Setup-Gebühr</span><strong>0 €</strong>
-            </div>
-            <div class="viz-pair">
-              <span>Monatlich ab</span><strong>319 €</strong>
-            </div>
-            <div class="icon-row">
-              <span class="badge green">Planbar</span>
-              <span class="badge green">Kündbar</span>
-            </div>
+          <div class="promise__metric">
+            <span class="promise__metric-num">319 €</span>
+            <span class="promise__metric-lbl">/ Monat ab</span>
           </div>
         </div>
         <div class="promise reveal">
-          <div class="promise__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div>
+          <div class="promise__lbl">Managed</div>
           <div class="promise__title">Null Aufwand für Sie</div>
           <div class="promise__text">Wir übernehmen Anzeige, Targeting, Pflege und Vorauswahl. Sie führen nur noch die Gespräche.</div>
-          <div class="promise__viz">
-            <div class="viz-pair"><span>Anzeige erstellen</span><strong style="font-size:13px;">✓ Wir</strong></div>
-            <div class="viz-pair"><span>Targeting + Pflege</span><strong style="font-size:13px;">✓ Wir</strong></div>
-            <div class="viz-pair"><span>Vorauswahl</span><strong style="font-size:13px;">✓ Wir</strong></div>
-            <div class="viz-pair"><span>Gespräch führen</span><strong style="font-size:13px;color:var(--moss-2);">→ Sie</strong></div>
+          <div class="promise__metric">
+            <span class="promise__metric-num">~1 h</span>
+            <span class="promise__metric-lbl">Ihr Aufwand / Mt.</span>
           </div>
         </div>
         <div class="promise reveal">
-          <div class="promise__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+          <div class="promise__lbl">Quality</div>
           <div class="promise__title">Branchen-Bewerber</div>
           <div class="promise__text">Bei uns bewerben sich nur Menschen aus der grünen Branche — keine fachfremden Quereinsteiger.</div>
-          <div class="promise__viz">
-            <div class="dots-pair">
-              <div class="col">
-                <span class="col-label">Indeed</span>
-                <div class="row-dots">
-                  <span></span><span class="muted"></span><span class="muted"></span><span class="muted"></span><span class="muted"></span><span class="muted"></span><span class="muted"></span><span class="muted"></span>
-                </div>
-              </div>
-              <div class="col">
-                <span class="col-label">GreenCareers</span>
-                <div class="row-dots">
-                  <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-                </div>
-              </div>
-            </div>
-            <div class="icon-row" style="margin-top:8px;">
-              <span class="badge red">~12% Treffer</span>
-              <span class="badge green">100% Branche</span>
-            </div>
+          <div class="promise__metric">
+            <span class="promise__metric-num">100%</span>
+            <span class="promise__metric-lbl">Branche</span>
           </div>
         </div>
       </div>
@@ -2496,22 +2653,49 @@
     </div>
   </section>
 
-  <!-- ============== HOW IT WORKS ============== -->
-  <section class="how">
+  <!-- ============== ABLAUF BIS ZUR EINSTELLUNG ============== -->
+  <section class="ablauf-section">
     <div class="container">
-      <div class="how__head reveal">
-        <span class="eyebrow eyebrow--light">So funktioniert es</span>
-        <h2 class="title title--light">In <em>10 Minuten</em> startklar.<br>Ab Tag 3 läuft die Pipeline.</h2>
+      <div class="ablauf-section__head reveal">
+        <span class="eyebrow">Ablauf bis zur Einstellung</span>
+        <h2 class="title">Vom ersten Tag bis zur <em>Vertragsunterschrift.</em></h2>
+        <p class="lead" style="margin-left:auto;margin-right:auto;">Echter Ablauf eines Premium-Abos — am Beispiel Wendling GaLaBau. So sieht der typische Weg vom Start bis zur ersten Einstellung aus.</p>
       </div>
-
-      <div class="how__toggle-wrap reveal">
-        <div class="how__toggle" id="howToggle">
-          <button class="active" data-how="neukunde">Ich bin Neukunde</button>
-          <button data-how="bestand">Ich arbeite bereits mit GreenCareers <span class="pill">−1 Schritt</span></button>
+      <div class="ablauf-timeline reveal">
+        <div class="ablauf-item ablauf-item--milestone">
+          <div class="ablauf-day">Tag 0 · Start</div>
+          <div class="ablauf-title">Stelle anlegen in 10 Minuten</div>
+          <div class="ablauf-text">Carsten W. schließt das Premium-Abo ab. Position, Standort, Wunschkriterien und ein paar Bilder des Betriebs eingegeben — fertig. Wir bauen daraus eine professionelle Stellenanzeige.</div>
+        </div>
+        <div class="ablauf-item">
+          <div class="ablauf-day">Tag 1</div>
+          <div class="ablauf-title">Anzeige geht live · 2.860 Bewerber-Pool erreicht</div>
+          <div class="ablauf-text">Targeting auf Köln + 30 km gesetzt. Ausspielung auf Instagram, Facebook, Karrierenetzwerken und im internen GreenCareers-Pool startet automatisch.</div>
+        </div>
+        <div class="ablauf-item">
+          <div class="ablauf-day">Tag 3</div>
+          <div class="ablauf-title">Erste Bewerbungen kommen rein</div>
+          <div class="ablauf-text">5 vorqualifizierte Bewerbungen per E-Mail und WhatsApp. KI-Vorfilterung hat aussortiert, was nicht passt. Carsten muss nur noch entscheiden.</div>
+        </div>
+        <div class="ablauf-item">
+          <div class="ablauf-day">Tag 9</div>
+          <div class="ablauf-title">17 Bewerber im Pool · 3 Interviews geplant</div>
+          <div class="ablauf-text">Carsten lädt drei Top-Kandidaten persönlich ein. Alle drei haben GaLaBau-Erfahrung. Kein Zeit-Verschwenden mit fachfremden Quereinsteigern.</div>
+        </div>
+        <div class="ablauf-item ablauf-item--milestone">
+          <div class="ablauf-day">Tag 16 · Einstellung</div>
+          <div class="ablauf-title">Vertrag mit Marco K. unterschrieben ✓</div>
+          <div class="ablauf-text">Vorarbeiter mit 8 Jahren GaLaBau-Erfahrung. Start zum 1. des Folgemonats.</div>
+          <div class="ablauf-quote">
+            "<strong>3 Monate vergeblich einen Vorarbeiter gesucht.</strong> Mit GreenCareers war die Stelle nach 16 Tagen besetzt." — Carsten Wendling, Wendling GaLaBau <span class="stars">★★★★★</span>
+          </div>
+        </div>
+        <div class="ablauf-item">
+          <div class="ablauf-day">Ab Monat 2 · Pipeline läuft weiter</div>
+          <div class="ablauf-title">Pool füllt sich für die nächste Stelle</div>
+          <div class="ablauf-text">Die Pipeline läuft im Hintergrund weiter. Wenn Carsten die nächste Position öffnet, sind schon Bewerber da. Kein Neustart, kein erneutes Anzeigen-Roulette.</div>
         </div>
       </div>
-
-      <div class="how__steps" id="howSteps"></div>
     </div>
   </section>
 
@@ -2964,116 +3148,6 @@
     window.addEventListener('resize', updateCasesPosition);
     renderCases();
 
-    /* ============== HOW STEPS — NEUKUNDE / BESTAND ============== */
-    // Step-Visualisierungen — "Make it tangible"
-    const VIZ_FORM = `
-      <div class="step__viz">
-        <div class="viz-mock-row"><span class="lbl">Position</span><span class="val">Vorarbeiter GaLaBau</span></div>
-        <div class="viz-mock-row"><span class="lbl">Standort</span><span class="val">Köln · 30 km</span></div>
-        <div class="viz-mock-row"><span class="lbl">Bilder</span><div class="bar"><div class="bar-fill" style="width:80%"></div></div></div>
-        <div class="viz-mock-row"><span class="lbl">Status</span><span class="val" style="color:var(--green);">Bereit</span></div>
-      </div>`;
-    const VIZ_LIVE = `
-      <div class="step__viz">
-        <div class="viz-mock-row viz-mock-row--live"><span class="lbl">Anzeige</span><span class="val">Live · 12.453 Views</span></div>
-        <div class="viz-mock-row"><span class="lbl">Instagram</span><span class="val">3.241 Imp.</span></div>
-        <div class="viz-mock-row"><span class="lbl">Facebook</span><span class="val">5.819 Imp.</span></div>
-        <div class="viz-mock-row"><span class="lbl">Bewerber-Pool</span><span class="val">2.860 erreicht</span></div>
-      </div>`;
-    const VIZ_APPLICANTS = `
-      <div class="step__viz">
-        <div class="viz-applicant"><div class="avatar" style="background:#3F8E3F;">MK</div><div class="name">Marco K. · Vorarbeiter</div><span class="badge">Match</span></div>
-        <div class="viz-applicant"><div class="avatar" style="background:#2E77BB;">SF</div><div class="name">Sven F. · GaLaBauer</div><span class="badge">Match</span></div>
-        <div class="viz-applicant"><div class="avatar" style="background:#C04D2A;">TH</div><div class="name">Tom H. · Maschinist</div><span class="badge">Match</span></div>
-        <div class="viz-applicant"><div class="avatar" style="background:#7B5BAB;">JK</div><div class="name">Jonas K. · Pflasterer</div><span class="badge">Match</span></div>
-      </div>`;
-    const VIZ_REACTIVATE = `
-      <div class="step__viz">
-        <div class="viz-mock-row"><span class="lbl">Anzeige</span><span class="val">Aus Archiv geladen</span></div>
-        <div class="viz-mock-row"><span class="lbl">Branding</span><span class="val" style="color:var(--green);">übernommen</span></div>
-        <div class="viz-mock-row"><span class="lbl">Targeting</span><span class="val" style="color:var(--green);">aktiv</span></div>
-        <div class="viz-mock-row viz-mock-row--live"><span class="lbl">Live</span><span class="val">in 2 Stunden</span></div>
-      </div>`;
-
-    const HOW_STEPS = {
-      neukunde: [
-        {
-          num: 'SCHRITT 01',
-          title: 'Stelle anlegen — in 10 Minuten',
-          text: 'Sie öffnen unser Stellen-Formular: Position, Standort, Wunschkriterien, ein paar Bilder Ihres Betriebs. Mehr brauchen wir nicht. Wir bauen daraus eine professionelle, visuell starke Stellenanzeige.',
-          time: '⏱ 10 Min · Einmalig',
-          viz: VIZ_FORM,
-          existing: false,
-        },
-        {
-          num: 'SCHRITT 02',
-          title: 'Wir starten die Suche — am selben Tag',
-          text: 'Ihre Anzeige geht live. Targeting auf Branche und Region ist gesetzt. Wir spielen auf Social Media, Karrierenetzwerken und in unserem Bewerber-Pool aus.',
-          time: '✓ Live ab Tag 1',
-          viz: VIZ_LIVE,
-          existing: false,
-          bonus: 'Inkl. 2 Wochen Bewerber-Boost zum Start',
-        },
-        {
-          num: 'SCHRITT 03',
-          title: 'Bewerber kommen — automatisch',
-          text: 'Ab Tag 3 erhalten Sie vorqualifizierte Bewerbungen per E-Mail und WhatsApp. KI-Vorfilterung, Pflege durch unseren Pool, fester Ansprechpartner an Ihrer Seite.',
-          time: '📩 Ab Tag 3 · Laufend',
-          viz: VIZ_APPLICANTS,
-          existing: false,
-        },
-      ],
-      bestand: [
-        {
-          num: 'SCHRITT 01',
-          title: 'Stelle anlegen',
-          text: 'Sie haben bereits mit GreenCareers gearbeitet. Wenn Sie die gleiche Position erneut suchen, übernehmen wir Ihre bestehende Anzeige. Dieser Schritt entfällt komplett für Sie.',
-          time: '✓ Bereits erledigt',
-          existing: true,
-          strike: true,
-        },
-        {
-          num: 'SCHRITT 01',
-          title: 'Suche reaktivieren — heute noch',
-          text: 'Sie schließen das Abo ab und wir reaktivieren die bestehende Stellenanzeige inklusive Ihres Brandings, Bewerber-Targeting und Pool-Zugang. Live noch am selben Tag.',
-          time: '⏱ Live in 2 Stunden',
-          viz: VIZ_REACTIVATE,
-          existing: false,
-          bonus: 'Inkl. 2 Wochen Bewerber-Boost zum Re-Start',
-        },
-        {
-          num: 'SCHRITT 02',
-          title: 'Bewerber kommen — automatisch',
-          text: 'Sie kennen den Prozess: vorqualifizierte Bewerbungen per E-Mail und WhatsApp, fester Ansprechpartner. Diesmal mit kontinuierlichem Strom statt einmaliger Anzeige.',
-          time: '📩 Ab Tag 1 · Laufend',
-          viz: VIZ_APPLICANTS,
-          existing: false,
-        },
-      ],
-    };
-    function renderHowSteps(mode) {
-      const steps = HOW_STEPS[mode];
-      const html = steps.map(s => `
-        <div class="step reveal ${s.existing ? 'step--existing' : ''}">
-          <div class="step__num">${s.num}</div>
-          <div class="step__title ${s.strike ? 'step__strike' : ''}">${s.title}</div>
-          <div class="step__text">${s.text}</div>
-          <div class="step__time">${s.time}</div>
-          ${s.bonus ? `<div class="step__bonus">${s.bonus}</div>` : ''}
-          ${s.viz ? s.viz : ''}
-        </div>
-      `).join('');
-      document.getElementById('howSteps').innerHTML = html;
-      document.querySelectorAll('#howSteps .reveal').forEach(el => { observer.observe(el); el.classList.add('visible'); });
-    }
-    document.querySelectorAll('#howToggle button').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('#howToggle button').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        renderHowSteps(btn.dataset.how);
-      });
-    });
-
     /* ============== RENDER PRICING ============== */
     const pkgGrid = document.getElementById('pkgGrid');
     function renderCards() {
@@ -3244,7 +3318,6 @@
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
     renderCards();
-    renderHowSteps('neukunde');
   </script>
 </body>
 </html>
