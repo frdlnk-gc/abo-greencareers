@@ -2776,7 +2776,7 @@
       <div class="promo">
         <span class="promo__toggle" id="promoToggle">Rabattcode (optional) <span class="chev">▾</span></span>
         <div class="promo__body" id="promoBody">
-          <input type="text" class="promo__input" id="promoInput" placeholder="z. B. SALE13,6" autocomplete="off" spellcheck="false">
+          <input type="text" class="promo__input" id="promoInput" placeholder="z. B. SALE20" autocomplete="off" spellcheck="false">
           <button class="promo__apply" id="promoApply">Anwenden</button>
         </div>
         <div class="promo__msg" id="promoMsg"></div>
@@ -2924,16 +2924,7 @@
         },
       },
     };
-    /* SALE-Code Regex: akzeptiert "SALE13", "SALE 13,6", "sale22.9" — Komma oder Punkt, beliebige Nachkommastellen */
-    const PROMO_REGEX = /^SALE\s*([0-9]+(?:[.,][0-9]+)?)$/i;
-    const parsePromoPct = (code) => {
-      const m = code && code.match(PROMO_REGEX);
-      return m ? parseFloat(m[1].replace(',', '.')) : null;
-    };
-    const fmtPct = (n) => {
-      const r = Math.round(n * 10) / 10;
-      return Number.isInteger(r) ? String(r) : r.toString().replace('.', ',');
-    };
+    const PROMO_CODES = ['SALE5', 'SALE10', 'SALE15', 'SALE20', 'SALE25', 'SALE30', 'SALE35', 'SALE40'];
 
     /* HELPERS */
     const fmtPrice = (n) => {
@@ -2942,10 +2933,7 @@
       return r.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
     };
     const monthsForTerm = (t) => t === '12m' ? 12 : 6;
-    const applyPromo = (price, code) => {
-      const pct = parsePromoPct(code);
-      return pct == null ? price : price * (1 - pct / 100);
-    };
+    const applyPromo = (price, code) => price * (1 - parseInt(code.replace('SALE',''),10)/100);
 
     /* STATE */
     let currentTerm = '6m';
@@ -3285,11 +3273,11 @@
     function tryApplyPromo() {
       const raw = promoInput.value.trim().toUpperCase().replace(/\s+/g, '');
       if (!raw) { modalPromo = null; promoMsg.className='promo__msg'; promoMsg.textContent=''; updateModal(); return; }
-      const pct = parsePromoPct(raw);
-      if (pct != null && pct > 0 && pct <= 100) {
+      if (PROMO_CODES.includes(raw)) {
         modalPromo = raw;
+        const pct = parseInt(raw.replace('SALE',''),10);
         promoMsg.className = 'promo__msg ok';
-        promoMsg.textContent = `✓ −${fmtPct(pct)} % Rabatt angewendet`;
+        promoMsg.textContent = `✓ −${pct} % Rabatt angewendet`;
       } else {
         modalPromo = null;
         promoMsg.className = 'promo__msg err';
