@@ -2924,7 +2924,9 @@
         },
       },
     };
-    const PROMO_CODES = ['SALE5', 'SALE10', 'SALE15', 'SALE20', 'SALE25', 'SALE30', 'SALE35', 'SALE40'];
+    // Vertriebs-Nachlässe: SALE + ganze 5er-Stufe bis 50 % (SALE5 … SALE50). Der Code wird als
+    // prefilled_promo_code an Stripe übergeben – Stripe validiert final gegen die dort angelegten Codes.
+    const PROMO_CODES = ['SALE5','SALE10','SALE15','SALE20','SALE25','SALE30','SALE35','SALE40','SALE45','SALE50'];
 
     /* HELPERS */
     const fmtPrice = (n) => {
@@ -3273,15 +3275,17 @@
     function tryApplyPromo() {
       const raw = promoInput.value.trim().toUpperCase().replace(/\s+/g, '');
       if (!raw) { modalPromo = null; promoMsg.className='promo__msg'; promoMsg.textContent=''; updateModal(); return; }
-      if (PROMO_CODES.includes(raw)) {
-        modalPromo = raw;
-        const pct = parseInt(raw.replace('SALE',''),10);
+      // Nur ganze 5er-Stufen bis 50 % (SALE5 … SALE50). "SALE12"/"SALE60" sind ungültig.
+      const m = raw.match(/^SALE([0-9]{1,2})$/);
+      const pct = m ? parseInt(m[1],10) : 0;
+      if (pct>=5 && pct<=50 && pct%5===0) {
+        modalPromo = 'SALE'+pct;
         promoMsg.className = 'promo__msg ok';
         promoMsg.textContent = `✓ −${pct} % Rabatt angewendet`;
       } else {
         modalPromo = null;
         promoMsg.className = 'promo__msg err';
-        promoMsg.textContent = '✕ Code ungültig';
+        promoMsg.textContent = '✕ Ungültiger Rabatt – 5-%-Stufen bis 50 % (z. B. SALE15)';
       }
       updateModal();
     }
