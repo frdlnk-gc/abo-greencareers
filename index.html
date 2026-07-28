@@ -1675,6 +1675,58 @@
     }
     .card--featured .card__sub { color: rgba(255,255,255,0.65); }
 
+    /* ---- Mengen-Auswahl (Stellen) ---- */
+    .card__qty {
+      position: relative; z-index: 2;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 12px;
+      margin: -14px 0 22px;
+    }
+    .card__qty-label { font-size: 13px; color: var(--ink-soft); }
+    .card--featured .card__qty-label { color: rgba(255,255,255,0.62); }
+    .qty-seg {
+      display: flex; gap: 4px;
+      background: var(--cream-2, rgba(0,0,0,0.04));
+      border: 1px solid var(--line);
+      border-radius: var(--r-pill);
+      padding: 3px;
+    }
+    .card--featured .qty-seg { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.16); }
+    .qty-seg button {
+      appearance: none; border: 0; cursor: pointer;
+      width: 30px; height: 28px;
+      border-radius: var(--r-pill);
+      background: transparent;
+      font-family: inherit; font-size: 13px; font-weight: 600;
+      color: var(--ink-soft);
+      transition: background 0.2s, color 0.2s;
+    }
+    .card--featured .qty-seg button { color: rgba(255,255,255,0.7); }
+    .qty-seg button:hover { color: var(--moss-2); }
+    .card--featured .qty-seg button:hover { color: var(--white); }
+    .qty-seg button.active {
+      background: var(--moss-2);
+      color: var(--white);
+    }
+    .card--featured .qty-seg button.active { background: var(--green); color: #08260C; }
+    .card__qty-note {
+      display: flex; align-items: center; gap: 8px;
+      margin-top: 10px;
+      font-size: 12.5px;
+      color: var(--ink-mute);
+    }
+    .card--featured .card__qty-note { color: rgba(255,255,255,0.6); }
+    .qty-badge {
+      background: rgba(0,210,97,0.15);
+      color: var(--green-deep);
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.3px;
+      padding: 3px 8px;
+      border-radius: var(--r-pill);
+      white-space: nowrap;
+    }
+    .card--featured .qty-badge { background: rgba(0,210,97,0.22); color: var(--green); }
+
     .card__price-wrap { position: relative; z-index: 2; }
     .card__price {
       display: flex; align-items: baseline; gap: 4px;
@@ -2062,6 +2114,21 @@
       margin-bottom: 24px;
       line-height: 1.05;
     }
+    .modal__qty {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .modal__qty-label { font-size: 13.5px; color: var(--ink-soft); }
+    .modal__qty .qty-seg { padding: 4px; }
+    .modal__qty .qty-seg button { width: 38px; height: 32px; font-size: 14px; }
+    .modal__qty-note {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 12.5px; color: var(--ink-mute);
+      margin-bottom: 18px; min-height: 0;
+    }
+    .modal__qty-note:empty { margin-bottom: 8px; }
+
     .modal .toggle-wrap { margin-bottom: 26px; justify-content: stretch; }
     .modal .toggle { width: 100%; padding: 4px; }
     .modal .toggle__btn { flex: 1; justify-content: center; padding: 11px 14px; }
@@ -2764,6 +2831,17 @@
         </div>
       </div>
 
+      <div class="modal__qty">
+        <span class="modal__qty-label">Anzahl Stellen</span>
+        <div class="qty-seg" id="modalQty" role="group" aria-label="Anzahl Stellen">
+          <button type="button" data-n="1" class="active" aria-pressed="true">1</button>
+          <button type="button" data-n="2" aria-pressed="false">2</button>
+          <button type="button" data-n="3" aria-pressed="false">3</button>
+          <button type="button" data-n="4" aria-pressed="false">4</button>
+        </div>
+      </div>
+      <div class="modal__qty-note" id="modalQtyNote"></div>
+
       <div class="modal__price-block">
         <div class="modal__price-label">Monatlicher Beitrag</div>
         <div class="modal__price" id="modalPrice">
@@ -2881,8 +2959,14 @@
           'Fester Ansprechpartner',
         ],
         paymentLinks: {
-          '6m':  'https://buy.stripe.com/cNi14f0GUfvJ8kT1nl3wQ0a',
-          '12m': 'https://buy.stripe.com/9B63cn1KY2IXcB92rp3wQ0b',
+          '6m':  { 1: 'https://buy.stripe.com/cNi14f0GUfvJ8kT1nl3wQ0a',
+                   2: 'https://buy.stripe.com/00weV561eabpgRp3vt3wQ0m',
+                   3: 'https://buy.stripe.com/3cI6oz2P2fvJ1Wv1nl3wQ0n',
+                   4: 'https://buy.stripe.com/bJecMX61efvJcB99TR3wQ0o' },
+          '12m': { 1: 'https://buy.stripe.com/9B63cn1KY2IXcB92rp3wQ0b',
+                   2: 'https://buy.stripe.com/4gM00b89m6Zdat13vt3wQ0p',
+                   3: 'https://buy.stripe.com/bJe7sD75igzN30zc1Z3wQ0q',
+                   4: 'https://buy.stripe.com/bJe8wH0GU4R5gRpd633wQ0r' },
         },
       },
       premium: {
@@ -2900,8 +2984,14 @@
           'Erweitertes Bewerber-Targeting (DACH-weit)',
         ],
         paymentLinks: {
-          '6m':  'https://buy.stripe.com/6oU28jcpC4R5at19TR3wQ0c',
-          '12m': 'https://buy.stripe.com/7sYaEP1KYabp1Wv8PN3wQ0d',
+          '6m':  { 1: 'https://buy.stripe.com/6oU28jcpC4R5at19TR3wQ0c',
+                   2: 'https://buy.stripe.com/cNicMXdtGerFcB96HF3wQ0s',
+                   3: 'https://buy.stripe.com/fZudR12P22IXgRp8PN3wQ0t',
+                   4: 'https://buy.stripe.com/fZuaEPblycjxbx5d633wQ0u' },
+          '12m': { 1: 'https://buy.stripe.com/7sYaEP1KYabp1Wv8PN3wQ0d',
+                   2: 'https://buy.stripe.com/00w3cn3T65V9cB9d633wQ0v',
+                   3: 'https://buy.stripe.com/7sYeV589m3N17gP6HF3wQ0w',
+                   4: 'https://buy.stripe.com/7sY4gr0GUabp9oX6HF3wQ0x' },
         },
       },
       exzellenz: {
@@ -2918,8 +3008,14 @@
           'Branchen-Reichweite über GreenCareers-Community',
         ],
         paymentLinks: {
-          '6m':  'https://buy.stripe.com/28EaEPcpC6Zd6cLea73wQ0e',
-          '12m': 'https://buy.stripe.com/aFafZ961e2IX8kTea73wQ0f',
+          '6m':  { 1: 'https://buy.stripe.com/5kQbITblycjx7gP6HF3wQ0y',
+                   2: 'https://buy.stripe.com/9B6dR1gFSfvJbx55DB3wQ0z',
+                   3: 'https://buy.stripe.com/14A00bahugzNdFdgif3wQ0A',
+                   4: 'https://buy.stripe.com/3cI00b9dqabp6cL2rp3wQ0B' },
+          '12m': { 1: 'https://buy.stripe.com/bJe00bcpC5V90Sr0jh3wQ0C',
+                   2: 'https://buy.stripe.com/14AcMX61ednB30z3vt3wQ0D',
+                   3: 'https://buy.stripe.com/4gM8wHgFS5V9at13vt3wQ0E',
+                   4: 'https://buy.stripe.com/00w14fexKbftcB96HF3wQ0F' },
         },
       },
     };
@@ -2927,6 +3023,10 @@
     // Stripe angelegten Promotion-Codes). Der Code wird als prefilled_promo_code an Stripe
     // übergeben – Stripe validiert final.
     const PROMO_CODES = ['SALE10','SALE20','SALE30','SALE40','SALE50'];
+    // Mengenstaffel wie beim Einmalkauf: ab 2 Stellen sinkt der Preis pro Stelle.
+    // Die Prozentsätze sind identisch in Stripe hinterlegt (eigener Preis + Payment-Link je Menge).
+    const STAFFEL = { 1: 0, 2: 10, 3: 20, 4: 30 };
+    const MAX_STELLEN = 4;
 
     /* HELPERS */
     const fmtPrice = (n) => {
@@ -2936,12 +3036,16 @@
     };
     const monthsForTerm = (t) => t === '12m' ? 12 : 6;
     const applyPromo = (price, code) => price * (1 - parseInt(code.replace('SALE',''),10)/100);
+    // Preis pro Stelle nach Mengenrabatt (auf Cent gerundet – identisch zu Stripe)
+    const preisProStelle = (base, n) => Math.round(base * (1 - STAFFEL[n]/100) * 100) / 100;
 
     /* STATE */
     let currentTerm = '6m';
     let modalPkgKey = null;
     let modalTerm = '6m';
     let modalPromo = null;
+    let modalStellen = 1;
+    const cardStellen = { smart: 1, premium: 1, exzellenz: 1 };
     let currentIndustry = 'galabau';
 
     /* ============== RENDER CUSTOMERS MARQUEE ============== */
@@ -3161,18 +3265,29 @@
       Object.entries(PACKAGES).forEach(([key, p], idx) => {
         const card = document.createElement('div');
         card.className = 'card reveal' + (p.badge ? ' card--featured' : '');
+        card.dataset.pkg = key;
         card.style.transitionDelay = (idx * 0.08) + 's';
-        const price = currentTerm === '6m' ? p.price6m : p.price12m;
+        const base = currentTerm === '6m' ? p.price6m : p.price12m;
+        const n = cardStellen[key];
+        const proStelle = preisProStelle(base, n);
+        const price = proStelle * n;
         card.innerHTML = `
           ${p.badge ? `<div class="card__badge">${p.badge}</div>` : ''}
           <div class="card__name">${p.name}</div>
           <div class="card__sub">${p.subtitle}</div>
+          <div class="card__qty">
+            <span class="card__qty-label">Anzahl Stellen</span>
+            <div class="qty-seg" role="group" aria-label="Anzahl Stellen">
+              ${[1,2,3,4].map(i => `<button type="button" data-n="${i}"${i === n ? ' class="active"' : ''} aria-pressed="${i === n}">${i}</button>`).join('')}
+            </div>
+          </div>
           <div class="card__price-wrap">
             <div class="card__price">
               <span class="amount">${fmtPrice(price)}</span>
               <span class="currency">€</span>
             </div>
             <div class="card__price-sub">pro Monat netto · ${monthsForTerm(currentTerm)} Monate Laufzeit</div>
+            ${n > 1 ? `<div class="card__qty-note"><span class="qty-badge">−${STAFFEL[n]} %</span> ${n} Stellen · ${fmtPrice(proStelle)} € pro Stelle</div>` : ''}
           </div>
           <div class="card__divider"></div>
           <div class="card__feat-label">${p.featLabel || 'Im Paket enthalten'}</div>
@@ -3188,6 +3303,17 @@
       });
       pkgGrid.querySelectorAll('.reveal').forEach(el => observer.observe(el));
       pkgGrid.querySelectorAll('.card__cta').forEach(btn => btn.addEventListener('click', () => openModal(btn.dataset.pkg)));
+      // Mengen-Auswahl je Karte: nur die betroffene Karte neu zeichnen wäre unnötig
+      // komplex – renderCards() ist billig und hält Karten/Modal konsistent.
+      pkgGrid.querySelectorAll('.card').forEach(card => {
+        card.querySelectorAll('.qty-seg button').forEach(btn => {
+          btn.addEventListener('click', () => {
+            cardStellen[card.dataset.pkg] = parseInt(btn.dataset.n, 10);
+            renderCards();
+            pkgGrid.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+          });
+        });
+      });
     }
 
     /* TOGGLE */
@@ -3208,6 +3334,8 @@
     const modalTotal = document.getElementById('modalTotal');
     const modalCta = document.getElementById('modalCta');
     const modalToggle = document.getElementById('modalToggle');
+    const modalQty = document.getElementById('modalQty');
+    const modalQtyNote = document.getElementById('modalQtyNote');
     const promoToggle = document.getElementById('promoToggle');
     const promoBody = document.getElementById('promoBody');
     const promoInput = document.getElementById('promoInput');
@@ -3217,6 +3345,7 @@
     function openModal(pkgKey) {
       modalPkgKey = pkgKey;
       modalTerm = currentTerm;
+      modalStellen = cardStellen[pkgKey];
       modalPromo = null;
       promoBody.classList.remove('open');
       promoToggle.classList.remove('open');
@@ -3243,11 +3372,21 @@
 
     function updateModal() {
       const p = PACKAGES[modalPkgKey];
-      const base = modalTerm === '6m' ? p.price6m : p.price12m;
+      const unit = modalTerm === '6m' ? p.price6m : p.price12m;
+      const proStelle = preisProStelle(unit, modalStellen);
+      const base = proStelle * modalStellen;
       const final = modalPromo ? applyPromo(base, modalPromo) : base;
       const months = monthsForTerm(modalTerm);
       const total = final * months;
-      modalPkg.textContent = `${p.name} Recruiting-Abo`;
+      modalPkg.textContent = `${p.name} Recruiting-Abo` + (modalStellen > 1 ? ` · ${modalStellen} Stellen` : '');
+      modalQty.querySelectorAll('button').forEach(b => {
+        const on = parseInt(b.dataset.n, 10) === modalStellen;
+        b.classList.toggle('active', on);
+        b.setAttribute('aria-pressed', String(on));
+      });
+      modalQtyNote.innerHTML = modalStellen > 1
+        ? `<span class="qty-badge">−${STAFFEL[modalStellen]} %</span> Mengenrabatt · ${fmtPrice(proStelle)} € pro Stelle und Monat`
+        : '';
       const strike = modalPromo ? `<span class="strike">${fmtPrice(base)} €</span>` : '';
       modalPrice.innerHTML = `${strike}<span class="value">${fmtPrice(final)} €</span><span class="unit">netto / Monat</span>`;
       modalTotal.innerHTML = `<span>Laufzeit: ${months} Monate</span><strong>Gesamt: ${fmtPrice(total)} € netto</strong>`;
@@ -3260,6 +3399,17 @@
         modalTerm = btn.dataset.term;
         document.querySelectorAll('.pricing .toggle__btn').forEach(b => b.classList.toggle('active', b.dataset.term === modalTerm));
         currentTerm = modalTerm;
+        renderCards();
+        pkgGrid.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+        updateModal();
+      });
+    });
+
+    // Mengen-Auswahl im Modal – hält die Karte im Hintergrund synchron
+    modalQty.querySelectorAll('button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        modalStellen = parseInt(btn.dataset.n, 10);
+        cardStellen[modalPkgKey] = modalStellen;
         renderCards();
         pkgGrid.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
         updateModal();
@@ -3295,7 +3445,8 @@
       const termsBox = document.getElementById('modalTerms');
       if (!termsBox || !termsBox.checked) return;
       const p = PACKAGES[modalPkgKey];
-      const url = p.paymentLinks[modalTerm];
+      const url = p.paymentLinks[modalTerm][modalStellen];
+      if (!url) return;
       const final = modalPromo ? `${url}?prefilled_promo_code=${modalPromo}` : url;
       window.location.href = final;
     });
