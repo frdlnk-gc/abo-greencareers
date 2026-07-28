@@ -1709,9 +1709,11 @@
       color: var(--white);
     }
     .card--featured .qty-seg button.active { background: var(--green); color: #08260C; }
+    /* feste Höhe, damit Karten mit unterschiedlicher Stellenzahl bündig bleiben */
     .card__qty-note {
       display: flex; align-items: center; gap: 8px;
       margin-top: 10px;
+      min-height: 22px;
       font-size: 12.5px;
       color: var(--ink-mute);
     }
@@ -3287,7 +3289,7 @@
               <span class="currency">€</span>
             </div>
             <div class="card__price-sub">pro Monat netto · ${monthsForTerm(currentTerm)} Monate Laufzeit</div>
-            ${n > 1 ? `<div class="card__qty-note"><span class="qty-badge">−${STAFFEL[n]} %</span> ${n} Stellen · ${fmtPrice(proStelle)} € pro Stelle</div>` : ''}
+            <div class="card__qty-note">${n > 1 ? `<span class="qty-badge">−${STAFFEL[n]} %</span> ${n} Stellen · ${fmtPrice(proStelle)} € pro Stelle` : ''}</div>
           </div>
           <div class="card__divider"></div>
           <div class="card__feat-label">${p.featLabel || 'Im Paket enthalten'}</div>
