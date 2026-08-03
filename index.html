@@ -3055,10 +3055,11 @@
         },
       },
     };
-    // Vertriebs-Nachlässe: NUR SALE10/20/30/40/50 (Vorgabe Freddy 2026-07-04, exakt die in
-    // Stripe angelegten Promotion-Codes). Der Code wird als prefilled_promo_code an Stripe
-    // übergeben – Stripe validiert final.
-    const PROMO_CODES = ['SALE10','SALE20','SALE30','SALE40','SALE50'];
+    // Vertriebs-Nachlässe: NUR SALE5–SALE30 in 5er-Schritten, max. 30 % (Vorgabe Freddy
+    // 2026-08-03; SALE40/50 in Stripe deaktiviert). Exakt die in Stripe aktiven
+    // Promotion-Codes. Der Code wird als prefilled_promo_code an Stripe übergeben –
+    // Stripe validiert final.
+    const PROMO_CODES = ['SALE5','SALE10','SALE15','SALE20','SALE25','SALE30'];
     // Mengenstaffel wie beim Einmalkauf: ab 2 Stellen sinkt der Preis pro Stelle.
     // Die Prozentsätze sind identisch in Stripe hinterlegt (eigener Preis + Payment-Link je Menge).
     const STAFFEL = { 1: 0, 2: 10, 3: 20, 4: 30 };
@@ -3462,7 +3463,7 @@
     function tryApplyPromo() {
       const raw = promoInput.value.trim().toUpperCase().replace(/\s+/g, '');
       if (!raw) { modalPromo = null; promoMsg.className='promo__msg'; promoMsg.textContent=''; updateModal(); return; }
-      // Nur die real in Stripe angelegten Codes: SALE10/20/30/40/50.
+      // Nur die real in Stripe aktiven Codes: SALE5–SALE30 in 5er-Schritten.
       if (PROMO_CODES.includes(raw)) {
         const pct = parseInt(raw.replace('SALE',''),10);
         modalPromo = raw;
