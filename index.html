@@ -1589,6 +1589,15 @@
       letter-spacing: 0.3px;
     }
     .toggle__btn:not(.active) .save { background: rgba(0,210,97,0.15); color: var(--green-deep); }
+    /* 3 Laufzeiten: auf schmalen Screens kompakter, damit der Toggle nicht überläuft */
+    @media (max-width: 640px) {
+      .toggle__btn { padding: 10px 11px; font-size: 12.5px; gap: 5px; }
+      .toggle__btn .save { font-size: 10px; padding: 2px 6px; letter-spacing: 0; }
+    }
+    @media (max-width: 420px) {
+      .toggle__btn { padding: 9px 8px; font-size: 12px; gap: 4px; }
+      .toggle__btn .save { font-size: 9.5px; padding: 2px 5px; }
+    }
 
     .pkg-grid {
       display: grid;
@@ -2134,6 +2143,14 @@
     .modal .toggle-wrap { margin-bottom: 26px; justify-content: stretch; }
     .modal .toggle { width: 100%; padding: 4px; }
     .modal .toggle__btn { flex: 1; justify-content: center; padding: 11px 14px; }
+    /* 3 Laufzeiten im Modal: kompakter auf schmalen Screens (muss NACH der Basisregel stehen) */
+    @media (max-width: 640px) {
+      .modal .toggle__btn { padding: 10px 6px; font-size: 12px; gap: 5px; }
+    }
+    @media (max-width: 420px) {
+      .modal .toggle__btn { padding: 9px 3px; font-size: 11px; gap: 3px; }
+      .modal .toggle__btn .save { font-size: 9px; padding: 2px 4px; }
+    }
 
     .modal__price-block {
       background: var(--white);
@@ -2313,7 +2330,7 @@
   <header class="hero" id="top">
     <div class="hero__bg"></div>
     <div class="container hero__inner">
-      <span class="hero__eyebrow"><span class="dot"></span>Recruiting-<strong>Abo</strong> für die grüne Branche<span class="price-tag">AB 319 €/MT</span></span>
+      <span class="hero__eyebrow"><span class="dot"></span>Recruiting-<strong>Abo</strong> für die grüne Branche<span class="price-tag">AB 349 €/MT</span></span>
       <h1 class="display">Schluss mit suchen.<br>Bewerber kommen <em>zu Ihnen.</em></h1>
       <p class="hero__sub">Vorqualifizierte Fachkräfte aus Ihrer Branche — jeden Monat, automatisch, zum festen Preis. Sie führen nur noch die Gespräche, wir übernehmen den Rest.</p>
       <div class="hero__cta-row">
@@ -2512,9 +2529,9 @@
         <div class="promise reveal">
           <div class="promise__lbl">Pricing</div>
           <div class="promise__title">Niedriger Festpreis</div>
-          <div class="promise__text">Monatlicher Beitrag ab 319 € — planbar, kalkulierbar, kündbar nach Laufzeit. Keine versteckten Setup-Kosten.</div>
+          <div class="promise__text">Monatlicher Beitrag ab 349 € — planbar, kalkulierbar, kündbar nach Laufzeit. Keine versteckten Setup-Kosten.</div>
           <div class="promise__metric">
-            <span class="promise__metric-num">319 €</span>
+            <span class="promise__metric-num">349 €</span>
             <span class="promise__metric-lbl">/ Monat ab</span>
           </div>
         </div>
@@ -2785,6 +2802,7 @@
         <div class="toggle" role="tablist" aria-label="Laufzeit">
           <button class="toggle__btn active" data-term="6m">6 Monate</button>
           <button class="toggle__btn" data-term="12m">12 Monate <span class="save">−20 %</span></button>
+          <button class="toggle__btn" data-term="24m">24 Monate <span class="save">−30 %</span></button>
         </div>
       </div>
 
@@ -2830,6 +2848,7 @@
         <div class="toggle" id="modalToggle">
           <button class="toggle__btn active" data-term="6m">6 Monate</button>
           <button class="toggle__btn" data-term="12m">12 Monate <span class="save">−20 %</span></button>
+          <button class="toggle__btn" data-term="24m">24 Monate <span class="save">−30 %</span></button>
         </div>
       </div>
 
@@ -2847,10 +2866,10 @@
       <div class="modal__price-block">
         <div class="modal__price-label">Monatlicher Beitrag</div>
         <div class="modal__price" id="modalPrice">
-          <span class="value">599 €</span>
+          <span class="value">699 €</span>
           <span class="unit">netto / Monat</span>
         </div>
-        <div class="modal__total" id="modalTotal"><span>Laufzeit: 6 Monate</span><strong>Gesamt: 3.594 € netto</strong></div>
+        <div class="modal__total" id="modalTotal"><span>Laufzeit: 6 Monate</span><strong>Gesamt: 4.194 € netto</strong></div>
       </div>
 
       <div class="promo">
@@ -2950,8 +2969,9 @@
       smart: {
         name: 'Smart',
         subtitle: 'Für einfache und saisonale Stellen (z. B. Helfer, Saisonarbeiter)',
-        price6m: 399,
-        price12m: 319,
+        price6m: 499,
+        price12m: 399,
+        price24m: 349,
         featLabel: 'Im Abo enthalten',
         features: [
           'Zugang zu 30.000+ aktiven Fachkräften',
@@ -2961,21 +2981,26 @@
           'Fester Ansprechpartner',
         ],
         paymentLinks: {
-          '6m':  { 1: 'https://buy.stripe.com/cNi14f0GUfvJ8kT1nl3wQ0a',
-                   2: 'https://buy.stripe.com/00weV561eabpgRp3vt3wQ0m',
-                   3: 'https://buy.stripe.com/3cI6oz2P2fvJ1Wv1nl3wQ0n',
-                   4: 'https://buy.stripe.com/bJecMX61efvJcB99TR3wQ0o' },
-          '12m': { 1: 'https://buy.stripe.com/9B63cn1KY2IXcB92rp3wQ0b',
-                   2: 'https://buy.stripe.com/4gM00b89m6Zdat13vt3wQ0p',
-                   3: 'https://buy.stripe.com/bJe7sD75igzN30zc1Z3wQ0q',
-                   4: 'https://buy.stripe.com/bJe8wH0GU4R5gRpd633wQ0r' },
+          '6m':  { 1: 'https://buy.stripe.com/aFa7sD9dq4R57gP7LJ3wQ0G',
+                   2: 'https://buy.stripe.com/8x24grexKdnBbx5feb3wQ0H',
+                   3: 'https://buy.stripe.com/bJe6oz4XacjxfNlaXV3wQ0I',
+                   4: 'https://buy.stripe.com/6oUfZ99dq83h9oX0jh3wQ0J' },
+          '12m': { 1: 'https://buy.stripe.com/aFa28j1KY3N10Sr7LJ3wQ0K',
+                   2: 'https://buy.stripe.com/aFa14f2P2gzN30z5DB3wQ0L',
+                   3: 'https://buy.stripe.com/bJedR175icjx7gP8PN3wQ0M',
+                   4: 'https://buy.stripe.com/dRm6ozfBO2IX7gP0jh3wQ0N' },
+          '24m': { 1: 'https://buy.stripe.com/8x2eV54Xa6Zdbx56HF3wQ0O',
+                   2: 'https://buy.stripe.com/5kQ28jdtGfvJeJh0jh3wQ0P',
+                   3: 'https://buy.stripe.com/cNi5kv2P22IX44Dea73wQ0Q',
+                   4: 'https://buy.stripe.com/5kQeV5gFSbft9oXfeb3wQ0R' },
         },
       },
       premium: {
         name: 'Premium',
         subtitle: 'Für qualifizierte Stellen (z. B. Facharbeiter, Vorarbeiter)',
-        price6m: 599,
-        price12m: 479,
+        price6m: 699,
+        price12m: 559,
+        price24m: 489,
         badge: 'Empfehlung',
         featLabel: 'Alles aus Smart, plus',
         features: [
@@ -2986,14 +3011,18 @@
           'Erweitertes Bewerber-Targeting (DACH-weit)',
         ],
         paymentLinks: {
-          '6m':  { 1: 'https://buy.stripe.com/6oU28jcpC4R5at19TR3wQ0c',
-                   2: 'https://buy.stripe.com/cNicMXdtGerFcB96HF3wQ0s',
-                   3: 'https://buy.stripe.com/fZudR12P22IXgRp8PN3wQ0t',
-                   4: 'https://buy.stripe.com/fZuaEPblycjxbx5d633wQ0u' },
-          '12m': { 1: 'https://buy.stripe.com/7sYaEP1KYabp1Wv8PN3wQ0d',
-                   2: 'https://buy.stripe.com/00w3cn3T65V9cB9d633wQ0v',
-                   3: 'https://buy.stripe.com/7sYeV589m3N17gP6HF3wQ0w',
-                   4: 'https://buy.stripe.com/7sY4gr0GUabp9oX6HF3wQ0x' },
+          '6m':  { 1: 'https://buy.stripe.com/6oU8wHdtGfvJ0Sr9TR3wQ0S',
+                   2: 'https://buy.stripe.com/7sYcMX1KYgzN7gP6HF3wQ0T',
+                   3: 'https://buy.stripe.com/8x25kv4XaerFdFdgif3wQ0U',
+                   4: 'https://buy.stripe.com/dRm6oz2P2abpbx55DB3wQ0V' },
+          '12m': { 1: 'https://buy.stripe.com/fZu28j61ednB0Srgif3wQ0W',
+                   2: 'https://buy.stripe.com/8x228j1KYgzNbx59TR3wQ0X',
+                   3: 'https://buy.stripe.com/dRmfZ9ahucjx8kT9TR3wQ0Y',
+                   4: 'https://buy.stripe.com/28E9ALdtG97l44Dgif3wQ0Z' },
+          '24m': { 1: 'https://buy.stripe.com/14A6oz2P283heJh3vt3wQ10',
+                   2: 'https://buy.stripe.com/8x2fZ9fBO97l9oXea73wQ11',
+                   3: 'https://buy.stripe.com/3cI3cngFS3N16cLaXV3wQ12',
+                   4: 'https://buy.stripe.com/bJe14f89mgzN30z4zx3wQ13' },
         },
       },
       exzellenz: {
@@ -3001,6 +3030,7 @@
         subtitle: 'Für hochqualifizierte Stellen (z. B. Bauleiter, Kalkulator, Landschaftsarchitekt)',
         price6m: 899,
         price12m: 719,
+        price24m: 629,
         featLabel: 'Alles aus Premium, plus',
         features: [
           'Direkte Bewerberansprache auf Premium-Karrierenetzwerken',
@@ -3018,6 +3048,10 @@
                    2: 'https://buy.stripe.com/14AcMX61ednB30z3vt3wQ0D',
                    3: 'https://buy.stripe.com/4gM8wHgFS5V9at13vt3wQ0E',
                    4: 'https://buy.stripe.com/00w14fexKbftcB96HF3wQ0F' },
+          '24m': { 1: 'https://buy.stripe.com/eVq28j4Xa97lbx5ea73wQ14',
+                   2: 'https://buy.stripe.com/fZu8wH61e6Zd8kT2rp3wQ15',
+                   3: 'https://buy.stripe.com/3cIaEP89mbftat13vt3wQ16',
+                   4: 'https://buy.stripe.com/5kQ6oz89m83heJh2rp3wQ17' },
         },
       },
     };
@@ -3036,7 +3070,8 @@
       if (Number.isInteger(r)) return r.toLocaleString('de-DE');
       return r.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
     };
-    const monthsForTerm = (t) => t === '12m' ? 12 : 6;
+    const monthsForTerm = (t) => t === '24m' ? 24 : t === '12m' ? 12 : 6;
+    const priceForTerm = (p, t) => t === '24m' ? p.price24m : t === '12m' ? p.price12m : p.price6m;
     const applyPromo = (price, code) => price * (1 - parseInt(code.replace('SALE',''),10)/100);
     // Preis pro Stelle nach Mengenrabatt (auf Cent gerundet – identisch zu Stripe)
     const preisProStelle = (base, n) => Math.round(base * (1 - STAFFEL[n]/100) * 100) / 100;
@@ -3269,7 +3304,7 @@
         card.className = 'card reveal' + (p.badge ? ' card--featured' : '');
         card.dataset.pkg = key;
         card.style.transitionDelay = (idx * 0.08) + 's';
-        const base = currentTerm === '6m' ? p.price6m : p.price12m;
+        const base = priceForTerm(p, currentTerm);
         const n = cardStellen[key];
         const proStelle = preisProStelle(base, n);
         const price = proStelle * n;
@@ -3374,7 +3409,7 @@
 
     function updateModal() {
       const p = PACKAGES[modalPkgKey];
-      const unit = modalTerm === '6m' ? p.price6m : p.price12m;
+      const unit = priceForTerm(p, modalTerm);
       const proStelle = preisProStelle(unit, modalStellen);
       const base = proStelle * modalStellen;
       const final = modalPromo ? applyPromo(base, modalPromo) : base;
