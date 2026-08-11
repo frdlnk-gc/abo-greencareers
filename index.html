@@ -3055,9 +3055,9 @@
         },
       },
     };
-    // ── Karten-Variante (?direkt): identische Seite, aber Payment-Links NUR mit
+    // ── Karten-Variante (?zahlung): identische Seite, aber Payment-Links NUR mit
     // Kreditkarte (ohne Lastschrift). Sales-Flow: Julian/Liam zeigen zuerst
-    // abo.green-careers.de/direkt.html — sagt der Kunde „keine Kreditkarte", ist der
+    // abo.green-careers.de/zahlung — sagt der Kunde „keine Kreditkarte", ist der
     // Fallback die normale Seite (mit Lastschrift). Gleiche Preise & Stripe-Prices,
     // nur eigene Links (metadata.variante="karte").
     const KARTE_LINKS = {
@@ -3104,7 +3104,7 @@
                  4: 'https://buy.stripe.com/cNi4gr3T66ZdeJh2rp3wQ1H' },
       },
     };
-    const KARTEN_MODUS = new URLSearchParams(location.search).has('direkt');
+    const KARTEN_MODUS = new URLSearchParams(location.search).has('zahlung');
     if (KARTEN_MODUS) {
       Object.keys(PACKAGES).forEach(k => { PACKAGES[k].paymentLinks = KARTE_LINKS[k]; });
     }
