@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <!-- Karten-Variante der Abo-Seite: leitet auf die normale Seite im Karten-Modus
+       (?direkt) weiter. Dort sind alle Payment-Links Kreditkarte-only (ohne Lastschrift).
+       Sales-Flow: Julian/Liam zeigen ZUERST diese URL; Fallback bei „keine Kreditkarte"
+       ist abo.green-careers.de (normale Seite mit Lastschrift). -->
+  <meta name="robots" content="noindex">
+  <meta http-equiv="refresh" content="0;url=/?direkt#pakete">
+  <title>Recruiting-Abo · GreenCareers</title>
+  <script>location.replace('/?direkt#pakete');</script>
+</head>
+<body></body>
+</html>

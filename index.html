@@ -3055,6 +3055,59 @@
         },
       },
     };
+    // ── Karten-Variante (?direkt): identische Seite, aber Payment-Links NUR mit
+    // Kreditkarte (ohne Lastschrift). Sales-Flow: Julian/Liam zeigen zuerst
+    // abo.green-careers.de/direkt.html — sagt der Kunde „keine Kreditkarte", ist der
+    // Fallback die normale Seite (mit Lastschrift). Gleiche Preise & Stripe-Prices,
+    // nur eigene Links (metadata.variante="karte").
+    const KARTE_LINKS = {
+      smart: {
+        '6m':  { 1: 'https://buy.stripe.com/dRmfZ92P24R5dFd3vt3wQ18',
+                 2: 'https://buy.stripe.com/eVq5kvexKgzN58H6HF3wQ19',
+                 3: 'https://buy.stripe.com/aFa5kvgFS83hdFdgif3wQ1a',
+                 4: 'https://buy.stripe.com/aFa3cn75ibftgRp1nl3wQ1b' },
+        '12m': { 1: 'https://buy.stripe.com/aFa4grfBO4R5cB90jh3wQ1c',
+                 2: 'https://buy.stripe.com/3cI14fexKdnB9oX6HF3wQ1d',
+                 3: 'https://buy.stripe.com/5kQ8wH1KY2IXgRpd633wQ1e',
+                 4: 'https://buy.stripe.com/aFa14f0GU4R50Srfeb3wQ1f' },
+        '24m': { 1: 'https://buy.stripe.com/4gMaEPahu2IX58H6HF3wQ1g',
+                 2: 'https://buy.stripe.com/4gM00b75i3N1eJh9TR3wQ1h',
+                 3: 'https://buy.stripe.com/9B63cncpCdnB8kT5DB3wQ1i',
+                 4: 'https://buy.stripe.com/aFa6oz75i0AP8kT6HF3wQ1j' },
+      },
+      premium: {
+        '6m':  { 1: 'https://buy.stripe.com/3cI5kv75i97leJh5DB3wQ1k',
+                 2: 'https://buy.stripe.com/aFaeV5dtG5V97gPc1Z3wQ1l',
+                 3: 'https://buy.stripe.com/3cI5kv9dqbftfNl1nl3wQ1m',
+                 4: 'https://buy.stripe.com/4gM4grgFS83hdFd7LJ3wQ1n' },
+        '12m': { 1: 'https://buy.stripe.com/28EeV52P20AP1Wv4zx3wQ1o',
+                 2: 'https://buy.stripe.com/7sYfZ91KYbft58Hd633wQ1p',
+                 3: 'https://buy.stripe.com/8x2fZ9fBOabp6cLaXV3wQ1q',
+                 4: 'https://buy.stripe.com/14A14f0GU4R51Wv6HF3wQ1r' },
+        '24m': { 1: 'https://buy.stripe.com/7sY8wH61ednBdFdd633wQ1s',
+                 2: 'https://buy.stripe.com/6oU28j75ifvJ8kT7LJ3wQ1t',
+                 3: 'https://buy.stripe.com/8x26oz3T64R5dFd0jh3wQ1u',
+                 4: 'https://buy.stripe.com/4gMdR1exK6Zd44D7LJ3wQ1v' },
+      },
+      exzellenz: {
+        '6m':  { 1: 'https://buy.stripe.com/9B6eV5gFS4R5at13vt3wQ1w',
+                 2: 'https://buy.stripe.com/8x27sD89m3N1gRp1nl3wQ1x',
+                 3: 'https://buy.stripe.com/28E6oz9dqerF58H6HF3wQ1y',
+                 4: 'https://buy.stripe.com/3cI14fexK1ET1Wvc1Z3wQ1z' },
+        '12m': { 1: 'https://buy.stripe.com/8x28wHcpC97lgRp3vt3wQ1A',
+                 2: 'https://buy.stripe.com/aFacMXgFS83hat13vt3wQ1B',
+                 3: 'https://buy.stripe.com/5kQ4grfBOerF58H1nl3wQ1C',
+                 4: 'https://buy.stripe.com/8x25kv89m83h30z0jh3wQ1D' },
+        '24m': { 1: 'https://buy.stripe.com/aFa4gr0GUgzN0Sr3vt3wQ1E',
+                 2: 'https://buy.stripe.com/14A6oz2P2gzN30z0jh3wQ1F',
+                 3: 'https://buy.stripe.com/bJe00b0GUgzNgRp3vt3wQ1G',
+                 4: 'https://buy.stripe.com/cNi4gr3T66ZdeJh2rp3wQ1H' },
+      },
+    };
+    const KARTEN_MODUS = new URLSearchParams(location.search).has('direkt');
+    if (KARTEN_MODUS) {
+      Object.keys(PACKAGES).forEach(k => { PACKAGES[k].paymentLinks = KARTE_LINKS[k]; });
+    }
     // Vertriebs-Nachlässe: NUR SALE5–SALE30 in 5er-Schritten, max. 30 % (Vorgabe Freddy
     // 2026-08-03; SALE40/50 in Stripe deaktiviert). Exakt die in Stripe aktiven
     // Promotion-Codes. Der Code wird als prefilled_promo_code an Stripe übergeben –
