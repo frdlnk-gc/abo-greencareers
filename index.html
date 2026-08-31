@@ -3108,11 +3108,12 @@
     if (KARTEN_MODUS) {
       Object.keys(PACKAGES).forEach(k => { PACKAGES[k].paymentLinks = KARTE_LINKS[k]; });
     }
-    // Vertriebs-Nachlässe: NUR SALE5–SALE30 in 5er-Schritten, max. 30 % (Vorgabe Freddy
-    // 2026-08-03; SALE40/50 in Stripe deaktiviert). Exakt die in Stripe aktiven
-    // Promotion-Codes. Der Code wird als prefilled_promo_code an Stripe übergeben –
+    // Vertriebs-Nachlässe: SALE1–SALE30 – jeder ganze Prozentwert von 1 bis 30
+    // (Vorgabe Freddy 2026-08-31; harte Obergrenze 30 %, SALE40/50 in Stripe
+    // deaktiviert). Zu jedem Wert existiert ein gleichnamiger Stripe-Promotion-Code
+    // (duration=forever). Der Code wird als prefilled_promo_code an Stripe übergeben –
     // Stripe validiert final.
-    const PROMO_CODES = ['SALE5','SALE10','SALE15','SALE20','SALE25','SALE30','SALE40'];
+    const PROMO_RE = /^SALE([1-9]|[12][0-9]|30)$/;
     // Mengenstaffel wie beim Einmalkauf: ab 2 Stellen sinkt der Preis pro Stelle.
     // Die Prozentsätze sind identisch in Stripe hinterlegt (eigener Preis + Payment-Link je Menge).
     const STAFFEL = { 1: 0, 2: 10, 3: 20, 4: 30 };
@@ -3516,9 +3517,10 @@
     function tryApplyPromo() {
       const raw = promoInput.value.trim().toUpperCase().replace(/\s+/g, '');
       if (!raw) { modalPromo = null; promoMsg.className='promo__msg'; promoMsg.textContent=''; updateModal(); return; }
-      // Nur die real in Stripe aktiven Codes: SALE5–SALE30 in 5er-Schritten.
-      if (PROMO_CODES.includes(raw)) {
-        const pct = parseInt(raw.replace('SALE',''),10);
+      // Gültig: SALE1–SALE30, jeder ganze Wert (Stripe-Codes existieren 1:1).
+      const promoMatch = raw.match(PROMO_RE);
+      if (promoMatch) {
+        const pct = parseInt(promoMatch[1], 10);
         modalPromo = raw;
         promoMsg.className = 'promo__msg ok';
         promoMsg.textContent = `✓ −${pct} % Rabatt angewendet`;
