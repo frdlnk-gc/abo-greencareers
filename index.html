@@ -2816,9 +2816,10 @@
             <span class="pay-icon" title="Visa"><svg width="36" height="22" viewBox="0 0 36 22"><rect width="36" height="22" rx="3" fill="#1A1F71"/><text x="18" y="15" text-anchor="middle" font-family="Inter, sans-serif" font-weight="800" font-size="10" fill="white" font-style="italic">VISA</text></svg></span>
             <span class="pay-icon" title="Mastercard"><svg width="36" height="22" viewBox="0 0 36 22"><rect width="36" height="22" rx="3" fill="white" stroke="#E2DCCF"/><circle cx="14" cy="11" r="6" fill="#EB001B"/><circle cx="22" cy="11" r="6" fill="#F79E1B"/><path d="M18 6.5a6 6 0 010 9 6 6 0 010-9z" fill="#FF5F00"/></svg></span>
             <span class="pay-icon" title="American Express"><svg width="36" height="22" viewBox="0 0 36 22"><rect width="36" height="22" rx="3" fill="#2E77BB"/><text x="18" y="13" text-anchor="middle" font-family="Inter, sans-serif" font-weight="800" font-size="6" fill="white">AMERICAN</text><text x="18" y="19" text-anchor="middle" font-family="Inter, sans-serif" font-weight="800" font-size="6" fill="white">EXPRESS</text></svg></span>
+            <span class="pay-icon" id="payIconSepa" title="SEPA-Lastschrift"><svg width="36" height="22" viewBox="0 0 36 22"><rect width="36" height="22" rx="3" fill="#10298E"/><text x="18" y="15" text-anchor="middle" font-family="Inter, sans-serif" font-weight="800" font-size="9" fill="#FFCC00">SEPA</text></svg></span>
           </div>
         </div>
-        <div class="pricing__pay-note">Kreditkarte oder Debitkarte · Alle Preise zzgl. USt. · Monatliche Abbuchung</div>
+        <div class="pricing__pay-note" id="payNote">Kreditkarte oder SEPA-Lastschrift · Alle Preise zzgl. USt. · Monatliche Abbuchung</div>
       </div>
     </div>
   </section>
@@ -3106,6 +3107,11 @@
     const KARTEN_MODUS = new URLSearchParams(location.search).has('zahlung');
     if (KARTEN_MODUS) {
       Object.keys(PACKAGES).forEach(k => { PACKAGES[k].paymentLinks = KARTE_LINKS[k]; });
+      // Zahlungshinweis passend zu den Karten-Links: kein SEPA-Icon, Debitkarte
+      // statt Lastschrift (Freddy 2026-09-04: Zahlungsausfallrisiko bei SEPA zu hoch).
+      document.getElementById('payIconSepa')?.remove();
+      const payNote = document.getElementById('payNote');
+      if (payNote) payNote.textContent = 'Kreditkarte oder Debitkarte · Alle Preise zzgl. USt. · Monatliche Abbuchung';
     }
     // Vertriebs-Nachlässe: SALE1–SALE30 – jeder ganze Prozentwert von 1 bis 30
     // (Vorgabe Freddy 2026-08-31; harte Obergrenze 30 %, SALE40/50 in Stripe
