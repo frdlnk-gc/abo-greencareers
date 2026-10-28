@@ -3113,12 +3113,11 @@
       const payNote = document.getElementById('payNote');
       if (payNote) payNote.textContent = 'Kreditkarte oder Debitkarte · Alle Preise zzgl. USt. · Monatliche Abbuchung';
     }
-    // Vertriebs-Nachlässe: SALE1–SALE30 – jeder ganze Prozentwert von 1 bis 30
-    // (Vorgabe Freddy 2026-08-31; harte Obergrenze 30 %, SALE40/50 in Stripe
-    // deaktiviert). Zu jedem Wert existiert ein gleichnamiger Stripe-Promotion-Code
-    // (duration=forever). Der Code wird als prefilled_promo_code an Stripe übergeben –
-    // Stripe validiert final.
-    const PROMO_RE = /^SALE([1-9]|[12][0-9]|30)$/;
+    // Vertriebs-Nachlässe: SALE1–SALE90 – jeder ganze Prozentwert von 1 bis 90
+    // (Vorgabe Freddy 2026-10-28; Obergrenze 90 %, vorher 30 %). Zu jedem Wert existiert
+    // ein gleichnamiger Stripe-Promotion-Code (duration=forever). Der Code wird als
+    // prefilled_promo_code an Stripe übergeben – Stripe validiert final.
+    const PROMO_RE = /^SALE([1-9]|[1-8][0-9]|90)$/;
     // Mengenstaffel wie beim Einmalkauf: ab 2 Stellen sinkt der Preis pro Stelle.
     // Die Prozentsätze sind identisch in Stripe hinterlegt (eigener Preis + Payment-Link je Menge).
     const STAFFEL = { 1: 0, 2: 10, 3: 20, 4: 30 };
@@ -3522,7 +3521,7 @@
     function tryApplyPromo() {
       const raw = promoInput.value.trim().toUpperCase().replace(/\s+/g, '');
       if (!raw) { modalPromo = null; promoMsg.className='promo__msg'; promoMsg.textContent=''; updateModal(); return; }
-      // Gültig: SALE1–SALE30, jeder ganze Wert (Stripe-Codes existieren 1:1).
+      // Gültig: SALE1–SALE90, jeder ganze Wert (Stripe-Codes existieren 1:1).
       const promoMatch = raw.match(PROMO_RE);
       if (promoMatch) {
         const pct = parseInt(promoMatch[1], 10);
